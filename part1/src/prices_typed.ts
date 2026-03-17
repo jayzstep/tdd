@@ -1,6 +1,7 @@
 import "./polyfills";
 import express from "express";
 import { Database } from "./database";
+import { Temporal } from "@js-temporal/polyfill";
 
 // Refactor the following code to get rid of the legacy Date class.
 // Use Temporal.PlainDate instead. See /test/date_conversion.spec.mjs for examples.
@@ -26,11 +27,16 @@ function createApp(database: Database) {
 
   function parseDate(dateString: string | undefined): Date | undefined {
     if (dateString) {
-      return new Date(dateString);
+      return Temporal.PlainDate.from(dateString);
     }
   }
 
-  function calculateCost(age: number | undefined, type: string, date: Date | undefined, baseCost: number) {
+  function calculateCost(
+    age: number | undefined,
+    type: string,
+    date: Date | undefined,
+    baseCost: number,
+  ) {
     if (type === "night") {
       return calculateCostForNightTicket(age, baseCost);
     } else {
@@ -38,7 +44,10 @@ function createApp(database: Database) {
     }
   }
 
-  function calculateCostForNightTicket(age: number | undefined, baseCost: number) {
+  function calculateCostForNightTicket(
+    age: number | undefined,
+    baseCost: number,
+  ) {
     if (age === undefined) {
       return 0;
     }
@@ -51,7 +60,11 @@ function createApp(database: Database) {
     return baseCost;
   }
 
-  function calculateCostForDayTicket(age: number | undefined, date: Date | undefined, baseCost: number) {
+  function calculateCostForDayTicket(
+    age: number | undefined,
+    date: Date | undefined,
+    baseCost: number,
+  ) {
     let reduction = calculateReduction(date);
     if (age === undefined) {
       return Math.ceil(baseCost * (1 - reduction / 100));
@@ -77,19 +90,14 @@ function createApp(database: Database) {
   }
 
   function isMonday(date: Date) {
-    return date.getUTCDay() === 1;
+    return date.dayOfWeek === 1;
   }
 
   function isHoliday(date: Date | undefined) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
-      let holiday = new Date(row.holiday);
-      if (
-        date &&
-        date.getFullYear() === holiday.getFullYear() &&
-        date.getMonth() === holiday.getMonth() &&
-        date.getDate() === holiday.getDate()
-      ) {
+      let holiday = Temporal.PlainDate.from(row.holiday);
+      if (date && date.equals(holiday)) {
         return true;
       }
     }
