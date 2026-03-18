@@ -92,7 +92,7 @@ function createApp(database: Database) {
     return convert(date).dayOfWeek === 1;
   }
 
-  function convert(date) {
+  function convert(date: Date) {
     return date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
   }
 
