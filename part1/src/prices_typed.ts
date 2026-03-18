@@ -82,7 +82,7 @@ function createApp(database: Database) {
 
   function calculateReduction(date: Date | undefined) {
     let reduction = 0;
-    if (date && isMonday(convert(date)) && !isHoliday(date)) {
+    if (date && isMonday(convert(date)) && !isHoliday(convert(date))) {
       reduction = 35;
     }
     return reduction;
@@ -100,7 +100,7 @@ function createApp(database: Database) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
       let holiday = Temporal.PlainDate.from(row.holiday);
-      if (convert(date) && convert(date).equals(holiday)) {
+      if (date && date.equals(holiday)) {
         return true;
       }
     }
