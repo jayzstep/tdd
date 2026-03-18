@@ -92,6 +92,10 @@ function createApp(database: Database) {
     return date.getUTCDay() === 1;
   }
 
+  function convert(date) {
+    return date;
+  }
+
   function isHoliday(date: Date | undefined) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
