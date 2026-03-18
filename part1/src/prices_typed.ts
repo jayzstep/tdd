@@ -94,13 +94,6 @@ function createApp(database: Database) {
     return date.dayOfWeek === 1;
   }
 
-  function convert(date: Date) {
-    if (!date) {
-      return undefined;
-    }
-    return date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
-  }
-
   function isHoliday(date: Temporal.PlainDate | undefined) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
