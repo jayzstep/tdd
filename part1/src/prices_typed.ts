@@ -89,11 +89,11 @@ function createApp(database: Database) {
   }
 
   function isMonday(date: Date) {
-    return convert(date.getUTCDay()) === 1;
+    return convert(date).dayOfWeek === 1;
   }
 
   function convert(date) {
-    return date;
+    return date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
   }
 
   function isHoliday(date: Date | undefined) {
