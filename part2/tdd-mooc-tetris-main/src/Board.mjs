@@ -31,6 +31,5 @@ export class Board {
 
   drop() {
     this.state2[0][1] = "X";
-    this.state = ".X.\n...\n...\n";
   }
 }
