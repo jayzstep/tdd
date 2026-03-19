@@ -25,6 +25,7 @@ export class Board {
 
   toString() {
     let result = "";
+    this.state2.map((row) => (result += row.toString() + "\n"));
     return this.state;
   }
 
