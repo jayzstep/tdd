@@ -24,6 +24,7 @@ export class Board {
   }
 
   toString() {
+    let result = "";
     return this.state;
   }
 
