@@ -26,6 +26,7 @@ export class Board {
   }
 
   drop(shape) {
+    this.shapeLocation = [0, 1];
     this.state[0][1] = shape;
   }
 
