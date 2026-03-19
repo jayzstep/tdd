@@ -5,7 +5,7 @@ export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
-    this.state = "";
+    this.initializeBoard();
   }
 
   initializeBoard() {
@@ -20,7 +20,6 @@ export class Board {
   }
 
   toString() {
-    this.initializeBoard();
     return this.state;
   }
 }
