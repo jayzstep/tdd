@@ -26,7 +26,7 @@ export class Board {
   }
 
   drop(shape) {
-    if (this.shape) {
+    if (this.shapeFalling) {
       throw "already falling";
     }
     this.shape = shape;
