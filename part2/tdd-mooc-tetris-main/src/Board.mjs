@@ -20,6 +20,7 @@ export class Board {
       result += "\n";
     }
     this.state = result;
+    this.state2 = result2;
   }
 
   toString() {
