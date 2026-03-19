@@ -8,7 +8,7 @@ export class Board {
     this.state = "";
   }
 
-  toString() {
+  initializeBoard() {
     let result = "";
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
@@ -17,6 +17,10 @@ export class Board {
       result += "\n";
     }
     this.state = result;
+  }
+
+  toString() {
+    this.initializeBoard();
     return this.state;
   }
 }
