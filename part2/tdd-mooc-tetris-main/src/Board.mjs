@@ -28,4 +28,10 @@ export class Board {
   drop(shape) {
     this.state[0][1] = shape;
   }
+
+  tick() {
+    const temp = this.state[0];
+    this.state[0] = this.state[1];
+    this.state[1] = temp;
+  }
 }
