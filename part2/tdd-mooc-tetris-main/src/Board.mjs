@@ -28,8 +28,8 @@ export class Board {
 
   drop(shape) {
     this.shape = shape;
-    this.shapeLocation = [0, 1];
-    this.state[0][1] = this.shape;
+    this.shapeLocation = [0, Math.floor(this.width / 2)];
+    this.state[0][this.shapeLocation[1]] = this.shape;
   }
 
   tick() {
