@@ -30,6 +30,7 @@ export class Board {
       throw "already falling";
     }
     this.shape = shape;
+    this.shapeFalling = true;
     this.shapeLocation = [0, Math.floor(this.width / 2)];
     this.state[0][this.shapeLocation[1]] = this.shape;
   }
