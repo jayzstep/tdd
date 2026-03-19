@@ -9,26 +9,23 @@ export class Board {
   }
 
   initializeBoard() {
-    let result = "";
-    const result2 = [];
+    const result = [];
     for (let i = 0; i < this.height; i++) {
-      result2.push([]);
+      result.push([]);
       for (let j = 0; j < this.width; j++) {
-        result += ".";
-        result2[i].push(".");
+        result[i].push(".");
       }
-      result += "\n";
     }
-    this.state2 = result2;
+    this.state = result;
   }
 
   toString() {
     let result = "";
-    this.state2.map((row) => (result += row.join("") + "\n"));
+    this.state.map((row) => (result += row.join("") + "\n"));
     return result;
   }
 
   drop() {
-    this.state2[0][1] = "X";
+    this.state[0][1] = "X";
   }
 }
