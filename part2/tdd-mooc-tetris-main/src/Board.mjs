@@ -25,11 +25,12 @@ export class Board {
 
   toString() {
     let result = "";
-    this.state2.map((row) => (result += row.toString() + "\n"));
+    this.state2.map((row) => (result += row.join("") + "\n"));
     return this.state;
   }
 
   drop() {
+    this.state2[0][1] = "X";
     this.state = ".X.\n...\n...\n";
   }
 }
