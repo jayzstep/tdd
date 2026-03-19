@@ -5,6 +5,7 @@ export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
+    this.shape = "";
     this.initializeBoard();
   }
 
@@ -26,13 +27,14 @@ export class Board {
   }
 
   drop(shape) {
+    this.shape = shape;
     this.shapeLocation = [0, 1];
-    this.state[0][1] = shape;
+    this.state[0][1] = this.shape;
   }
 
   tick() {
     this.state[this.shapeLocation[0]][this.shapeLocation[1]] = ".";
     this.shapeLocation[0]++;
-    this.state[this.shapeLocation[0]][this.shapeLocation[1]] = "X";
+    this.state[this.shapeLocation[0]][this.shapeLocation[1]] = this.shape;
   }
 }
