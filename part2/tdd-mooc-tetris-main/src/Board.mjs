@@ -15,6 +15,7 @@ export class Board {
       result2.push([]);
       for (let j = 0; j < this.width; j++) {
         result += ".";
+        result2[i].push(".");
       }
       result += "\n";
     }
