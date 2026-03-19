@@ -30,6 +30,9 @@ export class Board {
   }
 
   tick() {
+    const newState = Array(this.width).fill(".");
+    this.state.forEach((row) => newState.push(row));
+    this.state2 = newState.slice(this.height);
     const temp = this.state[0];
     this.state[0] = this.state[1];
     this.state[1] = temp;
