@@ -22,4 +22,8 @@ export class Board {
   toString() {
     return this.state;
   }
+
+  drop() {
+    this.state = ".X.\n...\n...\n";
+  }
 }
