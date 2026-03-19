@@ -10,6 +10,7 @@ export class Board {
 
   initializeBoard() {
     let result = "";
+    const result2 = [];
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         result += ".";
