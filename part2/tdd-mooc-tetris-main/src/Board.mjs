@@ -31,6 +31,7 @@ export class Board {
   }
 
   tick() {
+    this.state[this.shapeLocation[0]][this.shapeLocation[1]] = "X";
     const newState = [Array(this.width).fill(".")];
     this.state.forEach((row) => newState.push(row));
     this.state = newState.slice(0, this.height);
