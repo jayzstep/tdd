@@ -12,6 +12,7 @@ export class Board {
     let result = "";
     const result2 = [];
     for (let i = 0; i < this.height; i++) {
+      result2.push([]);
       for (let j = 0; j < this.width; j++) {
         result += ".";
       }
