@@ -16,6 +16,7 @@ export class Board {
       }
       result += "\n";
     }
-    return result;
+    this.state = result;
+    return this.state;
   }
 }
