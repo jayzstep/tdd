@@ -22,7 +22,7 @@ export class Board {
 
   toString() {
     let result = "";
-    this.state.forEach((row) => (result += row.join("") + "\n"));
+    this.state2.forEach((row) => (result += row.join("") + "\n"));
     return result;
   }
 
