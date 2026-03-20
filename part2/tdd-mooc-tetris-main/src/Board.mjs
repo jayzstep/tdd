@@ -35,11 +35,13 @@ export class Board {
     this.shapeLocation = [0, Math.floor(this.width / 2)];
     this.shapeLocation2 = { row: 0, col: Math.floor(this.width / 2) };
     this.state[0][this.shapeLocation[1]] = this.shape;
+
     const { row, col } = this.shapeLocation2;
     this.state2[row][col] = this.shape;
   }
 
   tick() {
+    const { row, col } = this.shapeLocation2;
     if (this.shapeLocation[0] == this.height - 1) {
       this.shapeFalling = false;
       return;
