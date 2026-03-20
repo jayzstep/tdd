@@ -49,4 +49,8 @@ export class Board {
   hasFalling() {
     return this.shapeFalling;
   }
+
+  hasHitSomething(row, col) {
+    return row == this.height - 1 || this.state[row + 1][col] != ".";
+  }
 }
