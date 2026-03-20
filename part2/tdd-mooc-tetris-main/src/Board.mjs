@@ -46,6 +46,10 @@ export class Board {
       this.shapeFalling = false;
       return;
     }
+    if (row == this.height - 1) {
+      this.shapeFalling = false;
+      return;
+    }
     this.state[this.shapeLocation[0]][this.shapeLocation[1]] = ".";
     this.state2[this.shapeLocation2.row][this.shapeLocation2.col] = ".";
     this.shapeLocation[0]++;
