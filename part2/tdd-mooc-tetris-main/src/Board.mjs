@@ -37,7 +37,7 @@ export class Board {
 
   tick() {
     const { row, col } = this.shapeLocation;
-    if (row == this.height - 1 || this.state[row + 1][col] != ".") {
+    if (this.hasHitSomething(row, col)) {
       this.shapeFalling = false;
       return;
     }
