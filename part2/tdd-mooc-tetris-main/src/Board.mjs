@@ -31,9 +31,9 @@ export class Board {
     }
     this.shape = shape;
     this.shapeFalling = true;
-    this.shapeLocation = { row: 0, col: Math.floor(this.width / 2) };
+    const { row, col } = (this.shapeLocation = { row: 0, col: Math.floor(this.width / 2) });
 
-    const { row, col } = this.shapeLocation;
+    // const { row, col } = this.shapeLocation;
     this.state[row][col] = this.shape;
   }
 
