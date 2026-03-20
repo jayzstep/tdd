@@ -31,20 +31,20 @@ export class Board {
     }
     this.shape = shape;
     this.shapeFalling = true;
-    this.shapeLocation2 = { row: 0, col: Math.floor(this.width / 2) };
+    this.shapeLocation = { row: 0, col: Math.floor(this.width / 2) };
 
-    const { row, col } = this.shapeLocation2;
+    const { row, col } = this.shapeLocation;
     this.state[row][col] = this.shape;
   }
 
   tick() {
-    const { row, col } = this.shapeLocation2;
+    const { row, col } = this.shapeLocation;
     if (row == this.height - 1) {
       this.shapeFalling = false;
       return;
     }
     this.state[row][col] = ".";
-    this.shapeLocation2.row++;
+    this.shapeLocation.row++;
     this.state[row + 1][col] = this.shape;
   }
 
