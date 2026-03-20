@@ -32,9 +32,7 @@ export class Board {
     }
     this.shape = shape;
     this.shapeFalling = true;
-    this.shapeLocation = [0, Math.floor(this.width / 2)];
     this.shapeLocation2 = { row: 0, col: Math.floor(this.width / 2) };
-    this.state[0][this.shapeLocation[1]] = this.shape;
 
     const { row, col } = this.shapeLocation2;
     this.state2[row][col] = this.shape;
@@ -42,19 +40,12 @@ export class Board {
 
   tick() {
     const { row, col } = this.shapeLocation2;
-    if (this.shapeLocation[0] == this.height - 1) {
-      this.shapeFalling = false;
-      return;
-    }
     if (row == this.height - 1) {
       this.shapeFalling = false;
       return;
     }
-    this.state[this.shapeLocation[0]][this.shapeLocation[1]] = ".";
     this.state2[row][col] = ".";
-    this.shapeLocation[0]++;
     this.shapeLocation2.row++;
-    this.state[this.shapeLocation[0]][this.shapeLocation[1]] = this.shape;
     this.state2[row + 1][col] = this.shape;
   }
 
