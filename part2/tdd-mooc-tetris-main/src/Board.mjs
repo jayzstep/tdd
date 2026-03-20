@@ -36,11 +36,11 @@ export class Board {
   }
 
   tick() {
-    const { row, col } = this.shapeLocation;
-    if (this.hasHitSomething(row, col)) {
+    if (this.hasHitSomething()) {
       this.shapeFalling = false;
       return;
     }
+    const { row, col } = this.shapeLocation;
     this.state[row][col] = ".";
     this.shapeLocation.row++;
     this.state[row + 1][col] = this.shape;
@@ -50,7 +50,8 @@ export class Board {
     return this.shapeFalling;
   }
 
-  hasHitSomething(row, col) {
+  hasHitSomething() {
+    const { row, col } = this.shapeLocation;
     return row == this.height - 1 || this.state[row + 1][col] != ".";
   }
 }
