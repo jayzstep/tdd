@@ -17,12 +17,11 @@ export class Board {
       }
     }
     this.state = result;
-    this.state2 = result;
   }
 
   toString() {
     let result = "";
-    this.state2.forEach((row) => (result += row.join("") + "\n"));
+    this.state.forEach((row) => (result += row.join("") + "\n"));
     return result;
   }
 
@@ -35,7 +34,7 @@ export class Board {
     this.shapeLocation2 = { row: 0, col: Math.floor(this.width / 2) };
 
     const { row, col } = this.shapeLocation2;
-    this.state2[row][col] = this.shape;
+    this.state[row][col] = this.shape;
   }
 
   tick() {
@@ -44,9 +43,9 @@ export class Board {
       this.shapeFalling = false;
       return;
     }
-    this.state2[row][col] = ".";
+    this.state[row][col] = ".";
     this.shapeLocation2.row++;
-    this.state2[row + 1][col] = this.shape;
+    this.state[row + 1][col] = this.shape;
   }
 
   hasFalling() {
