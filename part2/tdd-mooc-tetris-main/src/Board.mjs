@@ -51,7 +51,7 @@ export class Board {
       return;
     }
     this.state[this.shapeLocation[0]][this.shapeLocation[1]] = ".";
-    this.state2[this.shapeLocation2.row][this.shapeLocation2.col] = ".";
+    this.state2[row][col] = ".";
     this.shapeLocation[0]++;
     this.shapeLocation2.row++;
     this.state[this.shapeLocation[0]][this.shapeLocation[1]] = this.shape;
