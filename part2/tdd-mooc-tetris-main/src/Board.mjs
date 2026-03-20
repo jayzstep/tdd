@@ -36,6 +36,10 @@ export class Board {
   }
 
   tick() {
+    if (this.shapeLocation[0] == this.height - 1) {
+      this.shapeFalling = false;
+      return;
+    }
     this.state[this.shapeLocation[0]][this.shapeLocation[1]] = ".";
     this.shapeLocation[0]++;
     this.state[this.shapeLocation[0]][this.shapeLocation[1]] = this.shape;
