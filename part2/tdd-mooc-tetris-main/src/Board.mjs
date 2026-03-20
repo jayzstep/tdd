@@ -55,6 +55,7 @@ export class Board {
     this.shapeLocation[0]++;
     this.shapeLocation2.row++;
     this.state[this.shapeLocation[0]][this.shapeLocation[1]] = this.shape;
+    this.state2[row + 1][col] = this.shape;
   }
 
   hasFalling() {
