@@ -42,6 +42,6 @@ export class Board {
   }
 
   hasFalling() {
-    return true;
+    return this.shapeFalling;
   }
 }
