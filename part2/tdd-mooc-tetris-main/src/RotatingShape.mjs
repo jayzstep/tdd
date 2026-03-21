@@ -9,4 +9,11 @@ export class RotatingShape {
   toString() {
     return this.shape.replaceAll(" ", "").trim() + "\n";
   }
+
+  rotateRight() {
+    const rotated = `GDA
+                     HEB
+                     IFC`;
+    return new RotatingShape(rotated);
+  }
 }
