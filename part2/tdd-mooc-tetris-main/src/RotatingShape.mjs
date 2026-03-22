@@ -28,6 +28,13 @@ export class RotatingShape {
     const rotated = `GDA
                      HEB
                      IFC`;
+    const result = [[], [], []];
+    this.shape.forEach((row, i) => {
+      row.forEach((part, j) => {
+        result[j][2 - i] = part;
+      });
+    });
+
     return RotatingShape.fromString(rotated);
   }
 }
