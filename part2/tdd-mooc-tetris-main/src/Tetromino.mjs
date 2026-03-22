@@ -10,9 +10,6 @@ export class Tetromino {
   }
 
   toString() {
-    const shape = `.T.
-          TTT
-          ...`;
-    return shape.replaceAll(" ", "").trim() + "\n";
+    return this.shape.toString();
   }
 }
