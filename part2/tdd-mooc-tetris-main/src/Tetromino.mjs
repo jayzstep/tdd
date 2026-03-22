@@ -5,11 +5,19 @@ export class Tetromino {
     this.shape = rotatingShape;
   }
   static get T_SHAPE() {
-    const t_shape = ".T.\nTTT\n...\n";
-    return new Tetromino(RotatingShape.fromString(t_shape));
+    const t_shape = [
+      [".", "T", "."],
+      ["T", "T", "T"],
+      [".", ".", "."],
+    ];
+    return new Tetromino(new RotatingShape(t_shape));
   }
 
   toString() {
     return this.shape.toString();
+  }
+
+  rotateRight() {
+    return this.shape.rotateRight();
   }
 }
