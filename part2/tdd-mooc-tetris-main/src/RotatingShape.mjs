@@ -34,4 +34,11 @@ export class RotatingShape {
 
     return new RotatingShape(result);
   }
+
+  rotateLeft() {
+    const rotated = `CFI
+       BEH
+       ADG`;
+    return RotatingShape.fromString(rotated);
+  }
 }
