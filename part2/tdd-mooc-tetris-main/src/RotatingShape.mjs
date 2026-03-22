@@ -12,6 +12,7 @@ export class RotatingShape {
         result[i].push(trimmed[i * 3 + j]);
       }
     }
+    this.shape2 = result;
     return new RotatingShape(shape);
   }
 
