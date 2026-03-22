@@ -1,8 +1,9 @@
 import { RotatingShape } from "./RotatingShape.mjs";
 
 export class Tetromino {
-  constructor(rotatingShape) {
+  constructor(rotatingShape, shapeLetter) {
     this.shape = rotatingShape;
+    this.shapeLetter = shapeLetter;
   }
   static get T_SHAPE() {
     const t_shape = [
@@ -10,7 +11,7 @@ export class Tetromino {
       ["T", "T", "T"],
       [".", ".", "."],
     ];
-    return new Tetromino(new RotatingShape(t_shape));
+    return new Tetromino(new RotatingShape(t_shape), "T");
   }
 
   static get I_SHAPE() {
@@ -21,7 +22,7 @@ export class Tetromino {
       [".", ".", ".", ".", "."],
       [".", ".", ".", ".", "."],
     ];
-    return new Tetromino(new RotatingShape(t_shape));
+    return new Tetromino(new RotatingShape(t_shape), "I");
   }
 
   toString() {
@@ -29,10 +30,13 @@ export class Tetromino {
   }
 
   rotateRight() {
-    return new Tetromino(this.shape.rotateRight());
+    return new Tetromino(this.shape.rotateRight(), this.shapeLetter);
   }
 
   rotateLeft() {
-    return new Tetromino(this.shape.rotateLeft());
+    if (this.shapeLetter == "I") {
+      return new Tetromino(this.shape.rotateRight(), this.shapeLetter);
+    }
+    return new Tetromino(this.shape.rotateLeft(), this.shapeLetter);
   }
 }
