@@ -1,6 +1,7 @@
 export class RotatingShape {
   constructor(shape) {
     this.shape = shape;
+    this.size = shape.length;
   }
   static fromString(shape) {
     const trimmed = shape.replace(/\s/g, "").split("");
@@ -26,10 +27,10 @@ export class RotatingShape {
   }
 
   rotateRight() {
-    const result = [[], [], []];
+    const result = Array.from({ length: this.size }, () => Array(this.size));
     this.shape.forEach((row, i) => {
       row.forEach((part, j) => {
-        result[j][2 - i] = part;
+        result[j][this.size - i] = part;
       });
     });
 
