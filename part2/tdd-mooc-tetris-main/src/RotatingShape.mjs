@@ -39,6 +39,12 @@ export class RotatingShape {
     const rotated = `CFI
        BEH
        ADG`;
+    const result = [[], [], []];
+    this.shape.forEach((row, i) => {
+      row.forEach((part, j) => {
+        result[j][i] = part;
+      });
+    });
     return RotatingShape.fromString(rotated);
   }
 }
