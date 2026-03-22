@@ -1,6 +1,7 @@
 export class RotatingShape {
   constructor(shape) {
     this.shape = shape;
+    this.shape2 = [];
   }
   static fromString(shape) {
     const trimmed = shape.replace(/\s/g, "").split("");
@@ -17,6 +18,11 @@ export class RotatingShape {
   }
 
   toString() {
+    let result = "";
+    this.shape2.forEach((row) => {
+      row.forEach((part) => (result += part));
+      result += "\n";
+    });
     return this.shape.replaceAll(" ", "").trim() + "\n";
   }
 
