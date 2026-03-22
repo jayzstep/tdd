@@ -1,7 +1,6 @@
 export class RotatingShape {
   constructor(shape) {
     this.shape = shape;
-    this.shape2 = [];
   }
   static fromString(shape) {
     const trimmed = shape.replace(/\s/g, "").split("");
@@ -13,23 +12,22 @@ export class RotatingShape {
         result[i].push(trimmed[i * 3 + j]);
       }
     }
-    this.shape2 = result;
-    return new RotatingShape(shape);
+    return new RotatingShape(result);
   }
 
   toString() {
     let result = "";
-    this.shape2.forEach((row) => {
+    this.shape.forEach((row) => {
       row.forEach((part) => (result += part));
       result += "\n";
     });
-    return this.shape.replaceAll(" ", "").trim() + "\n";
+    return result;
   }
 
   rotateRight() {
     const rotated = `GDA
                      HEB
                      IFC`;
-    return new RotatingShape(rotated);
+    return RotatingShape.fromString(rotated);
   }
 }
