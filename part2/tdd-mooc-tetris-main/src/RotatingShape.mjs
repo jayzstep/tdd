@@ -5,11 +5,12 @@ export class RotatingShape {
   static fromString(shape) {
     const trimmed = shape.replace(/\s/g, "").split("");
     const result = [];
+    const size = Math.sqrt(trimmed.length);
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < size; i++) {
       result[i] = [];
-      for (let j = 0; j < 3; j++) {
-        result[i].push(trimmed[i * 3 + j]);
+      for (let j = 0; j < size; j++) {
+        result[i].push(trimmed[i * size + j]);
       }
     }
     return new RotatingShape(result);
