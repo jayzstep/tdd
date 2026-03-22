@@ -36,9 +36,6 @@ export class RotatingShape {
   }
 
   rotateLeft() {
-    const rotated = `CFI
-       BEH
-       ADG`;
     const result = [[], [], []];
     this.shape.forEach((row, i) => {
       row.forEach((part, j) => {
