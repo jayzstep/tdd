@@ -30,7 +30,7 @@ export class RotatingShape {
     const result = Array.from({ length: this.size }, () => Array(this.size));
     this.shape.forEach((row, i) => {
       row.forEach((part, j) => {
-        result[j][this.size - i] = part;
+        result[j][this.size - i - 1] = part;
       });
     });
 
@@ -38,10 +38,10 @@ export class RotatingShape {
   }
 
   rotateLeft() {
-    const result = [[], [], []];
+    const result = Array.from({ length: this.size }, () => Array(this.size));
     this.shape.forEach((row, i) => {
       row.forEach((part, j) => {
-        result[2 - j][i] = part;
+        result[this.size - j - 1][i] = part;
       });
     });
     return new RotatingShape(result);
