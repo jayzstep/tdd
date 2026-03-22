@@ -42,9 +42,9 @@ export class RotatingShape {
     const result = [[], [], []];
     this.shape.forEach((row, i) => {
       row.forEach((part, j) => {
-        result[j][i] = part;
+        result[2 - j][i] = part;
       });
     });
-    return RotatingShape.fromString(rotated);
+    return new RotatingShape(result);
   }
 }
