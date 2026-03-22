@@ -13,6 +13,17 @@ export class Tetromino {
     return new Tetromino(new RotatingShape(t_shape));
   }
 
+  static get I_SHAPE() {
+    const t_shape = [
+      [".", ".", ".", ".", "."],
+      [".", ".", ".", ".", "."],
+      ["I", "I", "I", "I", "."],
+      [".", ".", ".", ".", "."],
+      [".", ".", ".", ".", "."],
+    ];
+    return new Tetromino(new RotatingShape(t_shape));
+  }
+
   toString() {
     return this.shape.toString();
   }
