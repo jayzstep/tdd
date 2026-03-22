@@ -25,9 +25,6 @@ export class RotatingShape {
   }
 
   rotateRight() {
-    const rotated = `GDA
-                     HEB
-                     IFC`;
     const result = [[], [], []];
     this.shape.forEach((row, i) => {
       row.forEach((part, j) => {
@@ -35,6 +32,6 @@ export class RotatingShape {
       });
     });
 
-    return RotatingShape.fromString(rotated);
+    return new RotatingShape(result);
   }
 }
