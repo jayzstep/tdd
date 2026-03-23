@@ -10,8 +10,10 @@ export class Tetromino {
   static orientations(initialShape, orientationCount) {
     const shape = new RotatingShape(initialShape);
     const orientations = [shape, shape.rotateRight(), shape.rotateRight().rotateRight(), shape.rotateLeft()].slice(
+      0,
       orientationCount
     );
+    return orientations;
   }
   static get T_SHAPE() {
     const t_shape = [
