@@ -48,6 +48,8 @@ export class Tetromino {
   }
 
   rotateLeft() {
+    const validStateIndex =
+      this.currentOrientation == 0 ? (this.currentOrientation += this.validStates.length) : this.currentOrientation;
     if (this.shapeLetter == "I") {
       return new Tetromino(this.validStates[1], this.validStates, "I", 1);
     }
