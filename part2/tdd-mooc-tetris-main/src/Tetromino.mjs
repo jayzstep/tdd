@@ -13,6 +13,7 @@ export class Tetromino {
       0,
       orientationCount
     );
+    const result = new Tetromino(orientations, currentOrientation);
     return orientations;
   }
   static get T_SHAPE() {
