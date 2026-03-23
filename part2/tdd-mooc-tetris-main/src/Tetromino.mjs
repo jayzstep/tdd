@@ -7,7 +7,7 @@ export class Tetromino {
     this.currentOrientation = currentOrientation;
   }
 
-  static fromArray(initialShape, orientationCount) {
+  static fromArray(initialShape, orientationCount, currentOrientation = 0) {
     const shape = new RotatingShape(initialShape);
     const orientations = [shape, shape.rotateRight(), shape.rotateRight().rotateRight(), shape.rotateLeft()].slice(
       0,
@@ -21,7 +21,7 @@ export class Tetromino {
       ["T", "T", "T"],
       [".", ".", "."],
     ];
-    const orientations = Tetromino.fromArray(t_shape, 4);
+    const orientations = Tetromino.fromArray(t_shape, 4, 0);
     return new Tetromino(new RotatingShape(t_shape), orientations, 0);
   }
 
