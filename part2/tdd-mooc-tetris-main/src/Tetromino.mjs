@@ -27,7 +27,7 @@ export class Tetromino {
       new Tetromino(new RotatingShape(t_shape), "I", 0),
       new Tetromino(new RotatingShape(t_shape).rotateRight(), "I", 1),
     ];
-    return new Tetromino(new RotatingShape(t_shape), "I");
+    return validStates[0];
   }
 
   toString() {
