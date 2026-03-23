@@ -22,14 +22,14 @@ export class Tetromino {
   }
 
   static get I_SHAPE() {
-    const t_shape = [
+    const i_shape = [
       [".", ".", ".", ".", "."],
       [".", ".", ".", ".", "."],
       ["I", "I", "I", "I", "."],
       [".", ".", ".", ".", "."],
       [".", ".", ".", ".", "."],
     ];
-    const validStates = [new RotatingShape(t_shape), new RotatingShape(t_shape).rotateRight()];
+    const validStates = [new RotatingShape(i_shape), new RotatingShape(i_shape).rotateRight()];
     return new Tetromino(validStates[0], validStates, 0);
   }
 
