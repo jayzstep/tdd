@@ -28,7 +28,7 @@ export class Tetromino {
       new RotatingShape(t_shape).rotateLeft(),
     ];
     const orientations2 = Tetromino.orientations(t_shape, 4);
-    return new Tetromino(new RotatingShape(t_shape), orientations, 0);
+    return new Tetromino(new RotatingShape(t_shape), orientations2, 0);
   }
 
   static get I_SHAPE() {
