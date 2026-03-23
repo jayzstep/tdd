@@ -21,14 +21,8 @@ export class Tetromino {
       ["T", "T", "T"],
       [".", ".", "."],
     ];
-    const orientations = [
-      new RotatingShape(t_shape),
-      new RotatingShape(t_shape).rotateRight(),
-      new RotatingShape(t_shape).rotateRight().rotateRight(),
-      new RotatingShape(t_shape).rotateLeft(),
-    ];
-    const orientations2 = Tetromino.orientations(t_shape, 4);
-    return new Tetromino(new RotatingShape(t_shape), orientations2, 0);
+    const orientations = Tetromino.orientations(t_shape, 4);
+    return new Tetromino(new RotatingShape(t_shape), orientations, 0);
   }
 
   static get I_SHAPE() {
