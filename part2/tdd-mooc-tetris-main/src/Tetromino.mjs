@@ -49,7 +49,7 @@ export class Tetromino {
     const validStateIndex =
       this.currentOrientation == 0 ? this.currentOrientation + this.validStates.length : this.currentOrientation;
     return new Tetromino(
-      this.validStates[validStateIndex - (1 % this.validStates.length)],
+      this.validStates[(validStateIndex - 1) % this.validStates.length],
       this.validStates,
       (validStateIndex - 1) % this.validStates.length
     );
