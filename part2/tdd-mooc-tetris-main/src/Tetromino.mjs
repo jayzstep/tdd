@@ -1,9 +1,9 @@
 import { RotatingShape } from "./RotatingShape.mjs";
 
 export class Tetromino {
-  constructor(orientations = [], currentOrientation = 0) {
+  constructor(orientations, currentOrientation) {
     this.orientations = orientations;
-    this.currentOrientation = currentOrientation;
+    this.currentOrientation = (currentOrientation + orientations.length) % orientations.length;
   }
 
   static fromArray(initialShape, orientationCount, currentOrientation = 0) {
