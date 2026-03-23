@@ -19,7 +19,7 @@ export class Tetromino {
       new RotatingShape(t_shape).rotateRight().rotateRight(),
       new RotatingShape(t_shape).rotateLeft(),
     ];
-    return new Tetromino(new RotatingShape(t_shape), validStates, "T", 0);
+    return new Tetromino(new RotatingShape(t_shape), validStates, 0);
   }
 
   static get I_SHAPE() {
@@ -31,7 +31,7 @@ export class Tetromino {
       [".", ".", ".", ".", "."],
     ];
     const validStates = [new RotatingShape(t_shape), new RotatingShape(t_shape).rotateRight()];
-    return new Tetromino(validStates[0], validStates, "I", 0);
+    return new Tetromino(validStates[0], validStates, 0);
   }
 
   toString() {
@@ -42,7 +42,6 @@ export class Tetromino {
     return new Tetromino(
       this.validStates[(this.currentOrientation + 1) % this.validStates.length],
       this.validStates,
-      this.shapeLetter,
       (this.currentOrientation + 1) % this.validStates.length
     );
   }
