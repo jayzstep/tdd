@@ -6,6 +6,10 @@ export class Tetromino {
     this.orientations = orientations;
     this.currentOrientation = currentOrientation;
   }
+
+  static orientations(initialShape) {
+    const shape = new RotatingShape(initialShape);
+  }
   static get T_SHAPE() {
     const t_shape = [
       [".", "T", "."],
