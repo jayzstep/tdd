@@ -52,6 +52,6 @@ export class Tetromino {
   }
 
   rotateLeft() {
-    return new Tetromino(this.orientations, this.orientations.length - 1);
+    return new Tetromino(this.orientations, this.currentOrientation - 1);
   }
 }
