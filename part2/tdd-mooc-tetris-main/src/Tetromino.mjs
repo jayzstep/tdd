@@ -1,9 +1,9 @@
 import { RotatingShape } from "./RotatingShape.mjs";
 
 export class Tetromino {
-  constructor(rotatingShape, validStates = [], currentOrientation = 0) {
+  constructor(rotatingShape, orientations = [], currentOrientation = 0) {
     this.shape = rotatingShape;
-    this.validStates = validStates;
+    this.orientations = orientations;
     this.currentOrientation = currentOrientation;
   }
   static get T_SHAPE() {
@@ -38,12 +38,12 @@ export class Tetromino {
   }
 
   rotateRight() {
-    const next = (this.currentOrientation + 1) % this.validStates.length;
-    return new Tetromino(this.validStates[next], this.validStates, next);
+    const next = (this.currentOrientation + 1) % this.orientations.length;
+    return new Tetromino(this.orientations[next], this.orientations, next);
   }
 
   rotateLeft() {
-    const next = (this.currentOrientation + this.validStates.length - 1) % this.validStates.length;
-    return new Tetromino(this.validStates[next], this.validStates, next);
+    const next = (this.currentOrientation + this.orientations.length - 1) % this.orientations.length;
+    return new Tetromino(this.orientations[next], this.orientations, next);
   }
 }
