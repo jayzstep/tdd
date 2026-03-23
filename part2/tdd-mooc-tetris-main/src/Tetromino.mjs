@@ -17,7 +17,7 @@ export class Tetromino {
       new RotatingShape(t_shape),
       new RotatingShape(t_shape).rotateRight(),
       new RotatingShape(t_shape).rotateRight().rotateRight(),
-      new RotatingShape(t_shape).rotateLeft,
+      new RotatingShape(t_shape).rotateLeft(),
     ];
     return new Tetromino(new RotatingShape(t_shape), validStates, "T", 0);
   }
@@ -39,15 +39,12 @@ export class Tetromino {
   }
 
   rotateRight() {
-    if (this.shapeLetter == "I") {
-      return new Tetromino(
-        this.validStates[(this.currentOrientation + 1) % this.validStates.length],
-        this.validStates,
-        "I",
-        this.currentOrientation + 1
-      );
-    }
-    return new Tetromino(this.shape.rotateRight(), this.shapeLetter);
+    return new Tetromino(
+      this.validStates[(this.currentOrientation + 1) % this.validStates.length],
+      this.validStates,
+      this.shapeLetter,
+      (this.currentOrientation + 1) % this.validStates.length
+    );
   }
 
   rotateLeft() {
