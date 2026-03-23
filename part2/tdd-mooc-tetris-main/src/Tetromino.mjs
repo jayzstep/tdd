@@ -33,6 +33,16 @@ export class Tetromino {
     return new Tetromino(validStates[0], validStates, 0);
   }
 
+  static get O_SHAPE() {
+    const o_shape = [
+      [".", "O", "O"],
+      [".", "O", "O"],
+      [".", ".", "."],
+    ];
+    const validStates = [new RotatingShape(o_shape)];
+    return new Tetromino(new RotatingShape(o_shape), validStates, 0);
+  }
+
   toString() {
     return this.shape.toString();
   }
