@@ -48,12 +48,10 @@ export class Tetromino {
   }
 
   rotateRight() {
-    const next = this.currentOrientation + 1;
-    return new Tetromino(this.orientations, next);
+    return new Tetromino(this.orientations, this.currentOrientation + 1);
   }
 
   rotateLeft() {
-    const next = this.orientations.length - 1;
-    return new Tetromino(this.orientations, next);
+    return new Tetromino(this.orientations, this.orientations.length - 1);
   }
 }
