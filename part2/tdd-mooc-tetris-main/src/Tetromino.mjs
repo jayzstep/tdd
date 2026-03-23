@@ -1,8 +1,8 @@
 import { RotatingShape } from "./RotatingShape.mjs";
 
 export class Tetromino {
-  constructor(rotatingShape, orientations = [], currentOrientation = 0) {
-    this.shape = rotatingShape;
+  constructor(orientations = [], currentOrientation = 0) {
+    this.shape = orientations[currentOrientation];
     this.orientations = orientations;
     this.currentOrientation = currentOrientation;
   }
@@ -13,8 +13,7 @@ export class Tetromino {
       0,
       orientationCount
     );
-    const result = new Tetromino(orientations, currentOrientation);
-    return orientations;
+    return new Tetromino(orientations, currentOrientation);
   }
   static get T_SHAPE() {
     const t_shape = [
@@ -22,8 +21,7 @@ export class Tetromino {
       ["T", "T", "T"],
       [".", ".", "."],
     ];
-    const orientations = Tetromino.fromArray(t_shape, 4, 0);
-    return new Tetromino(new RotatingShape(t_shape), orientations, 0);
+    return Tetromino.fromArray(t_shape, 4, 0);
   }
 
   static get I_SHAPE() {
@@ -34,8 +32,7 @@ export class Tetromino {
       [".", ".", ".", ".", "."],
       [".", ".", ".", ".", "."],
     ];
-    const orientations = Tetromino.fromArray(i_shape, 2);
-    return new Tetromino(orientations[0], orientations, 0);
+    return Tetromino.fromArray(i_shape, 2);
   }
 
   static get O_SHAPE() {
@@ -44,8 +41,7 @@ export class Tetromino {
       [".", "O", "O"],
       [".", ".", "."],
     ];
-    const orientations = Tetromino.fromArray(o_shape, 1);
-    return new Tetromino(new RotatingShape(o_shape), orientations, 0);
+    return Tetromino.fromArray(o_shape, 1);
   }
 
   toString() {
@@ -54,11 +50,11 @@ export class Tetromino {
 
   rotateRight() {
     const next = (this.currentOrientation + 1) % this.orientations.length;
-    return new Tetromino(this.orientations[next], this.orientations, next);
+    return new Tetromino(this.orientations, next);
   }
 
   rotateLeft() {
     const next = (this.currentOrientation + this.orientations.length - 1) % this.orientations.length;
-    return new Tetromino(this.orientations[next], this.orientations, next);
+    return new Tetromino(this.orientations, next);
   }
 }
