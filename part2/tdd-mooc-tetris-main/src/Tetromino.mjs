@@ -43,7 +43,7 @@ export class Tetromino {
       [".", "O", "O"],
       [".", ".", "."],
     ];
-    const orientations = [new RotatingShape(o_shape)];
+    const orientations = Tetromino.orientations(o_shape, 1);
     return new Tetromino(new RotatingShape(o_shape), orientations, 0);
   }
 
