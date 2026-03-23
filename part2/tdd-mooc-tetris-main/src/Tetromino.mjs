@@ -53,7 +53,7 @@ export class Tetromino {
   }
 
   rotateLeft() {
-    const next = (this.currentOrientation + this.orientations.length - 1) % this.orientations.length;
+    const next = this.orientations.length - 1;
     return new Tetromino(this.orientations, next);
   }
 }
