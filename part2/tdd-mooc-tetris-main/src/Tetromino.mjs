@@ -46,13 +46,7 @@ export class Tetromino {
   }
 
   rotateLeft() {
-    const validStateIndex =
-      this.currentOrientation == 0 ? this.currentOrientation + this.validStates.length : this.currentOrientation;
     const next = (this.currentOrientation + this.validStates.length - 1) % this.validStates.length;
-    return new Tetromino(
-      this.validStates[(validStateIndex - 1) % this.validStates.length],
-      this.validStates,
-      (validStateIndex - 1) % this.validStates.length
-    );
+    return new Tetromino(this.validStates[next], this.validStates, next);
   }
 }
