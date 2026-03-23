@@ -7,8 +7,11 @@ export class Tetromino {
     this.currentOrientation = currentOrientation;
   }
 
-  static orientations(initialShape) {
+  static orientations(initialShape, orientationCount) {
     const shape = new RotatingShape(initialShape);
+    const orientations = [shape, shape.rotateRight(), shape.rotateRight().rotateRight(), shape.rotateLeft()].slice(
+      orientationCount
+    );
   }
   static get T_SHAPE() {
     const t_shape = [
