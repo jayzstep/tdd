@@ -38,7 +38,7 @@ export class Tetromino {
 
   rotateLeft() {
     if (this.shapeLetter == "I") {
-      return new Tetromino(this.shape.rotateRight(), this.shapeLetter);
+      return new Tetromino(this.validStates[1], this.validStates, "I", 1);
     }
     return new Tetromino(this.shape.rotateLeft(), this.shapeLetter);
   }
