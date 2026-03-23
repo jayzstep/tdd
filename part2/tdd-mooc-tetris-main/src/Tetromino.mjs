@@ -23,8 +23,8 @@ export class Tetromino {
       [".", ".", ".", ".", "."],
     ];
     const validStates = [
-      new Tetromino(new RotatingShape(t_shape).rotateRight(), 1),
       new Tetromino(new RotatingShape(t_shape), 0),
+      new Tetromino(new RotatingShape(t_shape).rotateRight(), 1),
     ];
     return new Tetromino(new RotatingShape(t_shape), "I");
   }
