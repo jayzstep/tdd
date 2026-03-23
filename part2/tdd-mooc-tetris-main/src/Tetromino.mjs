@@ -33,6 +33,14 @@ export class Tetromino {
   }
 
   rotateRight() {
+    if (this.shapeLetter == "I") {
+      return new Tetromino(
+        this.validStates[(this.currentOrientation + 1) % 2],
+        this.validStates,
+        "I",
+        this.currentOrientation + 1
+      );
+    }
     return new Tetromino(this.shape.rotateRight(), this.shapeLetter);
   }
 
