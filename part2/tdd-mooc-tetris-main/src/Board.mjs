@@ -1,3 +1,11 @@
+class FallingShape {
+  constructor(piece, row, col) {
+    this.piece = piece;
+    this.row = row;
+    this.col = col;
+  }
+}
+
 export class Board {
   width;
   height;
