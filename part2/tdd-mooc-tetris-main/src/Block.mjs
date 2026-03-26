@@ -1,5 +1,5 @@
 export class Block {
-  toString() {
+  static toString() {
     return "X";
   }
 

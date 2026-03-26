@@ -1,6 +1,7 @@
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
+import { Block } from "../src/Block.mjs";
 
 describe("Falling blocks", () => {
   let board;
@@ -18,7 +19,7 @@ describe("Falling blocks", () => {
 
   describe("When a block is dropped", () => {
     beforeEach(() => {
-      board.drop("X");
+      board.drop(Block.toString());
     });
 
     test("it starts from the top middle", () => {
@@ -49,7 +50,7 @@ describe("Falling blocks", () => {
 
   describe("When a block reaches the bottom", () => {
     beforeEach(() => {
-      board.drop("X");
+      board.drop(Block.toString());
       board.tick();
       board.tick();
     });
@@ -77,7 +78,7 @@ describe("Falling blocks", () => {
 
   describe("When a block lands on another block", () => {
     beforeEach(() => {
-      board.drop("X");
+      board.drop(Block.toString());
       board.tick();
       board.tick();
       board.tick();
