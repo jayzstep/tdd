@@ -1,10 +1,6 @@
 export class Block {
-  static get BLOCK_SHAPE() {
-    return new Block();
-  }
-
   toString() {
-    return ".b.\n...\n...";
+    return "X";
   }
 
   rotateRight() {
