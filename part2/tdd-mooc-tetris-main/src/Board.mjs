@@ -38,11 +38,11 @@ export class Board {
     if (typeof shape === "string") {
       shape = new Block(shape).toString();
     }
-    if (this.shapeFalling2) {
+    if (this.shapeFalling) {
       throw "already falling";
     }
     this.shape = shape;
-    this.shapeFalling2 = shape;
+    this.shapeFalling = shape;
 
     const { row, col } = (this.shapeLocation = { row: 0, col: Math.floor(this.width / 2) });
     this.state[row][col] = "X";
@@ -50,7 +50,7 @@ export class Board {
 
   tick() {
     if (this.hasHitSomething()) {
-      this.shapeFalling2 = null;
+      this.shapeFalling = null;
       return;
     }
     const { row, col } = this.shapeLocation;
@@ -60,7 +60,7 @@ export class Board {
   }
 
   hasFalling() {
-    if (this.shapeFalling2) {
+    if (this.shapeFalling) {
       return true;
     }
     return false;
