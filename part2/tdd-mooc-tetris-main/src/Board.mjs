@@ -67,7 +67,7 @@ export class Board {
 
     this.state[row][col] = ".";
     this.shapeLocation.row++;
-    this.state[row + 1][col] = this.shapeFalling;
+    this.state[row2][col2] = this.shapeFalling;
   }
 
   hasFalling() {
