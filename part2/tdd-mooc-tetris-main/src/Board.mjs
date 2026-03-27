@@ -77,6 +77,8 @@ export class Board {
 
   hasHitSomething() {
     const { row, col } = this.shapeLocation;
+    const row2 = this.shapeFalling2.row;
+    const col2 = this.shapeFalling2.col;
     return row == this.height - 1 || this.state[row + 1][col] != ".";
   }
 }
