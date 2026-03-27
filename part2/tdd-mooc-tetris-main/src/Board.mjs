@@ -61,6 +61,10 @@ export class Board {
     }
     const tickedFallingShape = this.shapeFalling2.moveDown();
     const { row, col } = this.shapeLocation;
+
+    const row2 = tickedFallingShape.row;
+    const col2 = tickedFallingShape.col;
+
     this.state[row][col] = ".";
     this.shapeLocation.row++;
     this.state[row + 1][col] = this.shapeFalling;
