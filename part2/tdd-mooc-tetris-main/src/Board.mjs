@@ -60,10 +60,7 @@ export class Board {
   }
 
   hasFalling() {
-    if (this.shapeFalling) {
-      return true;
-    }
-    return false;
+    return this.shapeFalling !== null;
   }
 
   hasHitSomething() {
