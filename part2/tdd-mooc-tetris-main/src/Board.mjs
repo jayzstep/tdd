@@ -5,6 +5,10 @@ class FallingShape {
     this.row = row;
     this.col = col;
   }
+
+  moveDown() {
+    return new FallingShape(this.piece, this.row + 1, this.col);
+  }
 }
 
 export class Board {
