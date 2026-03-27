@@ -61,13 +61,11 @@ export class Board {
       return;
     }
     this.shapeFalling2 = this.shapeFalling2.moveDown();
-    const { row, col } = this.shapeLocation;
 
     const row2 = this.shapeFalling2.row;
     const col2 = this.shapeFalling2.col;
 
-    this.state[row][col] = ".";
-    this.shapeLocation.row++;
+    this.state[row2 - 1][col2] = ".";
     this.state[row2][col2] = this.shapeFalling;
   }
 
@@ -76,7 +74,6 @@ export class Board {
   }
 
   hasHitSomething() {
-    const { row, col } = this.shapeLocation;
     const row2 = this.shapeFalling2.row;
     const col2 = this.shapeFalling2.col;
     return row2 == this.height - 1 || this.state[row2 + 1][col2] != ".";
