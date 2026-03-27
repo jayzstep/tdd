@@ -34,6 +34,9 @@ export class Board {
   }
 
   drop(shape) {
+    if (typeof shape === "string") {
+      this.shape = shape;
+    }
     if (this.shapeFalling) {
       throw "already falling";
     }
