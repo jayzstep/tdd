@@ -19,7 +19,7 @@ describe("Falling blocks", () => {
 
   describe("When a block is dropped", () => {
     beforeEach(() => {
-      board.drop(new Block());
+      board.drop("X");
     });
 
     test("it starts from the top middle", () => {
@@ -30,7 +30,7 @@ describe("Falling blocks", () => {
       );
     });
 
-    test.skip("it moves down one row per tick", () => {
+    test("it moves down one row per tick", () => {
       board.tick();
 
       expect(board.toString()).to.equalShape(
@@ -78,7 +78,7 @@ describe("Falling blocks", () => {
 
   describe("When a block lands on another block", () => {
     beforeEach(() => {
-      board.drop(Block.toString());
+      board.drop("X");
       board.tick();
       board.tick();
       board.tick();
