@@ -57,6 +57,7 @@ export class Board {
   tick() {
     if (this.hasHitSomething()) {
       this.shapeFalling = null;
+      this.shapeFalling2 = null;
       return;
     }
     this.shapeFalling2 = this.shapeFalling2.moveDown();
@@ -71,7 +72,7 @@ export class Board {
   }
 
   hasFalling() {
-    return this.shapeFalling !== null;
+    return this.shapeFalling2 !== null;
   }
 
   hasHitSomething() {
