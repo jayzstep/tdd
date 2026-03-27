@@ -45,7 +45,7 @@ export class Board {
     this.shapeFalling = shape;
 
     const { row, col } = (this.shapeLocation = { row: 0, col: Math.floor(this.width / 2) });
-    this.state[row][col] = "X";
+    this.state[row][col] = this.shape;
   }
 
   tick() {
