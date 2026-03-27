@@ -1,3 +1,4 @@
+import { Block } from "./Block.mjs";
 class FallingShape {
   constructor(piece, row, col) {
     this.piece = piece;
@@ -35,7 +36,7 @@ export class Board {
 
   drop(shape) {
     if (typeof shape === "string") {
-      this.shape = shape;
+      shape = new Block(shape).toString();
     }
     if (this.shapeFalling) {
       throw "already falling";

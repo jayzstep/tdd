@@ -1,6 +1,11 @@
 export class Block {
-  static toString() {
-    return "X";
+  constructor(letter) {
+    this.letter = letter;
+  }
+  toString() {
+    let result = "";
+    result += this.letter;
+    return result;
   }
 
   rotateRight() {
