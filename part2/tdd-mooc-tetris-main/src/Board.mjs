@@ -42,10 +42,9 @@ export class Board {
     if (typeof shape === "string") {
       shape = new Block(shape).toString();
     }
-    if (this.shapeFalling) {
+    if (this.shapeFalling2) {
       throw "already falling";
     }
-    this.shapeFalling = shape;
     this.shapeFalling2 = new FallingShape(shape, 0, Math.floor(this.width / 2));
 
     const row = this.shapeFalling2.row;
@@ -55,7 +54,6 @@ export class Board {
 
   tick() {
     if (this.hasHitSomething()) {
-      this.shapeFalling = null;
       this.shapeFalling2 = null;
       return;
     }
