@@ -45,6 +45,8 @@ export class Board {
     this.shapeFalling2 = new FallingShape(shape, 0, Math.floor(this.width / 2));
 
     const { row, col } = (this.shapeLocation = { row: 0, col: Math.floor(this.width / 2) });
+    const row2 = this.shapeFalling2.row;
+    const col2 = this.shapeFalling2.col;
     this.state[row][col] = this.shapeFalling;
   }
 
