@@ -71,8 +71,8 @@ export class Board {
   }
 
   hasHitSomething() {
-    const row2 = this.shapeFalling.row;
-    const col2 = this.shapeFalling.col;
-    return row2 == this.height - 1 || this.state[row2 + 1][col2] != ".";
+    const row = this.shapeFalling.row;
+    const col = this.shapeFalling.col;
+    return row == this.height - 1 || this.state[row + 1][col] != ".";
   }
 }
