@@ -42,37 +42,37 @@ export class Board {
     if (typeof shape === "string") {
       shape = new Block(shape).toString();
     }
-    if (this.shapeFalling2) {
+    if (this.shapeFalling) {
       throw "already falling";
     }
-    this.shapeFalling2 = new FallingShape(shape, 0, Math.floor(this.width / 2));
+    this.shapeFalling = new FallingShape(shape, 0, Math.floor(this.width / 2));
 
-    const row = this.shapeFalling2.row;
-    const col = this.shapeFalling2.col;
-    this.state[row][col] = this.shapeFalling2.piece;
+    const row = this.shapeFalling.row;
+    const col = this.shapeFalling.col;
+    this.state[row][col] = this.shapeFalling.piece;
   }
 
   tick() {
     if (this.hasHitSomething()) {
-      this.shapeFalling2 = null;
+      this.shapeFalling = null;
       return;
     }
-    this.shapeFalling2 = this.shapeFalling2.moveDown();
+    this.shapeFalling = this.shapeFalling.moveDown();
 
-    const row2 = this.shapeFalling2.row;
-    const col2 = this.shapeFalling2.col;
+    const row2 = this.shapeFalling.row;
+    const col2 = this.shapeFalling.col;
 
     this.state[row2 - 1][col2] = ".";
-    this.state[row2][col2] = this.shapeFalling2.piece;
+    this.state[row2][col2] = this.shapeFalling.piece;
   }
 
   hasFalling() {
-    return this.shapeFalling2 !== null;
+    return this.shapeFalling !== null;
   }
 
   hasHitSomething() {
-    const row2 = this.shapeFalling2.row;
-    const col2 = this.shapeFalling2.col;
+    const row2 = this.shapeFalling.row;
+    const col2 = this.shapeFalling.col;
     return row2 == this.height - 1 || this.state[row2 + 1][col2] != ".";
   }
 }
