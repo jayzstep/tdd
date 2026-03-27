@@ -62,7 +62,7 @@ export class Board {
   }
 
   hasFalling() {
-    if (this.shapeFalling) {
+    if (this.shapeFalling2) {
       return true;
     }
     return false;
