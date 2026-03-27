@@ -50,7 +50,6 @@ export class Board {
 
   tick() {
     if (this.hasHitSomething()) {
-      this.shapeFalling = false;
       this.shapeFalling2 = null;
       return;
     }
