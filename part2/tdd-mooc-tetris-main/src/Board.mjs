@@ -38,11 +38,10 @@ export class Board {
     if (typeof shape === "string") {
       shape = new Block(shape).toString();
     }
-    if (this.shapeFalling) {
+    if (this.shapeFalling2) {
       throw "already falling";
     }
     this.shape = shape;
-    this.shapeFalling = true;
     this.shapeFalling2 = shape;
 
     const { row, col } = (this.shapeLocation = { row: 0, col: Math.floor(this.width / 2) });
