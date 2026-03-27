@@ -41,7 +41,6 @@ export class Board {
     if (this.shapeFalling) {
       throw "already falling";
     }
-    this.shape = shape;
     this.shapeFalling = shape;
 
     const { row, col } = (this.shapeLocation = { row: 0, col: Math.floor(this.width / 2) });
