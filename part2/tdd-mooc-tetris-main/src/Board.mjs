@@ -50,7 +50,7 @@ export class Board {
 
     const row = this.shapeFalling2.row;
     const col = this.shapeFalling2.col;
-    this.state[row][col] = this.shapeFalling;
+    this.state[row][col] = this.shapeFalling2.piece;
   }
 
   tick() {
@@ -65,7 +65,7 @@ export class Board {
     const col2 = this.shapeFalling2.col;
 
     this.state[row2 - 1][col2] = ".";
-    this.state[row2][col2] = this.shapeFalling;
+    this.state[row2][col2] = this.shapeFalling2.piece;
   }
 
   hasFalling() {
