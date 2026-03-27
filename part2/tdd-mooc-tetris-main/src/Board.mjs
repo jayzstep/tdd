@@ -43,6 +43,8 @@ export class Board {
     }
     this.shape = shape;
     this.shapeFalling = true;
+    this.shapeFalling2 = shape;
+
     const { row, col } = (this.shapeLocation = { row: 0, col: Math.floor(this.width / 2) });
     this.state[row][col] = "X";
   }
