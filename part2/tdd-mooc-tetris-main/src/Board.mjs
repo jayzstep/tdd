@@ -24,7 +24,7 @@ class FallingShape {
   }
 
   nonEmptyBlocks() {
-    let result = [];
+    const result = [];
     for (let row = this.row; row < this.row + this.piece.height; row++) {
       for (let col = this.col; col < this.col + this.piece.width; col++) {
         if (this.piece.blockAt(row, col) !== ".") {
@@ -32,6 +32,7 @@ class FallingShape {
         }
       }
     }
+    return result;
   }
 }
 
