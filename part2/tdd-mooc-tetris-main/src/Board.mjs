@@ -34,7 +34,14 @@ export class Board {
 
   toString() {
     let result = "";
+    let result2 = "";
     this.state.forEach((row) => (result += row.join("") + "\n"));
+
+    for (let i = 0; i < this.height; i++) {
+      for (let j = 0; j < this.width; j++) {
+        result2 += this.state[i][j];
+      }
+    }
     return result;
   }
 
