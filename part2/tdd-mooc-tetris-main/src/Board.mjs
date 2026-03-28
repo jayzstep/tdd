@@ -34,18 +34,16 @@ export class Board {
 
   toString() {
     let result = "";
-    let result2 = "";
-    this.state.forEach((row) => (result += row.join("") + "\n"));
 
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         if (this.shapeFalling && i == this.shapeFalling.row && j == this.shapeFalling.col) {
-          result2 += this.shapeFalling.piece;
+          result += this.shapeFalling.piece;
           continue;
         }
-        result2 += this.state[i][j];
+        result += this.state[i][j];
       }
-      result2 += "\n";
+      result += "\n";
     }
     return result;
   }
