@@ -1,4 +1,7 @@
 import { Block } from "./Block.mjs";
+
+const EMPTY = ".";
+
 class FallingShape {
   constructor(piece, row, col) {
     this.piece = piece;
@@ -19,7 +22,7 @@ class FallingShape {
     ) {
       return this.piece.blockAt(row - this.row, col - this.col);
     } else {
-      return ".";
+      return EMPTY;
     }
   }
 
@@ -27,7 +30,7 @@ class FallingShape {
     const result = [];
     for (let row = this.row; row < this.row + this.piece.height(); row++) {
       for (let col = this.col; col < this.col + this.piece.width(); col++) {
-        if (this.piece.blockAt(row - this.row, col - this.col) !== ".") {
+        if (this.piece.blockAt(row - this.row, col - this.col) !== EMPTY) {
           result.push({ row, col });
         }
       }
@@ -51,7 +54,7 @@ export class Board {
     for (let i = 0; i < this.height; i++) {
       result.push([]);
       for (let j = 0; j < this.width; j++) {
-        result[i].push(".");
+        result[i].push(EMPTY);
       }
     }
     this.state = result;
@@ -62,8 +65,8 @@ export class Board {
 
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
-        const block = this.falling ? this.falling.blockAt(i, j) : ".";
-        if (block !== ".") {
+        const block = this.falling ? this.falling.blockAt(i, j) : EMPTY;
+        if (block !== EMPTY) {
           result += this.falling.blockAt(i, j);
         } else {
           result += this.state[i][j];
@@ -99,7 +102,7 @@ export class Board {
     for (let row = 0; row < this.height; row++) {
       for (let col = 0; col < this.width; col++) {
         const block = this.falling.blockAt(row, col);
-        if (block !== ".") {
+        if (block !== EMPTY) {
           this.state[row][col] = this.falling.blockAt(row, col);
         }
       }
@@ -122,7 +125,7 @@ export class Board {
 
   hasHitAnotherBlock() {
     for (const block of this.falling.nonEmptyBlocks()) {
-      if (this.state[block.row + 1][block.col] !== ".") {
+      if (this.state[block.row + 1][block.col] !== EMPTY) {
         return true;
       }
     }
