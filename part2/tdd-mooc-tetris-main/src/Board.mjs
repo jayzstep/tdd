@@ -9,6 +9,10 @@ class FallingShape {
   moveDown() {
     return new FallingShape(this.piece, this.row + 1, this.col);
   }
+
+  blockAt() {
+    return this.piece.blockAt(this.row, this.col);
+  }
 }
 
 export class Board {
@@ -38,7 +42,7 @@ export class Board {
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         if (this.shapeFalling && i == this.shapeFalling.row && j == this.shapeFalling.col) {
-          result += this.shapeFalling.piece;
+          result += this.shapeFalling.blockAt(i, j);
           continue;
         }
         result += this.state[i][j];
@@ -50,7 +54,7 @@ export class Board {
 
   drop(shape) {
     if (typeof shape === "string") {
-      shape = new Block(shape).toString();
+      shape = new Block(shape);
     }
     if (this.shapeFalling) {
       throw "already falling";
