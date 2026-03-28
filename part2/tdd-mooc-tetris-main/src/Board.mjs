@@ -101,13 +101,11 @@ export class Board {
     const row = this.shapeFalling.row;
     const col = this.shapeFalling.col;
 
-    if (typeof this.shapeFalling === "Tetromino") {
-      for (const block of this.shapeFalling.nonEmptyBlocks()) {
-        if (block.row == this.height - 1) {
-          return true;
-        }
-        return false;
+    for (const block of this.shapeFalling.nonEmptyBlocks()) {
+      if (block.row == this.height - 1) {
+        return true;
       }
+      return false;
     }
     return row == this.height - 1 || this.state[row + 1][col] != ".";
   }
