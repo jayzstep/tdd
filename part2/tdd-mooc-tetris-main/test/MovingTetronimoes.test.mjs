@@ -81,6 +81,8 @@ describe("Moving tetrominoes", () => {
     for (let i = 0; i < 10; i++) {
       board.moveDown();
     }
+    board.tick();
+    expect(board.hasFalling()).to.equal(false);
     expect(board.toString()).to.equalShape(
       `..........
        ..........
