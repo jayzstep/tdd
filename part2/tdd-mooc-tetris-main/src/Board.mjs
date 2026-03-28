@@ -88,7 +88,7 @@ export class Board {
     if (!this.hasFalling()) {
       return;
     }
-    if (this.hasHitSomething()) {
+    if (this.hasHitTheBottom()) {
       for (let row = 0; row < this.height; row++) {
         for (let col = 0; col < this.width; col++) {
           this.state[row][col] = this.shapeFalling.blockAt(row, col);
@@ -104,9 +104,18 @@ export class Board {
     return this.shapeFalling !== null;
   }
 
-  hasHitSomething() {
+  hasHitTheBottom() {
     for (const block of this.shapeFalling.nonEmptyBlocks()) {
       if (block.row == this.height - 1) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  hasHitAnotherBlock() {
+    for (const block of this.shapeFalling.nonEmptyBlocks()) {
+      if (this.state[block.row][block.col] !== ".") {
         return true;
       }
     }
