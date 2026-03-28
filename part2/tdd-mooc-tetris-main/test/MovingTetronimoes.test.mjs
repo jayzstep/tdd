@@ -90,4 +90,18 @@ describe("Moving tetrominoes", () => {
        ...TTT....`
     );
   });
+  test.skip("hitting another block on the left stops movement", () => {
+    board.drop(Tetromino.T_SHAPE);
+    for (let i = 0; i < 6; i++) {
+      board.moveLeft();
+    }
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       ..........
+       ....T.....
+       ...TTT....`
+    );
+  });
 });
