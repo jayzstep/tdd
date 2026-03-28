@@ -149,6 +149,15 @@ export class Board {
     return false;
   }
 
+  hitsRightSide() {
+    for (const block of this.falling.nonEmptyBlocks()) {
+      if (block.col == this.width - 1) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   moveLeft() {
     const attempt = this.falling.moveLeft();
     if (this.hitsLeftSide()) {
@@ -156,9 +165,15 @@ export class Board {
     }
     this.falling = attempt;
   }
+
   moveRight() {
-    this.falling = this.falling.moveRight();
+    const attempt = this.falling.moveRight();
+    if (this.hitsRightSide()) {
+      return;
+    }
+    this.falling = attempt;
   }
+
   moveDown() {
     this.falling = this.falling.moveDown();
   }
