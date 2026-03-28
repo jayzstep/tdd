@@ -11,7 +11,12 @@ class FallingShape {
   }
 
   blockAt(row, col) {
-    if (row >= this.row && row < this.row + this.piece.height()) {
+    if (
+      row >= this.row &&
+      row < this.row + this.piece.height() &&
+      col >= this.col &&
+      col < this.col + this.piece.width()
+    ) {
       return this.piece.blockAt(row - this.row, col - this.col);
     } else {
       return ".";
@@ -45,11 +50,12 @@ export class Board {
 
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
-        if (this.shapeFalling && i == this.shapeFalling.row && j == this.shapeFalling.col) {
+        const block = this.shapeFalling ? this.shapeFalling.blockAt(i, j) : ".";
+        if (block !== ".") {
           result += this.shapeFalling.blockAt(i, j);
-          continue;
+        } else {
+          result += this.state[i][j];
         }
-        result += this.state[i][j];
       }
       result += "\n";
     }
