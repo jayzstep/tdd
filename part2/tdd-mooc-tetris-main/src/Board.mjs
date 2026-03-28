@@ -39,6 +39,10 @@ export class Board {
 
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
+        if (this.shapeFalling && i == this.shapeFalling.row && j == this.shapeFalling.col) {
+          result2 += this.shapeFalling.piece;
+          continue;
+        }
         result2 += this.state[i][j];
       }
     }
