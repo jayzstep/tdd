@@ -69,7 +69,7 @@ export class Board {
     if (this.shapeFalling) {
       throw "already falling";
     }
-    this.shapeFalling = new FallingShape(shape, 0, Math.floor(this.width - shape.width()) / 2);
+    this.shapeFalling = new FallingShape(shape, 0, Math.floor((this.width - shape.width()) / 2));
   }
 
   tick() {
