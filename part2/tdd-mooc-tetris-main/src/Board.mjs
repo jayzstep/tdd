@@ -16,6 +16,9 @@ class FallingShape {
   moveLeft() {
     return new FallingShape(this.shape, this.row, this.col - 1);
   }
+  moveRight() {
+    return new FallingShape(this.shape, this.row, this.col + 1);
+  }
 
   blockAt(row, col) {
     if (
@@ -138,5 +141,8 @@ export class Board {
 
   moveLeft() {
     this.falling = this.falling.moveLeft();
+  }
+  moveRight() {
+    this.falling = this.falling.moveRight();
   }
 }
