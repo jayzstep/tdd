@@ -98,10 +98,11 @@ export class Board {
     if (!this.hasFalling()) {
       return;
     }
+    const attempt = this.falling.moveDown();
     if (this.hitsBottom() || this.hitsAnotherBlock()) {
       this.stopFalling();
     } else {
-      this.falling = this.falling.moveDown();
+      this.falling = attempt;
     }
   }
 
