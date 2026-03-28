@@ -88,7 +88,7 @@ export class Board {
     if (!this.hasFalling()) {
       return;
     }
-    if (this.hasHitTheBottom()) {
+    if (this.hasHitTheBottom() || this.hasHitAnotherBlock()) {
       for (let row = 0; row < this.height; row++) {
         for (let col = 0; col < this.width; col++) {
           this.state[row][col] = this.shapeFalling.blockAt(row, col);
