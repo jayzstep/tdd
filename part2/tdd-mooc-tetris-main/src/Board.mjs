@@ -89,18 +89,22 @@ export class Board {
       return;
     }
     if (this.hasHitTheBottom() || this.hasHitAnotherBlock()) {
-      for (let row = 0; row < this.height; row++) {
-        for (let col = 0; col < this.width; col++) {
-          const block = this.shapeFalling.blockAt(row, col);
-          if (block !== ".") {
-            this.state[row][col] = this.shapeFalling.blockAt(row, col);
-          }
-        }
-      }
+      this.freezeShape();
       this.shapeFalling = null;
       return;
     }
     this.shapeFalling = this.shapeFalling.moveDown();
+  }
+
+  freezeShape() {
+    for (let row = 0; row < this.height; row++) {
+      for (let col = 0; col < this.width; col++) {
+        const block = this.shapeFalling.blockAt(row, col);
+        if (block !== ".") {
+          this.state[row][col] = this.shapeFalling.blockAt(row, col);
+        }
+      }
+    }
   }
 
   hasFalling() {
