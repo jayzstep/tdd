@@ -22,6 +22,17 @@ class FallingShape {
       return ".";
     }
   }
+
+  nonEmptyBlocks() {
+    let result = [];
+    for (let row = this.row; row < this.row + this.piece.height; row++) {
+      for (let col = this.col; col < this.col + this.piece.width; col++) {
+        if (this.piece.blockAt(row, col) !== ".") {
+          result.push((row, col));
+        }
+      }
+    }
+  }
 }
 
 export class Board {
