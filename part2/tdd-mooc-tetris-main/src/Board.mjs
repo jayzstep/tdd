@@ -90,9 +90,9 @@ export class Board {
     }
     if (this.hasHitTheBottom() || this.hasHitAnotherBlock()) {
       this.freezeShape();
-      return;
+    } else {
+      this.shapeFalling = this.shapeFalling.moveDown();
     }
-    this.shapeFalling = this.shapeFalling.moveDown();
   }
 
   freezeShape() {
