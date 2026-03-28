@@ -61,4 +61,8 @@ export class Tetromino {
   width() {
     return this.orientations[this.currentOrientation].width();
   }
+
+  blockAt(row, col) {
+    return this.orientations[this.currentOrientation].blockAt(row, col);
+  }
 }

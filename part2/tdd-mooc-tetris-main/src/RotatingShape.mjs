@@ -53,4 +53,8 @@ export class RotatingShape {
   width() {
     return this.shape[0].length;
   }
+
+  blockAt(row, col) {
+    return this.shape[row][col];
+  }
 }
