@@ -92,13 +92,13 @@ export class Board {
       return;
     }
     if (this.hasHitTheBottom() || this.hasHitAnotherBlock()) {
-      this.freezeShape();
+      this.stopFalling();
     } else {
       this.falling = this.falling.moveDown();
     }
   }
 
-  freezeShape() {
+  stopFalling() {
     for (let row = 0; row < this.height; row++) {
       for (let col = 0; col < this.width; col++) {
         const block = this.falling.blockAt(row, col);
