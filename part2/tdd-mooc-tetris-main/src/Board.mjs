@@ -65,12 +65,6 @@ export class Board {
       return;
     }
     this.shapeFalling = this.shapeFalling.moveDown();
-
-    const row = this.shapeFalling.row;
-    const col = this.shapeFalling.col;
-
-    this.state[row - 1][col] = ".";
-    this.state[row][col] = this.shapeFalling.piece;
   }
 
   hasFalling() {
