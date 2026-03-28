@@ -22,4 +22,7 @@ export class Block {
   height() {
     return 1;
   }
+  width() {
+    return 1;
+  }
 }
