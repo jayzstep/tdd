@@ -14,4 +14,8 @@ export class Block {
   rotateLeft() {
     return new Block();
   }
+
+  blockAt(row, col) {
+    return this.letter;
+  }
 }
