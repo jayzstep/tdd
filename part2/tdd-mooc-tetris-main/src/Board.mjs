@@ -85,8 +85,16 @@ export class Board {
   }
 
   tick() {
+    if (!this.hasFalling()) {
+      return;
+    }
     if (this.hasHitSomething()) {
-      this.state[this.shapeFalling.row][this.shapeFalling.col] = this.shapeFalling.piece;
+      for (let row = 0; row < this.height; row++) {
+        for (let col = 0; col < this.width; col++) {
+          this.state[row][col] = this.shapeFalling.blockAt(row, col);
+        }
+      }
+      // this.state[this.shapeFalling.row][this.shapeFalling.col] = this.shapeFalling.piece;
       this.shapeFalling = null;
       return;
     }
