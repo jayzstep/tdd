@@ -60,6 +60,7 @@ export class Board {
 
   tick() {
     if (this.hasHitSomething()) {
+      this.state[this.shapeFalling.row][this.shapeFalling.col] = this.shapeFalling.piece;
       this.shapeFalling = null;
       return;
     }
