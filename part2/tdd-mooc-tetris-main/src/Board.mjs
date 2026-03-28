@@ -28,7 +28,7 @@ class FallingShape {
     for (let row = this.row; row < this.row + this.piece.height(); row++) {
       for (let col = this.col; col < this.col + this.piece.width(); col++) {
         if (this.piece.blockAt(row - this.row, col - this.col) !== ".") {
-          result.push((row, col));
+          result.push({ row, col });
         }
       }
     }
@@ -103,7 +103,7 @@ export class Board {
 
     if (typeof this.shapeFalling === "Tetromino") {
       for (const block of this.shapeFalling.nonEmptyBlocks()) {
-        if (block[0] == this.height - 1) {
+        if (block.row == this.height - 1) {
           return true;
         }
         return false;
