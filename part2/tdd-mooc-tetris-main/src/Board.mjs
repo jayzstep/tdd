@@ -62,9 +62,9 @@ export class Board {
 
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
-        const block = this.shapeFalling ? this.shapeFalling.blockAt(i, j) : ".";
+        const block = this.falling ? this.falling.blockAt(i, j) : ".";
         if (block !== ".") {
-          result += this.shapeFalling.blockAt(i, j);
+          result += this.falling.blockAt(i, j);
         } else {
           result += this.state[i][j];
         }
@@ -78,10 +78,10 @@ export class Board {
     if (typeof shape === "string") {
       shape = new Block(shape);
     }
-    if (this.shapeFalling) {
+    if (this.falling) {
       throw "already falling";
     }
-    this.shapeFalling = new FallingShape(shape, 0, Math.floor((this.width - shape.width()) / 2));
+    this.falling = new FallingShape(shape, 0, Math.floor((this.width - shape.width()) / 2));
   }
 
   tick() {
@@ -91,28 +91,28 @@ export class Board {
     if (this.hasHitTheBottom() || this.hasHitAnotherBlock()) {
       this.freezeShape();
     } else {
-      this.shapeFalling = this.shapeFalling.moveDown();
+      this.falling = this.falling.moveDown();
     }
   }
 
   freezeShape() {
     for (let row = 0; row < this.height; row++) {
       for (let col = 0; col < this.width; col++) {
-        const block = this.shapeFalling.blockAt(row, col);
+        const block = this.falling.blockAt(row, col);
         if (block !== ".") {
-          this.state[row][col] = this.shapeFalling.blockAt(row, col);
+          this.state[row][col] = this.falling.blockAt(row, col);
         }
       }
     }
-    this.shapeFalling = null;
+    this.falling = null;
   }
 
   hasFalling() {
-    return this.shapeFalling !== null;
+    return this.falling !== null;
   }
 
   hasHitTheBottom() {
-    for (const block of this.shapeFalling.nonEmptyBlocks()) {
+    for (const block of this.falling.nonEmptyBlocks()) {
       if (block.row == this.height - 1) {
         return true;
       }
@@ -121,7 +121,7 @@ export class Board {
   }
 
   hasHitAnotherBlock() {
-    for (const block of this.shapeFalling.nonEmptyBlocks()) {
+    for (const block of this.falling.nonEmptyBlocks()) {
       if (this.state[block.row + 1][block.col] !== ".") {
         return true;
       }
