@@ -139,8 +139,21 @@ export class Board {
     return false;
   }
 
+  hitsLeftSide() {
+    for (const block of this.falling.nonEmptyBlocks()) {
+      if (block.col == 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   moveLeft() {
-    this.falling = this.falling.moveLeft();
+    const attempt = this.falling.moveLeft();
+    if (this.hitsLeftSide()) {
+      return;
+    }
+    this.falling = attempt;
   }
   moveRight() {
     this.falling = this.falling.moveRight();
