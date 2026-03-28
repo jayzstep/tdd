@@ -94,7 +94,6 @@ export class Board {
           this.state[row][col] = this.shapeFalling.blockAt(row, col);
         }
       }
-      // this.state[this.shapeFalling.row][this.shapeFalling.col] = this.shapeFalling.piece;
       this.shapeFalling = null;
       return;
     }
