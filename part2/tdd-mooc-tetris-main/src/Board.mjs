@@ -25,9 +25,9 @@ class FallingShape {
 
   nonEmptyBlocks() {
     const result = [];
-    for (let row = this.row; row < this.row + this.piece.height; row++) {
-      for (let col = this.col; col < this.col + this.piece.width; col++) {
-        if (this.piece.blockAt(row, col) !== ".") {
+    for (let row = this.row; row < this.row + this.piece.height(); row++) {
+      for (let col = this.col; col < this.col + this.piece.width(); col++) {
+        if (this.piece.blockAt(row - this.row, col - this.col) !== ".") {
           result.push((row, col));
         }
       }
