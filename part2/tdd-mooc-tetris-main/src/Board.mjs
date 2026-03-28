@@ -10,8 +10,14 @@ class FallingShape {
     return new FallingShape(this.piece, this.row + 1, this.col);
   }
 
-  blockAt() {
-    return this.piece.blockAt(this.row, this.col);
+  blockAt(row, col) {
+    if (true) {
+      return this.piece.blockAt();
+    }
+    if (row >= this.row && row < this.row + this.piece.height) {
+      return this.piece.blockAt(row - this.row, col - this.col);
+    }
+    return ".";
   }
 }
 

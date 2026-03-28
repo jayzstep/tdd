@@ -18,4 +18,8 @@ export class Block {
   blockAt(row, col) {
     return this.letter;
   }
+
+  height() {
+    return 1;
+  }
 }
