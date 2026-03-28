@@ -175,6 +175,10 @@ export class Board {
   }
 
   moveDown() {
-    this.falling = this.falling.moveDown();
+    const attempt = this.falling.moveDown();
+    if (this.hitsBottom()) {
+      return;
+    }
+    this.falling = attempt;
   }
 }
