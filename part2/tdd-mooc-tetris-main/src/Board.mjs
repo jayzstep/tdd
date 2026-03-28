@@ -91,7 +91,7 @@ export class Board {
     if (!this.hasFalling()) {
       return;
     }
-    if (this.hasHitTheBottom() || this.hasHitAnotherBlock()) {
+    if (this.hitsBottom() || this.hitsAnotherBlock()) {
       this.stopFalling();
     } else {
       this.falling = this.falling.moveDown();
@@ -114,7 +114,7 @@ export class Board {
     return this.falling !== null;
   }
 
-  hasHitTheBottom() {
+  hitsBottom() {
     for (const block of this.falling.nonEmptyBlocks()) {
       if (block.row == this.height - 1) {
         return true;
@@ -123,7 +123,7 @@ export class Board {
     return false;
   }
 
-  hasHitAnotherBlock() {
+  hitsAnotherBlock() {
     for (const block of this.falling.nonEmptyBlocks()) {
       if (this.state[block.row + 1][block.col] !== EMPTY) {
         return true;
