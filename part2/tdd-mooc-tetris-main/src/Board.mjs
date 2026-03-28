@@ -3,24 +3,24 @@ import { Block } from "./Block.mjs";
 const EMPTY = ".";
 
 class FallingShape {
-  constructor(piece, row, col) {
-    this.piece = piece;
+  constructor(shape, row, col) {
+    this.shape = shape;
     this.row = row;
     this.col = col;
   }
 
   moveDown() {
-    return new FallingShape(this.piece, this.row + 1, this.col);
+    return new FallingShape(this.shape, this.row + 1, this.col);
   }
 
   blockAt(row, col) {
     if (
       row >= this.row &&
-      row < this.row + this.piece.height() &&
+      row < this.row + this.shape.height() &&
       col >= this.col &&
-      col < this.col + this.piece.width()
+      col < this.col + this.shape.width()
     ) {
-      return this.piece.blockAt(row - this.row, col - this.col);
+      return this.shape.blockAt(row - this.row, col - this.col);
     } else {
       return EMPTY;
     }
@@ -28,9 +28,9 @@ class FallingShape {
 
   nonEmptyBlocks() {
     const result = [];
-    for (let row = this.row; row < this.row + this.piece.height(); row++) {
-      for (let col = this.col; col < this.col + this.piece.width(); col++) {
-        if (this.piece.blockAt(row - this.row, col - this.col) !== EMPTY) {
+    for (let row = this.row; row < this.row + this.shape.height(); row++) {
+      for (let col = this.col; col < this.col + this.shape.width(); col++) {
+        if (this.shape.blockAt(row - this.row, col - this.col) !== EMPTY) {
           result.push({ row, col });
         }
       }
