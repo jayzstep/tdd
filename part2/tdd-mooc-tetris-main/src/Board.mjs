@@ -56,10 +56,6 @@ export class Board {
       throw "already falling";
     }
     this.shapeFalling = new FallingShape(shape, 0, Math.floor(this.width / 2));
-
-    const row = this.shapeFalling.row;
-    const col = this.shapeFalling.col;
-    this.state[row][col] = this.shapeFalling.piece;
   }
 
   tick() {
