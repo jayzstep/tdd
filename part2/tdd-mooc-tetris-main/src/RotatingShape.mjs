@@ -46,4 +46,11 @@ export class RotatingShape {
     });
     return new RotatingShape(result);
   }
+
+  height() {
+    return this.shape.length;
+  }
+  width() {
+    return this.shape[0].length;
+  }
 }
