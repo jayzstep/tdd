@@ -45,6 +45,7 @@ export class Board {
         }
         result2 += this.state[i][j];
       }
+      result2 += "\n";
     }
     return result;
   }
