@@ -11,13 +11,11 @@ class FallingShape {
   }
 
   blockAt(row, col) {
-    if (true) {
-      return this.piece.blockAt();
-    }
-    if (row >= this.row && row < this.row + this.piece.height) {
+    if (row >= this.row && row < this.row + this.piece.height()) {
       return this.piece.blockAt(row - this.row, col - this.col);
+    } else {
+      return ".";
     }
-    return ".";
   }
 }
 
