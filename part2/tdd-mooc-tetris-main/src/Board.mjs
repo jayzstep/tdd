@@ -145,4 +145,7 @@ export class Board {
   moveRight() {
     this.falling = this.falling.moveRight();
   }
+  moveDown() {
+    this.falling = this.falling.moveDown();
+  }
 }
