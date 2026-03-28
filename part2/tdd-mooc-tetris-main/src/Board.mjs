@@ -90,7 +90,6 @@ export class Board {
     }
     if (this.hasHitTheBottom() || this.hasHitAnotherBlock()) {
       this.freezeShape();
-      this.shapeFalling = null;
       return;
     }
     this.shapeFalling = this.shapeFalling.moveDown();
@@ -105,6 +104,7 @@ export class Board {
         }
       }
     }
+    this.shapeFalling = null;
   }
 
   hasFalling() {
