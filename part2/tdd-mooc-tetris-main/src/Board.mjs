@@ -154,15 +154,6 @@ export class Board {
     return false;
   }
 
-  hitsLeftSide() {
-    for (const block of this.falling.nonEmptyBlocks()) {
-      if (block.col == 0 || this.state[block.row][block.col - 1] !== EMPTY) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   hitsRightSide() {
     for (const block of this.falling.nonEmptyBlocks()) {
       if (block.col == this.width - 1 || this.state[block.row][block.col + 1] !== EMPTY) {
