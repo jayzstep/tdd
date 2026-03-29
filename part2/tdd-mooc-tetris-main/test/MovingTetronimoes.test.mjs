@@ -134,4 +134,28 @@ describe("Moving tetrominoes", () => {
        OO........`
     );
   });
+  test("hitting another block on the right stops movement", () => {
+    board.drop(Tetromino.O_SHAPE);
+    for (let i = 0; i < 6; i++) {
+      board.moveRight();
+      board.moveDown();
+    }
+    board.drop(Tetromino.O_SHAPE);
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       ......OO..
+       ......OOOO
+       ........OO`
+    );
+  });
 });
