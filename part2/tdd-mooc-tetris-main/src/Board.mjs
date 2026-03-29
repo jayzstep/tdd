@@ -159,26 +159,33 @@ export class Board {
   }
 
   moveLeft() {
-    const attempt = this.falling.moveLeft();
-    if (this.hitsLeftSide()) {
-      return;
+    if (this.hasFalling()) {
+      const attempt = this.falling.moveLeft();
+      if (this.hitsLeftSide()) {
+        return;
+      }
+      this.falling = attempt;
     }
-    this.falling = attempt;
   }
 
   moveRight() {
-    const attempt = this.falling.moveRight();
-    if (this.hitsRightSide()) {
-      return;
+    if (this.hasFalling()) {
+      const attempt = this.falling.moveRight();
+      if (this.hitsRightSide()) {
+        return;
+      }
+      this.falling = attempt;
     }
-    this.falling = attempt;
   }
 
   moveDown() {
-    const attempt = this.falling.moveDown();
-    if (this.hitsBottom() || this.hitsAnotherBlock()) {
-      return;
+    if (this.hasFalling()) {
+      const attempt = this.falling.moveDown();
+      if (this.hitsBottom() || this.hitsAnotherBlock()) {
+        this.stopFalling();
+        return;
+      }
+      this.falling = attempt;
     }
-    this.falling = attempt;
   }
 }
