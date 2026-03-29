@@ -151,7 +151,7 @@ export class Board {
 
   hitsRightSide() {
     for (const block of this.falling.nonEmptyBlocks()) {
-      if (block.col == this.width - 1) {
+      if (block.col == this.width - 1 || this.state[block.row][block.col + 1] !== EMPTY) {
         return true;
       }
     }
