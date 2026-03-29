@@ -168,7 +168,7 @@ export class Board {
   moveDown() {
     if (this.hasFalling()) {
       const attempt = this.falling.moveDown();
-      if (this.hitsBottom() || this.hitsSomething(attempt)) {
+      if (this.hitsSomething(attempt)) {
         this.stopFalling();
         return;
       }
