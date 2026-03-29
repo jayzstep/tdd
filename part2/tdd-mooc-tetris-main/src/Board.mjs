@@ -98,12 +98,7 @@ export class Board {
     if (!this.hasFalling()) {
       return;
     }
-    const attempt = this.falling.moveDown();
-    if (this.hitsSomething(attempt)) {
-      this.stopFalling();
-    } else {
-      this.falling = attempt;
-    }
+    this.moveDown();
   }
 
   stopFalling() {
