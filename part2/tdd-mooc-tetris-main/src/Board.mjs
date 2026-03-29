@@ -142,7 +142,7 @@ export class Board {
 
   hitsLeftSide() {
     for (const block of this.falling.nonEmptyBlocks()) {
-      if (block.col == 0) {
+      if (block.col == 0 || this.state[block.row][block.col - 1] !== EMPTY) {
         return true;
       }
     }
