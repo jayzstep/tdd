@@ -124,7 +124,12 @@ export class Board {
 
   hitsSomething(attempt) {
     for (const block of attempt.nonEmptyBlocks()) {
-      if (this.state[block.row][block.col] !== EMPTY || block.col < 0 || block.col >= this.width) {
+      if (
+        this.state[block.row][block.col] !== EMPTY ||
+        block.col < 0 ||
+        block.col >= this.width ||
+        block.row >= this.height
+      ) {
         return true;
       }
     }
