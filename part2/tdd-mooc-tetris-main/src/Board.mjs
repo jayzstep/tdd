@@ -175,7 +175,7 @@ export class Board {
   moveLeft() {
     if (this.hasFalling()) {
       const attempt = this.falling.moveLeft();
-      if (this.hitsLeftSide()) {
+      if (this.hitsSomething(attempt)) {
         return;
       }
       this.falling = attempt;
