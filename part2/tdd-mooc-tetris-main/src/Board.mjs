@@ -99,7 +99,7 @@ export class Board {
       return;
     }
     const attempt = this.falling.moveDown();
-    if (this.hitsBottom() || this.hitsSomething(attempt)) {
+    if (this.hitsSomething(attempt)) {
       this.stopFalling();
     } else {
       this.falling = attempt;
