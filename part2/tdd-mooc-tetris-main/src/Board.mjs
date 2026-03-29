@@ -122,6 +122,15 @@ export class Board {
     return this.falling !== null;
   }
 
+  hitsSomething(attempt) {
+    for (const block of attempt.nonEmptyBlocks()) {
+      if (this.state[block.row][block.col] !== EMPTY || block.col < 0 || block.col >= this.width) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   hitsBottom() {
     for (const block of this.falling.nonEmptyBlocks()) {
       if (block.row == this.height - 1) {
