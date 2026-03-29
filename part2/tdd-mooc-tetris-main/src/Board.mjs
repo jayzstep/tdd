@@ -136,15 +136,6 @@ export class Board {
     return false;
   }
 
-  hitsBottom() {
-    for (const block of this.falling.nonEmptyBlocks()) {
-      if (block.row == this.height - 1) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   moveLeft() {
     if (this.hasFalling()) {
       const attempt = this.falling.moveLeft();
