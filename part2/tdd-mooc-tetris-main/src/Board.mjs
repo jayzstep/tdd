@@ -20,6 +20,10 @@ class FallingShape {
     return new FallingShape(this.shape, this.row, this.col + 1);
   }
 
+  rotateRight() {
+    return new FallingShape(this.shape.rotateRight(), this.row, this.col);
+  }
+
   blockAt(row, col) {
     if (
       row >= this.row &&
@@ -160,6 +164,12 @@ export class Board {
         return;
       }
       this.falling = attempt;
+    }
+  }
+
+  rotateRight() {
+    if (this.hasFalling()) {
+      this.falling = this.falling.rotateRight();
     }
   }
 }
