@@ -24,6 +24,10 @@ class FallingShape {
     return new FallingShape(this.shape.rotateRight(), this.row, this.col);
   }
 
+  rotateLeft() {
+    return new FallingShape(this.shape.rotateLeft(), this.row, this.col);
+  }
+
   blockAt(row, col) {
     if (
       row >= this.row &&
@@ -170,6 +174,12 @@ export class Board {
   rotateRight() {
     if (this.hasFalling()) {
       this.falling = this.falling.rotateRight();
+    }
+  }
+
+  rotateLeft() {
+    if (this.hasFalling()) {
+      this.falling = this.falling.rotateLeft();
     }
   }
 }
