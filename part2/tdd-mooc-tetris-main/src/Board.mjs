@@ -181,17 +181,17 @@ export class Board {
         }
         return;
       }
-      this.falling = this.falling.rotateRight();
+      this.falling = attempt;
     }
   }
 
   rotateLeft() {
     if (this.hasFalling()) {
-      const attempt = this.falling.rotateRight();
+      const attempt = this.falling.rotateLeft();
       if (this.hitsSomething(attempt)) {
         return;
       }
-      this.falling = this.falling.rotateLeft();
+      this.falling = attempt;
     }
   }
 }
