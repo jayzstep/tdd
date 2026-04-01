@@ -183,6 +183,10 @@ export class Board {
 
   rotateLeft() {
     if (this.hasFalling()) {
+      const attempt = this.falling.rotateRight();
+      if (this.hitsSomething(attempt)) {
+        return;
+      }
       this.falling = this.falling.rotateLeft();
     }
   }
