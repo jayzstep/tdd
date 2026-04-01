@@ -85,4 +85,32 @@ describe("Falling tetrominoes", () => {
        ..........`
     );
   });
+
+  test("can not be rotated if there is no room", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.moveLeft();
+    board.rotateRight();
+    for (let i = 0; i < 5; i++) {
+      board.moveDown();
+    }
+    board.drop(Tetromino.I_SHAPE);
+    board.rotateRight();
+    board.moveRight();
+    for (let i = 0; i < 5; i++) {
+      board.moveDown();
+    }
+    board.drop(Tetromino.I_SHAPE);
+    board.rotateRight();
+    board.moveDown();
+    board.rotateRight();
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ....I.....
+       ...III....
+       ...III....
+       ...III....
+       ...I.I....`
+    );
+  });
 });
