@@ -90,15 +90,11 @@ describe("Falling tetrominoes", () => {
     board.drop(Tetromino.I_SHAPE);
     board.moveLeft();
     board.rotateRight();
-    for (let i = 0; i < 5; i++) {
-      board.moveDown();
-    }
+    fallToBottom(board);
     board.drop(Tetromino.I_SHAPE);
     board.rotateRight();
     board.moveRight();
-    for (let i = 0; i < 5; i++) {
-      board.moveDown();
-    }
+    fallToBottom(board);
     board.drop(Tetromino.I_SHAPE);
     board.rotateRight();
     board.moveDown();
