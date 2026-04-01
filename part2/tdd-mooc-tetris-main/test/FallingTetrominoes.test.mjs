@@ -86,7 +86,7 @@ describe("Falling tetrominoes", () => {
     );
   });
 
-  test("can not be rotated if there is no room", () => {
+  test("can not be rotated right if there is no room", () => {
     board.drop(Tetromino.I_SHAPE);
     board.moveLeft();
     board.rotateRight();
