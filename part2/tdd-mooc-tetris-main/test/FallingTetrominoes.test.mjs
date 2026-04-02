@@ -134,7 +134,26 @@ describe("Falling tetrominoes", () => {
     );
   });
 
-  test("wall kicks if no room to rotate", () => {
+  test("wall kicks if no room to rotate on the right", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateLeft();
+    for (let i = 0; i < 6; i++) {
+      board.moveRight();
+    }
+
+    board.rotateRight();
+
+    expect(board.toString()).to.equalShape(
+      `........T.
+       .......TTT
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+  });
+
+  test("wall kicks if no room to rotate on the left", () => {
     board.drop(Tetromino.T_SHAPE);
     board.rotateLeft();
     for (let i = 0; i < 6; i++) {
