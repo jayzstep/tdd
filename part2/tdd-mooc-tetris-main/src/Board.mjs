@@ -194,10 +194,6 @@ export class Board {
       const attempt = this.falling.rotateLeft();
       if (this.hitsSomething(attempt)) {
         this.wallKick(attempt);
-        const attemptRight = attempt.moveRight();
-        if (!this.hitsSomething(attemptRight)) {
-          this.falling = attemptRight;
-        }
         return;
       }
       this.falling = attempt;
