@@ -194,13 +194,11 @@ export class Board {
   }
 
   wallKick(attempt) {
-    const attemptLeft = attempt.moveLeft();
-    const attemptRight = attempt.moveRight();
-    if (!this.hitsSomething(attemptLeft)) {
-      this.falling = attemptLeft;
+    if (!this.hitsSomething(attempt.moveLeft())) {
+      this.falling = attempt.moveLeft();
     }
-    if (!this.hitsSomething(attemptRight)) {
-      this.falling = attemptRight;
+    if (!this.hitsSomething(attempt.moveRight())) {
+      this.falling = attempt.moveRight();
     }
     return;
   }
