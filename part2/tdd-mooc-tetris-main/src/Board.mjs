@@ -176,9 +176,9 @@ export class Board {
       const attempt = this.falling.rotateRight();
       if (this.hitsSomething(attempt)) {
         this.wallKick(attempt);
-        return;
+      } else {
+        this.falling = attempt;
       }
-      this.falling = attempt;
     }
   }
 
@@ -187,9 +187,9 @@ export class Board {
       const attempt = this.falling.rotateLeft();
       if (this.hitsSomething(attempt)) {
         this.wallKick(attempt);
-        return;
+      } else {
+        this.falling = attempt;
       }
-      this.falling = attempt;
     }
   }
 
