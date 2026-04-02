@@ -189,4 +189,26 @@ describe("Falling tetrominoes", () => {
        ..........`
     );
   });
+
+  test("wall kicks from another piece", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.rotateRight();
+    fallToBottom(board);
+    board.drop(Tetromino.T_SHAPE);
+    board.moveRight();
+    board.rotateRight();
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.rotateLeft();
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ....I.....
+       ....I.T...
+       ....ITTT..
+       ....I.....`
+    );
+  });
 });
