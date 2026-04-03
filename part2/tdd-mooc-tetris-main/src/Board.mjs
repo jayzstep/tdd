@@ -76,6 +76,10 @@ export class Board {
     this.state = result;
   }
 
+  setState(newState) {
+    this.state = newState;
+  }
+
   toString() {
     let result = "";
 
