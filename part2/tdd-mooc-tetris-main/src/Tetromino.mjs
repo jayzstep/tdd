@@ -30,8 +30,8 @@ export class Tetromino {
                       .T..
                       ....
 `;
-    const t_shape2 = `....
-                      TTT.
+    const t_shape2 = `.T..
+                      TT..
                       .T..
                       ....
 `;
