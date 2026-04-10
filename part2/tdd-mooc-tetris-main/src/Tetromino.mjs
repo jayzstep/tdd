@@ -26,9 +26,9 @@ export class Tetromino {
   }
   static get T_SHAPE2() {
     const t_shape = `....
-                     TTT.
-                     .T..
-                     ....
+       TTT.
+       .T..
+       ....
 `;
     return new Tetromino([t_shape], 0);
   }
