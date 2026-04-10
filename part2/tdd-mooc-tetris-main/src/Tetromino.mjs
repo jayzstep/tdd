@@ -25,12 +25,17 @@ export class Tetromino {
     return Tetromino.fromArray(t_shape, 4, 0);
   }
   static get T_SHAPE2() {
-    const t_shape = `....
-       TTT.
-       .T..
-       ....
+    const t_shape1 = `....
+                      TTT.
+                      .T..
+                      ....
 `;
-    return new Tetromino([t_shape], 0);
+    const t_shape2 = `....
+                      TTT.
+                      .T..
+                      ....
+`;
+    return new Tetromino([t_shape1, t_shape2], 0);
   }
 
   static get I_SHAPE() {
