@@ -25,13 +25,12 @@ export class Tetromino {
     return Tetromino.fromArray(t_shape, 4, 0);
   }
   static get T_SHAPE2() {
-    const t_shape = [
-      [".", ".", ".", "."],
-      ["T", "T", "T", "."],
-      [".", "T", ".", "."],
-      [".", ".", ".", "."],
-    ];
-    return Tetromino.fromArray(t_shape, 1);
+    const t_shape = `....
+                     TTT.
+                     .T..
+                     ....
+`;
+    return new Tetromino([t_shape], 0);
   }
 
   static get I_SHAPE() {
@@ -59,7 +58,8 @@ export class Tetromino {
   }
 
   toString2() {
-    return this.orientations[this.currentOrientation];
+    // const trimmed = shape.replace(/\s/g, "").split("");
+    return this.orientations[this.currentOrientation].replace(/[ \t]/g, "");
   }
 
   rotateRight() {
