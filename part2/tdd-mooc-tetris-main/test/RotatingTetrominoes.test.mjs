@@ -19,10 +19,12 @@ describe("The T shape", () => {
   const shape = Tetromino.T_SHAPE;
 
   test("initial orientation", () => {
+    const shape = Tetromino.T_SHAPE2;
     expect(shape.toString()).to.equalShape(
-      `.T.
-       TTT
-       ...`
+      `....
+       TTT.
+       .T..
+       ....`
     );
   });
 
