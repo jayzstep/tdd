@@ -39,10 +39,12 @@ describe("The T shape", () => {
   });
 
   test("can be rotated left/counter-clockwise", () => {
-    expect(shape.rotateLeft().toString()).to.equalShape(
-      `.T.
-       TT.
-       .T.`
+    const shape = Tetromino.T_SHAPE2;
+    expect(shape.rotateLeft().toString2()).to.equalShape(
+      `.T..
+       .TT.
+       .T..
+       ....`
     );
   });
 
