@@ -24,6 +24,15 @@ export class Tetromino {
     ];
     return Tetromino.fromArray(t_shape, 4, 0);
   }
+  static get T_SHAPE2() {
+    const t_shape = [
+      [".", ".", ".", "."],
+      ["T", "T", "T", "."],
+      [".", "T", ".", "."],
+      [".", ".", ".", "."],
+    ];
+    return Tetromino.fromArray(t_shape, 1);
+  }
 
   static get I_SHAPE() {
     const i_shape = [
