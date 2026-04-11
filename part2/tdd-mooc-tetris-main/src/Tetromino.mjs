@@ -54,10 +54,6 @@ export class Tetromino {
   }
 
   toString() {
-    return this.orientations[this.currentOrientation].toString();
-  }
-
-  toString2() {
     return this.orientations[this.currentOrientation].replace(/[ \t]/g, "");
   }
 
@@ -81,6 +77,6 @@ export class Tetromino {
   }
 
   blockAt(row, col) {
-    return this.toString2()[row * 5 + col];
+    return this.toString()[row * 5 + col];
   }
 }
