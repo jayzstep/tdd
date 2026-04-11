@@ -185,7 +185,7 @@ export class Board {
     }
   }
 
-  rotate(attempt) {
+  attemptRotation(attempt) {
     if (this.hitsSomething(attempt)) {
       if (this.hitsTop(attempt)) {
         if (!this.hitsSomething(attempt.moveDown())) {
@@ -201,13 +201,13 @@ export class Board {
 
   rotateRight() {
     if (this.hasFalling()) {
-      this.rotate(this.falling.rotateRight());
+      this.attemptRotation(this.falling.rotateRight());
     }
   }
 
   rotateLeft() {
     if (this.hasFalling()) {
-      this.rotate(this.falling.rotateLeft());
+      this.attemptRotation(this.falling.rotateLeft());
     }
   }
 
