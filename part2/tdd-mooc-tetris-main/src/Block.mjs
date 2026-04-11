@@ -25,4 +25,8 @@ export class Block {
   width() {
     return 1;
   }
+
+  rowOffset() {
+    return 0;
+  }
 }

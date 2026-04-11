@@ -104,7 +104,7 @@ export class Board {
     if (this.falling) {
       throw "already falling";
     }
-    this.falling = new FallingShape(shape, 0, Math.floor((this.width - shape.width()) / 2));
+    this.falling = new FallingShape(shape, shape.rowOffset(), Math.floor((this.width - shape.width()) / 2));
   }
 
   tick() {
@@ -136,6 +136,7 @@ export class Board {
         block.row >= this.height ||
         block.col < 0 ||
         block.col >= this.width ||
+        block.row < 0 ||
         this.state[block.row][block.col] !== EMPTY
       ) {
         return true;
