@@ -59,7 +59,7 @@ describe("Falling tetrominoes", () => {
   });
 
   test("can be rotated right", () => {
-    board.drop(Tetromino.T_SHAPE);
+    board.drop(Tetromino.T_SHAPE2);
     board.rotateRight();
 
     expect(board.toString()).to.equalShape(
@@ -86,7 +86,7 @@ describe("Falling tetrominoes", () => {
     );
   });
 
-  test.only("can not be rotated right if there is no room", () => {
+  test("can not be rotated right if there is no room", () => {
     board.drop(Tetromino.I_SHAPE);
     board.moveDown();
     board.moveLeft();
