@@ -102,6 +102,14 @@ export class Tetromino {
     }
   }
 
+  rowOffset() {
+    if (this.orientations[this.currentOrientation] instanceof RotatingShape) {
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+
   blockAt(row, col) {
     if (this.orientations[this.currentOrientation] instanceof RotatingShape) {
       return this.orientations[this.currentOrientation].blockAt(row, col);
