@@ -10,7 +10,7 @@ describe("Moving tetrominoes", () => {
   });
 
   test("can be moved left", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     board.moveLeft();
 
     expect(board.toString()).to.equalShape(
@@ -23,7 +23,7 @@ describe("Moving tetrominoes", () => {
     );
   });
   test("can be moved right", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     board.moveRight();
 
     expect(board.toString()).to.equalShape(
@@ -36,7 +36,7 @@ describe("Moving tetrominoes", () => {
     );
   });
   test("can be moved down", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     board.moveDown();
 
     expect(board.toString()).to.equalShape(
@@ -49,7 +49,7 @@ describe("Moving tetrominoes", () => {
     );
   });
   test("stops moving left at the edge", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 6; i++) {
       board.moveLeft();
     }
@@ -63,7 +63,7 @@ describe("Moving tetrominoes", () => {
     );
   });
   test("stops moving right at the edge", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 6; i++) {
       board.moveRight();
     }
@@ -77,7 +77,7 @@ describe("Moving tetrominoes", () => {
     );
   });
   test("stops moving at the bottom", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 10; i++) {
       board.moveDown();
     }
@@ -93,11 +93,11 @@ describe("Moving tetrominoes", () => {
     );
   });
   test("hitting another piece from the top stops movement", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 6; i++) {
       board.tick();
     }
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 6; i++) {
       board.moveDown();
     }
