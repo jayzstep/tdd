@@ -130,30 +130,6 @@ export class Board {
     return this.falling !== null;
   }
 
-  hitsSomething(attempt) {
-    for (const block of attempt.nonEmptyBlocks()) {
-      if (
-        block.row >= this.height ||
-        block.col < 0 ||
-        block.col >= this.width ||
-        block.row < 0 ||
-        this.state[block.row][block.col] !== EMPTY
-      ) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  hitsTop(attempt) {
-    for (const block of attempt.nonEmptyBlocks()) {
-      if (block.row < 0) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   moveLeft() {
     if (this.hasFalling()) {
       const attempt = this.falling.moveLeft();
@@ -185,6 +161,18 @@ export class Board {
     }
   }
 
+  rotateRight() {
+    if (this.hasFalling()) {
+      this.attemptRotation(this.falling.rotateRight());
+    }
+  }
+
+  rotateLeft() {
+    if (this.hasFalling()) {
+      this.attemptRotation(this.falling.rotateLeft());
+    }
+  }
+
   attemptRotation(attempt) {
     if (this.hitsSomething(attempt)) {
       if (this.hitsTop(attempt)) {
@@ -199,16 +187,28 @@ export class Board {
     }
   }
 
-  rotateRight() {
-    if (this.hasFalling()) {
-      this.attemptRotation(this.falling.rotateRight());
+  hitsSomething(attempt) {
+    for (const block of attempt.nonEmptyBlocks()) {
+      if (
+        block.row >= this.height ||
+        block.col < 0 ||
+        block.col >= this.width ||
+        block.row < 0 ||
+        this.state[block.row][block.col] !== EMPTY
+      ) {
+        return true;
+      }
     }
+    return false;
   }
 
-  rotateLeft() {
-    if (this.hasFalling()) {
-      this.attemptRotation(this.falling.rotateLeft());
+  hitsTop(attempt) {
+    for (const block of attempt.nonEmptyBlocks()) {
+      if (block.row < 0) {
+        return true;
+      }
     }
+    return false;
   }
 
   wallKick(attempt) {
