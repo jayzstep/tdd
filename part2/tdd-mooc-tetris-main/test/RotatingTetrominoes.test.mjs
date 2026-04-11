@@ -86,10 +86,9 @@ describe("The I shape", () => {
 });
 
 describe("The O shape", () => {
-  const shape = Tetromino.O_SHAPE;
+  const shape = Tetromino.O_SHAPE2;
 
   test("initial orientation", () => {
-    const shape = Tetromino.O_SHAPE2;
     expect(shape.toString2()).to.equalShape(
       `....
        .OO.
@@ -99,7 +98,6 @@ describe("The O shape", () => {
   });
 
   test("cannot be rotated right/clockwise", () => {
-    const shape = Tetromino.O_SHAPE2;
     expect(shape.rotateRight().toString2()).to.equalShape(
       `....
        .OO.
@@ -109,7 +107,6 @@ describe("The O shape", () => {
   });
 
   test("cannot be rotated left/counter-clockwise", () => {
-    const shape = Tetromino.O_SHAPE2;
     expect(shape.rotateLeft().toString2()).to.equalShape(
       `....
        .OO.
