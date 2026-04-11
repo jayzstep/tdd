@@ -49,17 +49,6 @@ export class Tetromino {
   }
 
   static get I_SHAPE() {
-    const i_shape = [
-      [".", ".", ".", ".", "."],
-      [".", ".", ".", ".", "."],
-      ["I", "I", "I", "I", "."],
-      [".", ".", ".", ".", "."],
-      [".", ".", ".", ".", "."],
-    ];
-    return Tetromino.fromArray(i_shape, 2);
-  }
-
-  static get I_SHAPE2() {
     const i_shape1 = `....
                       IIII
                       ....
