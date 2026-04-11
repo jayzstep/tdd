@@ -89,10 +89,12 @@ describe("The O shape", () => {
   const shape = Tetromino.O_SHAPE;
 
   test("initial orientation", () => {
-    expect(shape.toString()).to.equalShape(
-      `.OO
-       .OO
-       ...`
+    const shape = Tetromino.O_SHAPE2;
+    expect(shape.toString2()).to.equalShape(
+      `....
+       .OO.
+       .OO.
+       ....`
     );
   });
 
