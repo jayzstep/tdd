@@ -86,7 +86,7 @@ describe("The I shape", () => {
 });
 
 describe("The O shape", () => {
-  const shape = Tetromino.O_SHAPE2;
+  const shape = Tetromino.O_SHAPE;
 
   test("initial orientation", () => {
     expect(shape.toString2()).to.equalShape(
