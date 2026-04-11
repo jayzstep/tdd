@@ -63,13 +63,13 @@ describe("Moving tetrominoes", () => {
     );
   });
   test("stops moving right at the edge", () => {
-    board.drop(Tetromino.T_SHAPE);
+    board.drop(Tetromino.T_SHAPE2);
     for (let i = 0; i < 6; i++) {
       board.moveRight();
     }
     expect(board.toString()).to.equalShape(
-      `........T.
-       .......TTT
+      `.......TTT
+       ........T.
        ..........
        ..........
        ..........
