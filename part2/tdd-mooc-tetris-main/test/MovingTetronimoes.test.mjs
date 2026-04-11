@@ -93,21 +93,21 @@ describe("Moving tetrominoes", () => {
     );
   });
   test("hitting another piece from the top stops movement", () => {
-    board.drop(Tetromino.T_SHAPE);
+    board.drop(Tetromino.T_SHAPE2);
     for (let i = 0; i < 6; i++) {
       board.tick();
     }
-    board.drop(Tetromino.T_SHAPE);
+    board.drop(Tetromino.T_SHAPE2);
     for (let i = 0; i < 6; i++) {
       board.moveDown();
     }
     expect(board.toString()).to.equalShape(
       `..........
        ..........
-       ....T.....
        ...TTT....
        ....T.....
-       ...TTT....`
+       ...TTT....
+       ....T.....`
     );
   });
 
