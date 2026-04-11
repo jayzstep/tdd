@@ -64,12 +64,12 @@ describe("The I shape", () => {
   });
 
   test("can be rotated right/clockwise", () => {
-    expect(shape.rotateRight().toString()).to.equalShape(
-      `..I..
-       ..I..
-       ..I..
-       ..I..
-       .....`
+    const shape = Tetromino.I_SHAPE2;
+    expect(shape.rotateRight().toString2()).to.equalShape(
+      `..I.
+       ..I.
+       ..I.
+       ..I.`
     );
   });
 
