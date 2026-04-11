@@ -104,10 +104,6 @@ export class Tetromino {
   }
 
   blockAt(row, col) {
-    if (this.orientations[this.currentOrientation] instanceof RotatingShape) {
-      return this.orientations[this.currentOrientation].blockAt(row, col);
-    } else {
-      return this.toString2()[row * 5 + col];
-    }
+    return this.toString2()[row * 5 + col];
   }
 }
