@@ -189,7 +189,13 @@ export class Board {
     if (this.hasFalling()) {
       const attempt = this.falling.rotateRight();
       if (this.hitsSomething(attempt)) {
-        this.wallKick(attempt);
+        if (this.hitsTop(attempt)) {
+          if (!this.hitsSomething(attempt.moveDown()) {
+            this.falling = attempt.moveDown()
+          };
+        } else {
+          this.wallKick(attempt);
+        }
       } else {
         this.falling = attempt;
       }
@@ -200,7 +206,11 @@ export class Board {
     if (this.hasFalling()) {
       const attempt = this.falling.rotateLeft();
       if (this.hitsSomething(attempt)) {
-        this.wallKick(attempt);
+        if (this.hitsTop(attempt)) {
+          this.moveDown();
+        } else {
+          this.wallKick(attempt);
+        }
       } else {
         this.falling = attempt;
       }
@@ -213,9 +223,6 @@ export class Board {
     }
     if (!this.hitsSomething(attempt.moveRight())) {
       this.falling = attempt.moveRight();
-    }
-    if (!this.hitsSomething(attempt.moveDown())) {
-      this.falling = attempt.moveDown();
     }
     return;
   }
