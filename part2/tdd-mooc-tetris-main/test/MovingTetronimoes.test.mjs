@@ -77,7 +77,7 @@ describe("Moving tetrominoes", () => {
     );
   });
   test("stops moving at the bottom", () => {
-    board.drop(Tetromino.T_SHAPE);
+    board.drop(Tetromino.T_SHAPE2);
     for (let i = 0; i < 10; i++) {
       board.moveDown();
     }
@@ -88,8 +88,8 @@ describe("Moving tetrominoes", () => {
        ..........
        ..........
        ..........
-       ....T.....
-       ...TTT....`
+       ...TTT....
+       ....T.....`
     );
   });
   test("hitting another piece from the top stops movement", () => {
