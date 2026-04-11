@@ -207,8 +207,7 @@ export class Board {
 
   rotateLeft() {
     if (this.hasFalling()) {
-      const attempt = this.falling.rotateLeft();
-      this.rotate(attempt);
+      this.rotate(this.falling.rotateLeft());
     }
   }
 
