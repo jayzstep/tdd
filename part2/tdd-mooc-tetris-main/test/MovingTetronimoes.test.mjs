@@ -110,6 +110,7 @@ describe("Moving tetrominoes", () => {
        ...TTT....`
     );
   });
+
   test("hitting another block on the left stops movement", () => {
     board.drop(Tetromino.O_SHAPE);
     for (let i = 0; i < 6; i++) {
@@ -117,7 +118,6 @@ describe("Moving tetrominoes", () => {
       board.moveDown();
     }
     board.drop(Tetromino.O_SHAPE);
-    board.moveDown();
     board.moveDown();
     board.moveDown();
     board.moveLeft();
@@ -134,6 +134,7 @@ describe("Moving tetrominoes", () => {
        OO........`
     );
   });
+
   test("hitting another block on the right stops movement", () => {
     board.drop(Tetromino.O_SHAPE);
     for (let i = 0; i < 6; i++) {
@@ -141,7 +142,6 @@ describe("Moving tetrominoes", () => {
       board.moveDown();
     }
     board.drop(Tetromino.O_SHAPE);
-    board.moveDown();
     board.moveDown();
     board.moveDown();
     board.moveRight();
