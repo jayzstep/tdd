@@ -190,9 +190,9 @@ export class Board {
       const attempt = this.falling.rotateRight();
       if (this.hitsSomething(attempt)) {
         if (this.hitsTop(attempt)) {
-          if (!this.hitsSomething(attempt.moveDown()) {
-            this.falling = attempt.moveDown()
-          };
+          if (!this.hitsSomething(attempt.moveDown())) {
+            this.falling = attempt.moveDown();
+          }
         } else {
           this.wallKick(attempt);
         }
@@ -207,7 +207,9 @@ export class Board {
       const attempt = this.falling.rotateLeft();
       if (this.hitsSomething(attempt)) {
         if (this.hitsTop(attempt)) {
-          this.moveDown();
+          if (!this.hitsSomething(attempt.moveDown())) {
+            this.falling = attempt.moveDown();
+          }
         } else {
           this.wallKick(attempt);
         }
