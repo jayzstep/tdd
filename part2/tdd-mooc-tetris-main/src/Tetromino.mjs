@@ -82,6 +82,15 @@ export class Tetromino {
     return Tetromino.fromArray(o_shape, 1);
   }
 
+  static get O_SHAPE2() {
+    const o_shape = `....
+                     .OO.
+                     .OO.
+                     ....
+`;
+    return new Tetromino([o_shape], 0);
+  }
+
   toString() {
     return this.orientations[this.currentOrientation].toString();
   }
