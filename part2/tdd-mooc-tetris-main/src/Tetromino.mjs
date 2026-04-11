@@ -59,6 +59,15 @@ export class Tetromino {
     return Tetromino.fromArray(i_shape, 2);
   }
 
+  static get I_SHAPE2() {
+    const i_shape1 = `....
+                      IIII
+                      ....
+                      ....
+`;
+    return new Tetromino([i_shape1], 0);
+  }
+
   static get O_SHAPE() {
     const o_shape = [
       [".", "O", "O"],
