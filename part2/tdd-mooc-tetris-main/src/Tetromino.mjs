@@ -88,11 +88,7 @@ export class Tetromino {
     }
   }
   width() {
-    if (this.orientations[this.currentOrientation] instanceof RotatingShape) {
-      return this.orientations[this.currentOrientation].width();
-    } else {
-      return 4;
-    }
+    return 4;
   }
 
   rowOffset() {
