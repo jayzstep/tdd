@@ -209,17 +209,7 @@ export class Board {
   rotateLeft() {
     if (this.hasFalling()) {
       const attempt = this.falling.rotateLeft();
-      if (this.hitsSomething(attempt)) {
-        if (this.hitsTop(attempt)) {
-          if (!this.hitsSomething(attempt.moveDown())) {
-            this.falling = attempt.moveDown();
-          }
-        } else {
-          this.wallKick(attempt);
-        }
-      } else {
-        this.falling = attempt;
-      }
+      this.rotate(attempt);
     }
   }
 
