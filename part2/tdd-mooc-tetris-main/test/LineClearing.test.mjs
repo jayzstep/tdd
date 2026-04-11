@@ -8,7 +8,7 @@ describe("Line clearing", () => {
     board = new Board(3, 3);
   });
 
-  test.skip("single full row disappears", () => {
+  test("single full row disappears", () => {
     board.setState([
       [".", ".", "."],
       [".", ".", "."],
