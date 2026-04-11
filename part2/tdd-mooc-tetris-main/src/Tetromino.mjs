@@ -88,11 +88,7 @@ export class Tetromino {
   }
 
   rowOffset() {
-    if (this.orientations[this.currentOrientation] instanceof RotatingShape) {
-      return 0;
-    } else {
-      return -1;
-    }
+    return -1;
   }
 
   blockAt(row, col) {
