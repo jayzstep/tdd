@@ -185,20 +185,24 @@ export class Board {
     }
   }
 
+  rotate(attempt) {
+    if (this.hitsSomething(attempt)) {
+      if (this.hitsTop(attempt)) {
+        if (!this.hitsSomething(attempt.moveDown())) {
+          this.falling = attempt.moveDown();
+        }
+      } else {
+        this.wallKick(attempt);
+      }
+    } else {
+      this.falling = attempt;
+    }
+  }
+
   rotateRight() {
     if (this.hasFalling()) {
       const attempt = this.falling.rotateRight();
-      if (this.hitsSomething(attempt)) {
-        if (this.hitsTop(attempt)) {
-          if (!this.hitsSomething(attempt.moveDown())) {
-            this.falling = attempt.moveDown();
-          }
-        } else {
-          this.wallKick(attempt);
-        }
-      } else {
-        this.falling = attempt;
-      }
+      this.rotate(attempt);
     }
   }
 
