@@ -205,6 +205,9 @@ export class Board {
     if (!this.hitsSomething(attempt.moveRight())) {
       this.falling = attempt.moveRight();
     }
+    if (!this.hitsSomething(attempt.moveDown())) {
+      this.falling = attempt.moveDown();
+    }
     return;
   }
 }
