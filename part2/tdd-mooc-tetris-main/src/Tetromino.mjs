@@ -16,15 +16,8 @@ export class Tetromino {
     ].slice(0, orientationCount);
     return new Tetromino(orientations, currentOrientation);
   }
+
   static get T_SHAPE() {
-    const t_shape = [
-      [".", "T", "."],
-      ["T", "T", "T"],
-      [".", ".", "."],
-    ];
-    return Tetromino.fromArray(t_shape, 4, 0);
-  }
-  static get T_SHAPE2() {
     const t_shape1 = `....
                       TTT.
                       .T..
