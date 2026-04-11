@@ -16,7 +16,7 @@ describe("Falling tetrominoes", () => {
   });
 
   test("start from the top middle", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
 
     expect(board.toString()).to.equalShape(
       `...TTT....
@@ -29,7 +29,7 @@ describe("Falling tetrominoes", () => {
   });
 
   test("stop when they hit the bottom", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
 
     expect(board.toString()).to.equalShape(
@@ -43,9 +43,9 @@ describe("Falling tetrominoes", () => {
   });
 
   test("stop when they land on another block", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
 
     expect(board.toString()).to.equalShape(
@@ -59,7 +59,7 @@ describe("Falling tetrominoes", () => {
   });
 
   test("can be rotated right", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     board.rotateRight();
 
     expect(board.toString()).to.equalShape(
@@ -73,7 +73,7 @@ describe("Falling tetrominoes", () => {
   });
 
   test("can be rotated left", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
@@ -138,7 +138,7 @@ describe("Falling tetrominoes", () => {
   });
 
   test("wall kicks if no room to rotate on the right", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     board.rotateLeft();
     for (let i = 0; i < 6; i++) {
       board.moveRight();
@@ -157,7 +157,7 @@ describe("Falling tetrominoes", () => {
   });
 
   test("wall kicks if no room to rotate on the left", () => {
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     board.rotateRight();
     for (let i = 0; i < 6; i++) {
       board.moveLeft();
@@ -179,7 +179,7 @@ describe("Falling tetrominoes", () => {
     board.drop(Tetromino.I_SHAPE);
     board.rotateRight();
     fallToBottom(board);
-    board.drop(Tetromino.T_SHAPE2);
+    board.drop(Tetromino.T_SHAPE);
     board.moveRight();
     board.moveRight();
     board.rotateLeft();
