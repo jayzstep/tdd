@@ -17,6 +17,7 @@ describe("Line clearing", () => {
     board.drop("B");
     board.tick();
     board.tick();
+    board.tick();
 
     expect(board.toString()).to.equalShape(
       `...

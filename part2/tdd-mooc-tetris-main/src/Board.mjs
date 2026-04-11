@@ -137,6 +137,12 @@ export class Board {
         fullRows.push(row);
       }
     }
+
+    fullRows.forEach((row) => {
+      for (let col = 0; col < this.width; col++) {
+        this.state[row][col] = EMPTY;
+      }
+    });
   }
 
   hasFalling() {
