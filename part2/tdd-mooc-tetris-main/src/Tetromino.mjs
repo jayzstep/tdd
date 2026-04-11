@@ -65,7 +65,12 @@ export class Tetromino {
                       ....
                       ....
 `;
-    return new Tetromino([i_shape1], 0);
+    const i_shape2 = `..I.
+                      ..I.
+                      ..I.
+                      ..I.
+`;
+    return new Tetromino([i_shape1, i_shape2], 0);
   }
 
   static get O_SHAPE() {
