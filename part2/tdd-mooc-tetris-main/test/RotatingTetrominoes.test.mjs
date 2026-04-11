@@ -99,10 +99,12 @@ describe("The O shape", () => {
   });
 
   test("cannot be rotated right/clockwise", () => {
-    expect(shape.rotateRight().toString()).to.equalShape(
-      `.OO
-       .OO
-       ...`
+    const shape = Tetromino.O_SHAPE2;
+    expect(shape.rotateRight().toString2()).to.equalShape(
+      `....
+       .OO.
+       .OO.
+       ....`
     );
   });
 
