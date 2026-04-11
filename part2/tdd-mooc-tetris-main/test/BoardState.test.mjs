@@ -12,12 +12,12 @@ describe("Board state", () => {
     board.setState([
       [".", ".", "."],
       [".", ".", "."],
-      [".", ".", "."],
+      [".", "B", "."],
     ]);
     expect(board.toString()).to.equalShape(
       `...
        ...
-       ...`
+       .B.`
     );
   });
 });
