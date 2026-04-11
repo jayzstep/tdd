@@ -40,7 +40,12 @@ export class Tetromino {
                       .T..
                       ....
 `;
-    return new Tetromino([t_shape1, t_shape2, t_shape3], 0);
+    const t_shape4 = `....
+                      .T..
+                      TTT.
+                      ....
+`;
+    return new Tetromino([t_shape1, t_shape2, t_shape3, t_shape4, t_shape3], 0);
   }
 
   static get I_SHAPE() {
