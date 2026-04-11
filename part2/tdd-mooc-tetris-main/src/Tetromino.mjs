@@ -74,15 +74,6 @@ export class Tetromino {
   }
 
   static get O_SHAPE() {
-    const o_shape = [
-      [".", "O", "O"],
-      [".", "O", "O"],
-      [".", ".", "."],
-    ];
-    return Tetromino.fromArray(o_shape, 1);
-  }
-
-  static get O_SHAPE2() {
     const o_shape = `....
                      .OO.
                      .OO.
@@ -96,7 +87,6 @@ export class Tetromino {
   }
 
   toString2() {
-    // const trimmed = shape.replace(/\s/g, "").split("");
     return this.orientations[this.currentOrientation].replace(/[ \t]/g, "");
   }
 
@@ -109,13 +99,25 @@ export class Tetromino {
   }
 
   height() {
-    return this.orientations[this.currentOrientation].height();
+    if (this.orientations[this.currentOrientation] instanceof RotatingShape) {
+      return this.orientations[this.currentOrientation].height();
+    } else {
+      return 4;
+    }
   }
   width() {
-    return this.orientations[this.currentOrientation].width();
+    if (this.orientations[this.currentOrientation] instanceof RotatingShape) {
+      return this.orientations[this.currentOrientation].width();
+    } else {
+      return 4;
+    }
   }
 
   blockAt(row, col) {
-    return this.orientations[this.currentOrientation].blockAt(row, col);
+    if (this.orientations[this.currentOrientation] instanceof RotatingShape) {
+      return this.orientations[this.currentOrientation].blockAt(row, col);
+    } else {
+      return this.toString2()[row * 5 + col];
+    }
   }
 }
