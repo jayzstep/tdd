@@ -81,11 +81,7 @@ export class Tetromino {
   }
 
   height() {
-    if (this.orientations[this.currentOrientation] instanceof RotatingShape) {
-      return this.orientations[this.currentOrientation].height();
-    } else {
-      return 4;
-    }
+    return 4;
   }
   width() {
     return 4;
