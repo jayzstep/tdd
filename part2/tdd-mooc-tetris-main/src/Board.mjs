@@ -140,17 +140,12 @@ export class Board {
       }
     }
 
-    fullRows.forEach((row) => {
-      for (let col = 0; col < this.width; col++) {
-        this.state[row][col] = EMPTY;
-      }
-    });
-
     this.state = [
       ...Array.from({ length: fullRows.length }, () => Array.from({ length: this.width }, () => ".")),
       ...this.state.filter((_row, index) => !fullRows.includes(index)),
     ];
   }
+
   hasFalling() {
     return this.falling !== null;
   }
