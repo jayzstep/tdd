@@ -145,7 +145,7 @@ export class Board {
     );
 
     this.state = [
-      ...Array.from({ length: fullRows.length }, () => Array.from({ length: this.width }, () => ".")),
+      ...Array.from({ length: fullRows2.size }, () => Array.from({ length: this.width }, () => ".")),
       ...this.state.filter((_row, index) => !fullRows2.has(index)),
     ];
   }
