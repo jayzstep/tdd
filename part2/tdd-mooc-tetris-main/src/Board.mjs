@@ -124,7 +124,9 @@ export class Board {
       }
     }
     this.falling = null;
+  }
 
+  checkAndClearFullRows() {
     const fullRows = [];
     for (let row = 0; row < this.height; row++) {
       let roomInRow = 0;
@@ -144,7 +146,6 @@ export class Board {
       }
     });
   }
-
   hasFalling() {
     return this.falling !== null;
   }
@@ -174,6 +175,7 @@ export class Board {
       const attempt = this.falling.moveDown();
       if (this.hitsSomething(attempt)) {
         this.stopFalling();
+        this.checkAndClearFullRows();
         return;
       }
       this.falling = attempt;
