@@ -127,19 +127,6 @@ export class Board {
   }
 
   checkAndClearFullRows() {
-    const fullRows = [];
-    for (let row = 0; row < this.height; row++) {
-      let roomInRow = 0;
-      for (let col = 0; col < this.width; col++) {
-        if (this.state[row][col] == EMPTY) {
-          roomInRow++;
-        }
-      }
-      if (roomInRow == 0) {
-        fullRows.push(row);
-      }
-    }
-
     const fullRows2 = new Set(
       this.state.map((row, i) => (row.every((block) => block !== EMPTY) ? i : -1)).filter((i) => i !== -1)
     );
