@@ -25,4 +25,22 @@ describe("Line clearing", () => {
        ...`
     );
   });
+
+  test("non-empty rows fall down", () => {
+    board.setState([
+      [".", ".", "."],
+      ["B", ".", "."],
+      ["B", ".", "B"],
+    ]);
+    board.drop("B");
+    board.tick();
+    board.tick();
+    board.tick();
+
+    expect(board.toString()).to.equalShape(
+      `...
+       ...
+       B..`
+    );
+  });
 });
