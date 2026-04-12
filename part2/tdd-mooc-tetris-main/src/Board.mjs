@@ -140,6 +140,10 @@ export class Board {
       }
     }
 
+    const fullRows2 = new Set(
+      this.state.map((row, i) => row.every((block) => (block == EMPTY ? i : -1))).filter((i) => i !== -1)
+    );
+
     this.state = [
       ...Array.from({ length: fullRows.length }, () => Array.from({ length: this.width }, () => ".")),
       ...this.state.filter((_row, index) => !fullRows.includes(index)),
