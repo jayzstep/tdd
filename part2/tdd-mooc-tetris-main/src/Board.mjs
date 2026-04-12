@@ -141,7 +141,7 @@ export class Board {
     }
 
     const fullRows2 = new Set(
-      this.state.map((row, i) => row.every((block) => (block == EMPTY ? i : -1))).filter((i) => i !== -1)
+      this.state.map((row, i) => (row.every((block) => block !== EMPTY) ? i : -1)).filter((i) => i !== -1)
     );
 
     this.state = [
