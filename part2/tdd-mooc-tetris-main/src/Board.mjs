@@ -146,9 +146,10 @@ export class Board {
       }
     });
 
-    const newState = this.state.filter((row, index) => {
-      !fullRows.includes(index);
-    });
+    this.state = [
+      ...Array.from({ length: fullRows.length }, () => Array.from({ length: this.width }, () => ".")),
+      ...this.state.filter((_row, index) => !fullRows.includes(index)),
+    ];
   }
   hasFalling() {
     return this.falling !== null;
