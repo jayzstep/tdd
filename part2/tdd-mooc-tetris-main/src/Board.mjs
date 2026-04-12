@@ -127,13 +127,13 @@ export class Board {
   }
 
   checkAndClearFullRows() {
-    const fullRows2 = new Set(
+    const fullRows = new Set(
       this.state.map((row, i) => (row.every((block) => block !== EMPTY) ? i : -1)).filter((i) => i !== -1)
     );
 
     this.state = [
-      ...Array.from({ length: fullRows2.size }, () => Array.from({ length: this.width }, () => ".")),
-      ...this.state.filter((_row, index) => !fullRows2.has(index)),
+      ...Array.from({ length: fullRows.size }, () => Array.from({ length: this.width }, () => ".")),
+      ...this.state.filter((_row, index) => !fullRows.has(index)),
     ];
   }
 
