@@ -17,4 +17,12 @@ describe("Scoring", () => {
     scoring.update(2);
     expect(scoring.score).to.equal(100);
   });
+
+  test("sums score correctly", () => {
+    scoring.update(1);
+    scoring.update(2);
+    scoring.update(3);
+    scoring.update(4);
+    expect(scoring.score).to.equal(1640);
+  });
 });
