@@ -1,5 +1,8 @@
 export class Scoring {
   update(rowCount) {
-    this.score = 40;
+    switch (rowCount) {
+      case 1:
+        this.score = 40;
+    }
   }
 }
