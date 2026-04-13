@@ -12,9 +12,11 @@ class Observer {
 }
 
 describe("Notification", () => {
-  let board = new Board(3, 3);
-  let observer = new Observer();
+  let board;
+  let observer;
   beforeEach(() => {
+    board = new Board(3, 3);
+    observer = new Observer();
     board.subscribe(observer);
   });
 
