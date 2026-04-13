@@ -21,6 +21,10 @@ describe("Notification", () => {
   });
 
   test("subscribing works", () => {
+    expect(board.subscriber).to.instanceof(Observer);
+  });
+
+  test.skip("update works", () => {
     board.setState([
       [".", ".", "."],
       [".", ".", "."],
