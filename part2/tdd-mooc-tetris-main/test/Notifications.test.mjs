@@ -5,8 +5,10 @@ import { Board } from "../src/Board.mjs";
 class Observer {
   constructor() {
     this.updated = false;
+    this.rowsDeleted = 0;
   }
-  update() {
+  update(rowAmount) {
+    this.rowsDeleted = rowAmount;
     this.updated = true;
   }
 }
@@ -41,5 +43,18 @@ describe("Notification", () => {
     board.drop("B");
     board.tick();
     expect(observer.updated).to.equal(false);
+  });
+
+  test("updates when one row is deleted", () => {
+    board.setState([
+      [".", ".", "."],
+      [".", ".", "."],
+      ["B", ".", "B"],
+    ]);
+    board.drop("B");
+    board.tick();
+    board.tick();
+    board.tick();
+    expect(observer.rowsDeleted).to.equal(1);
   });
 });
