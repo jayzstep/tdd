@@ -140,7 +140,7 @@ export class Board {
       ...this.state.filter((_row, index) => !fullRows.has(index)),
     ];
     if (this.subscriber && fullRows.size > 0) {
-      this.subscriber.update();
+      this.subscriber.update(1);
     }
   }
 
