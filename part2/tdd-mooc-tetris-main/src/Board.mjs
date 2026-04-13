@@ -139,6 +139,9 @@ export class Board {
       ...Array.from({ length: fullRows.size }, () => Array.from({ length: this.width }, () => ".")),
       ...this.state.filter((_row, index) => !fullRows.has(index)),
     ];
+    if (this.subscriber) {
+      this.subscriber.update();
+    }
   }
 
   hasFalling() {
