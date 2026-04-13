@@ -80,6 +80,10 @@ export class Board {
     this.state = newState;
   }
 
+  subscribe(subscriber) {
+    this.subscriber = subscriber;
+  }
+
   toString() {
     let result = "";
 
