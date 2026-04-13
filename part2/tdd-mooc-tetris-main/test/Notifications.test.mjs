@@ -36,4 +36,10 @@ describe("Notification", () => {
     board.tick();
     expect(observer.updated).to.equal(true);
   });
+
+  test("does not update if no rows are deleted", () => {
+    board.drop("B");
+    board.tick();
+    expect(observer.updated).to.equal(false);
+  });
 });
