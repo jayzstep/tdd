@@ -2,6 +2,7 @@ export class Scoring {
   constructor() {
     this.score = 0;
     this.level = 1;
+    this.level2 = 1;
     this.clearedRows = 0;
   }
   update(rowCount) {
@@ -9,6 +10,7 @@ export class Scoring {
     if (this.clearedRows >= 10) {
       this.level += 1;
     }
+    this.level2 = Math.max((this.clearedRows % 10) + 1, 10);
     switch (rowCount) {
       case 1:
         this.score += 40;
