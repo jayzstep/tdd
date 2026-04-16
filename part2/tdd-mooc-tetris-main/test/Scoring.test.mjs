@@ -1,7 +1,6 @@
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Scoring } from "../src/Scoring.mjs";
-import { Board } from "../src/Board.mjs";
 
 describe("Scoring", () => {
   let scoring;
