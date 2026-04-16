@@ -14,6 +14,10 @@ describe("Board scoring", () => {
   });
 
   test("scoring starts at 0", () => {
+    board.drop("B");
+    board.tick();
+    board.tick();
+    board.tick();
     expect(scoring.score).to.equal(0);
   });
 
