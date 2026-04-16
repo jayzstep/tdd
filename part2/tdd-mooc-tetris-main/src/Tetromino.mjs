@@ -57,11 +57,11 @@ export class Tetromino {
   }
 
   rotateRight() {
-    return new Tetromino(this.orientations, this.currentOrientation + 1);
+    return new Tetromino(this.orientations, this.currentOrientation + 1, this.wallkicks);
   }
 
   rotateLeft() {
-    return new Tetromino(this.orientations, this.currentOrientation - 1);
+    return new Tetromino(this.orientations, this.currentOrientation - 1, this.wallkicks);
   }
 
   height() {
