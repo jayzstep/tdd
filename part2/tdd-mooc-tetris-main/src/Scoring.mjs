@@ -10,7 +10,7 @@ export class Scoring {
     if (this.clearedRows >= 10) {
       this.level += 1;
     }
-    this.level2 = Math.max((this.clearedRows % 10) + 1, 10);
+    this.level2 = Math.min(this.clearedRows / 10 + 1, 10);
     switch (rowCount) {
       case 1:
         this.score += 40;
