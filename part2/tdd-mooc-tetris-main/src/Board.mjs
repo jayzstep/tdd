@@ -198,7 +198,7 @@ export class Board {
         if (!this.hitsSomething(attempt.moveDown())) {
           this.falling = attempt.moveDown();
         }
-      } else {
+      } else if (attempt.wallkicks) {
         this.wallKick(attempt);
       }
     } else {
