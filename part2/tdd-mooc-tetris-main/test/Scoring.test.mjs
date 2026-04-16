@@ -1,6 +1,7 @@
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Scoring } from "../src/Scoring.mjs";
+import { Board } from "../src/Board.mjs";
 
 describe("Scoring", () => {
   let scoring;
@@ -24,5 +25,13 @@ describe("Scoring", () => {
     scoring.update(3);
     scoring.update(4);
     expect(scoring.score).to.equal(1640);
+  });
+
+  test("levels up after 10 cleared rows", () => {
+    expect(scoring.level).to.equal(1);
+    scoring.update(4);
+    scoring.update(4);
+    scoring.update(2);
+    expect(scoring.level).to.equal(2);
   });
 });
