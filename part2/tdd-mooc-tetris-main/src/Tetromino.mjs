@@ -40,7 +40,7 @@ export class Tetromino {
                       ..I.
                       ..I.
 `;
-    return new Tetromino([i_shape1, i_shape2], 0);
+    return new Tetromino([i_shape1, i_shape2], 0, false);
   }
 
   static get O_SHAPE() {
