@@ -1,8 +1,14 @@
 export class Scoring {
   constructor() {
     this.score = 0;
+    this.level = 1;
+    this.clearedRows = 0;
   }
   update(rowCount) {
+    this.clearedRows += rowCount;
+    if (this.clearedRows >= 10) {
+      this.level += 1;
+    }
     switch (rowCount) {
       case 1:
         this.score += 40;
