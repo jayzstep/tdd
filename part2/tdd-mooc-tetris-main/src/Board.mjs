@@ -231,11 +231,11 @@ export class Board {
   }
 
   wallKick(attempt) {
-    if (!this.hitsSomething(attempt.moveLeft())) {
-      this.falling = attempt.moveLeft();
-    }
     if (!this.hitsSomething(attempt.moveRight())) {
       this.falling = attempt.moveRight();
+    }
+    if (!this.hitsSomething(attempt.moveLeft())) {
+      this.falling = attempt.moveLeft();
     }
     return;
   }
