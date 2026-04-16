@@ -31,6 +31,7 @@ describe("Scoring", () => {
     scoring.update(4);
     scoring.update(4);
     scoring.update(2);
+    scoring.update(2);
     expect(scoring.level).to.equal(2);
   });
 });
