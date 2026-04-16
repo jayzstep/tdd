@@ -13,13 +13,16 @@ describe("Board scoring", () => {
     board.subscribe(scoring);
   });
 
+  test("scoring starts at 0", () => {
+    expect(scoring.score).to.equal(0);
+  });
+
   test("clearing one row updates score", () => {
     board.setState([
       [".", ".", "."],
       [".", ".", "."],
       ["B", ".", "B"],
     ]);
-    expect(scoring.score).to.equal(0);
     board.drop("B");
     board.tick();
     board.tick();
