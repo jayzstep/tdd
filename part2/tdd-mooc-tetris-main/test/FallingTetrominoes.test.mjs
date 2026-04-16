@@ -196,4 +196,26 @@ describe("Falling tetrominoes", () => {
        .....I....`
     );
   });
+
+  test("I shape does not wallkick", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.rotateRight();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    fallToBottom(board);
+    board.drop(Tetromino.I_SHAPE);
+    board.rotateRight();
+    board.moveLeft();
+    board.moveDown();
+    board.rotateRight();
+    expect(board.toString()).to.equalShape(
+      `..........
+       ....I.....
+       ..I.I.....
+       ..I.I.....
+       ..I.I.....
+       ..I.......`
+    );
+  });
 });
