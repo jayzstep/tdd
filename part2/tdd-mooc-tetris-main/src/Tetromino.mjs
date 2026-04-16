@@ -1,7 +1,8 @@
 export class Tetromino {
-  constructor(orientations, currentOrientation) {
+  constructor(orientations, currentOrientation, wallkicks = true) {
     this.orientations = orientations;
     this.currentOrientation = (currentOrientation + orientations.length) % orientations.length;
+    this.wallkicks = wallkicks;
   }
 
   static get T_SHAPE() {
