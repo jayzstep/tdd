@@ -33,7 +33,6 @@ describe("Board scoring", () => {
   test("clearing multiple rows updates score", () => {
     board.setState([
       [".", ".", "."],
-      [".", ".", "."],
       [".", ".", "B"],
       [".", ".", "B"],
     ]);
@@ -42,6 +41,6 @@ describe("Board scoring", () => {
     board.tick();
     board.tick();
     board.tick();
-    expect(scoring.score).to.equal(40);
+    expect(scoring.score).to.equal(100);
   });
 });
