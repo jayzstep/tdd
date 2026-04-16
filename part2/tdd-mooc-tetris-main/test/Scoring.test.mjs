@@ -34,4 +34,11 @@ describe("Scoring", () => {
     scoring.update(2);
     expect(scoring.level).to.equal(2);
   });
+
+  test("leveling affects the score like it should", () => {
+    scoring.update(4);
+    scoring.update(4);
+    scoring.update(4);
+    expect(scoring.score).to.equal(3600);
+  });
 });
