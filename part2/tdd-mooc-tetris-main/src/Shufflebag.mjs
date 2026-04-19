@@ -3,6 +3,6 @@ export class Shufflebag {
     this.data = [0, 1, 2, 3, 4, 5, 6];
   }
   next() {
-    return 0;
+    return this.data[0];
   }
 }
