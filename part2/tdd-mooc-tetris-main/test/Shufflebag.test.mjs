@@ -12,4 +12,11 @@ describe("Shufflebag", () => {
     const value = shufflebag.next();
     expect(values).to.include(value);
   });
+  test("returns values from 0 to 6 once each", () => {
+    const result = new Set();
+    for (let i = 0; i < 7; i++) {
+      result.add(shufflebag.next());
+    }
+    expect(result.size).to.equal(7);
+  });
 });
