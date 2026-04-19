@@ -4,7 +4,6 @@ export class Shufflebag {
     this.index = 0;
   }
   next() {
-    // const randomIndex = Math.floor(Math.random() * 7);
     const result = this.data[this.index % 7];
     this.index++;
     return result;
