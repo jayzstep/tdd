@@ -6,7 +6,8 @@ export class Shufflebag {
   }
   next() {
     const result = this.data[this.index % 7];
-    const result2 = this.data[this.index % 7];
+    const randomIndex = Math.floor(Math.random() * this.index);
+    const result2 = this.data2[this.index % 7];
     this.index--;
     if (this.index < 0) {
       this.index = this.data.length - 1;
