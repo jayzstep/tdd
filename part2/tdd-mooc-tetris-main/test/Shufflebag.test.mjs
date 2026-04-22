@@ -4,12 +4,12 @@ import { Shufflebag } from "../src/Shufflebag.mjs";
 
 describe("Shufflebag", () => {
   let shufflebag;
+  const values = [0, 1, 2, 3, 4, 5, 6];
   beforeEach(() => {
-    shufflebag = new Shufflebag();
+    shufflebag = new Shufflebag(values);
   });
 
   test("returns a value between 0 and 6", () => {
-    const values = [0, 1, 2, 3, 4, 5, 6];
     const value = shufflebag.next();
     expect(values).to.include(value);
   });
