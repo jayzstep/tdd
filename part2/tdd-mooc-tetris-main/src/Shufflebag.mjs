@@ -15,8 +15,10 @@ export class Shufflebag {
     return currentValue;
   }
 
-  add(item) {
-    this.data.push(item);
+  add(item, amount) {
+    for (let i = 0; i < amount; i++) {
+      this.data.push(item);
+    }
     this.currentPosition = this.data.length - 1;
   }
 }

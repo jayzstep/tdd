@@ -37,7 +37,7 @@ describe("Shufflebag with distribution", () => {
     shufflebag = new Shufflebag();
   });
   test("adding one returns one", () => {
-    shufflebag.add(1);
+    shufflebag.add(1, 1);
     const result = shufflebag.next();
     expect(result).to.equal(1);
   });
