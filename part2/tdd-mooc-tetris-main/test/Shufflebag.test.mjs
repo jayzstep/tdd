@@ -25,7 +25,9 @@ describe("Shufflebag", () => {
   test("keeps returning values after first 6", () => {
     const result = new Set();
     for (let i = 0; i < 20; i++) {
-      result.add(shufflebag.next());
+      const nextValue = shufflebag.next();
+      result.add(nextValue);
+      console.log(nextValue);
     }
     expect(result.size).to.equal(7);
   });

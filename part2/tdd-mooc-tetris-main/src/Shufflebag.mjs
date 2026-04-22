@@ -14,6 +14,6 @@ export class Shufflebag {
     if (this.index < 0) {
       this.index = this.data.length - 1;
     }
-    return result;
+    return result2;
   }
 }
