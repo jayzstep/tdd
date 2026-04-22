@@ -4,8 +4,9 @@ import { Shufflebag } from "../src/Shufflebag.mjs";
 
 describe("Shufflebag with one each", () => {
   let shufflebag;
-  const values = [0, 1, 2, 3, 4, 5, 6];
+  let values;
   beforeEach(() => {
+    values = [0, 1, 2, 3, 4, 5, 6];
     shufflebag = new Shufflebag(values);
   });
 
