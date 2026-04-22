@@ -42,5 +42,13 @@ describe("Shufflebag with distribution", () => {
     expect(result).to.equal(1);
   });
 
-  test("adding several eventually returns them all", () => {});
+  test("adding several eventually returns them all", () => {
+    shufflebag.add(1, 3);
+    shufflebag.add(2, 2);
+    const result = new Set();
+    for (let i = 0; i < 50; i++) {
+      result.add(shufflebag.next());
+    }
+    expect(result.size).to.equal(2);
+  });
 });
