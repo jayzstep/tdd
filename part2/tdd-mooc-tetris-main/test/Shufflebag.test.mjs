@@ -19,4 +19,11 @@ describe("Shufflebag", () => {
     }
     expect(result.size).to.equal(7);
   });
+  test("keeps returning values after first 6", () => {
+    const result = new Set();
+    for (let i = 0; i < 20; i++) {
+      result.add(shufflebag.next());
+    }
+    expect(result.size).to.equal(7);
+  });
 });
