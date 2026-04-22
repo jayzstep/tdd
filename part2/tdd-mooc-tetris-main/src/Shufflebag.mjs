@@ -5,7 +5,7 @@ export class Shufflebag {
   }
   next() {
     const result = this.data[this.index % 7];
-    this.index++;
+    this.index--;
     return result;
   }
 }
