@@ -7,11 +7,13 @@ describe("Shufflebag", () => {
   beforeEach(() => {
     shufflebag = new Shufflebag();
   });
+
   test("returns a value between 0 and 6", () => {
     const values = [0, 1, 2, 3, 4, 5, 6];
     const value = shufflebag.next();
     expect(values).to.include(value);
   });
+
   test("returns values from 0 to 6 once each", () => {
     const result = new Set();
     for (let i = 0; i < 7; i++) {
@@ -19,6 +21,7 @@ describe("Shufflebag", () => {
     }
     expect(result.size).to.equal(7);
   });
+
   test("keeps returning values after first 6", () => {
     const result = new Set();
     for (let i = 0; i < 20; i++) {
