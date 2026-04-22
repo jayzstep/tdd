@@ -16,7 +16,7 @@ export class Shufflebag {
   }
 
   add(item) {
-    this.data.push(1);
+    this.data.push(item);
     this.currentPosition = this.data.length - 1;
   }
 }
