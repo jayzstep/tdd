@@ -32,10 +32,15 @@ describe("Shufflebag with one each", () => {
 });
 
 describe("Shufflebag with distribution", () => {
+  let shufflebag;
+  beforeEach(() => {
+    shufflebag = new Shufflebag();
+  });
   test("adding one returns one", () => {
-    const shufflebag = new Shufflebag();
     shufflebag.add(1);
     const result = shufflebag.next();
     expect(result).to.equal(1);
   });
+
+  test("adding several eventually returns them all", () => {});
 });
