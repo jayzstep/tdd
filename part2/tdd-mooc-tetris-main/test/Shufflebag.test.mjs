@@ -2,7 +2,7 @@ import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Shufflebag } from "../src/Shufflebag.mjs";
 
-describe("Shufflebag", () => {
+describe("Shufflebag with one each", () => {
   let shufflebag;
   const values = [0, 1, 2, 3, 4, 5, 6];
   beforeEach(() => {
@@ -28,5 +28,14 @@ describe("Shufflebag", () => {
       result.add(shufflebag.next());
     }
     expect(result.size).to.equal(7);
+  });
+});
+
+describe("Shufflebag with distribution", () => {
+  test("adding one returns one", () => {
+    const shufflebag = new Shufflebag();
+    shufflebag.add(1);
+    const result = shufflebag.next();
+    expect(result).to.equal(1);
   });
 });
