@@ -14,4 +14,9 @@ export class Shufflebag {
     }
     return currentValue;
   }
+
+  add(item) {
+    this.data.push(1);
+    this.currentPosition = this.data.length - 1;
+  }
 }
