@@ -1,7 +1,8 @@
 export class Shufflebag {
   constructor(data = []) {
     this.data = data;
-    this.currentPosition = this.data.length - 1;
+    this.size = this.data.length;
+    this.currentPosition = this.size - 1;
   }
   next() {
     const pos = Math.floor(Math.random() * this.currentPosition);
@@ -10,7 +11,7 @@ export class Shufflebag {
     this.data[this.currentPosition] = currentValue;
     this.currentPosition--;
     if (this.currentPosition < 0) {
-      this.currentPosition = this.data.length - 1;
+      this.currentPosition = this.size - 1;
     }
     return currentValue;
   }
@@ -19,6 +20,7 @@ export class Shufflebag {
     for (let i = 0; i < amount; i++) {
       this.data.push(item);
     }
-    this.currentPosition = this.data.length - 1;
+    this.size = this.data.length;
+    this.currentPosition = this.size - 1;
   }
 }
