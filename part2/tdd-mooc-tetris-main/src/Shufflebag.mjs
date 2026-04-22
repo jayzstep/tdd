@@ -6,6 +6,9 @@ export class Shufflebag {
   next() {
     const result = this.data[this.index % 7];
     this.index--;
+    if (this.index < 0) {
+      this.index = this.data.length - 1;
+    }
     return result;
   }
 }
