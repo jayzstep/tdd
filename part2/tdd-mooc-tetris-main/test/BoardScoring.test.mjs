@@ -1,7 +1,7 @@
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
-import { Scoring } from "../src/Scoring.mjs";
+import { ScoringSystem } from "../src/ScoringSystem.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
 
 describe("Board scoring", () => {
@@ -9,7 +9,7 @@ describe("Board scoring", () => {
   let scoring;
   beforeEach(() => {
     board = new Board(3, 3);
-    scoring = new Scoring();
+    scoring = new ScoringSystem();
     board.subscribe(scoring);
   });
 

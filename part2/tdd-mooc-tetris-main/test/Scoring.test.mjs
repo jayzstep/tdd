@@ -1,11 +1,11 @@
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
-import { Scoring } from "../src/Scoring.mjs";
+import { ScoringSystem } from "../src/ScoringSystem.mjs";
 
 describe("Scoring", () => {
   let scoring;
   beforeEach(() => {
-    scoring = new Scoring();
+    scoring = new ScoringSystem();
   });
 
   test("cleared row scores 40 points", () => {
