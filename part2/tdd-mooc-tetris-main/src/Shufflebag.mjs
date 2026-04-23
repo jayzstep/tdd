@@ -1,4 +1,4 @@
-export class Shufflebag {
+export class ShuffleBag {
   constructor(data = []) {
     this.data = data;
     this.size = this.data.length;

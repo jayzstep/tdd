@@ -1,13 +1,13 @@
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
-import { Shufflebag } from "../src/Shufflebag.mjs";
+import { ShuffleBag } from "../src/ShuffleBag.mjs";
 
 describe("Shufflebag with one each", () => {
   let shufflebag;
   let values;
   beforeEach(() => {
     values = [0, 1, 2, 3, 4, 5, 6];
-    shufflebag = new Shufflebag(values);
+    shufflebag = new ShuffleBag(values);
   });
 
   test("returns a value between 0 and 6", () => {
@@ -35,7 +35,7 @@ describe("Shufflebag with one each", () => {
 describe("Shufflebag with distribution", () => {
   let shufflebag;
   beforeEach(() => {
-    shufflebag = new Shufflebag();
+    shufflebag = new ShuffleBag();
   });
   test("adding one returns one", () => {
     shufflebag.add(1, 1);
