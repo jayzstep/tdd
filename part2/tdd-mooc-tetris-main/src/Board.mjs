@@ -101,6 +101,17 @@ export class Board {
     return result;
   }
 
+  blockAt(row, col) {
+    let result;
+    const block = this.falling ? this.falling.blockAt(row, col) : EMPTY;
+    if (block !== EMPTY) {
+      result = this.falling.blockAt(row, col);
+    } else {
+      result = this.state[row][col];
+    }
+    return result;
+  }
+
   drop(shape) {
     if (typeof shape === "string") {
       shape = new Block(shape);
