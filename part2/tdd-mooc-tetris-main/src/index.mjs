@@ -16,9 +16,11 @@ function initGame() {
   };
   game.scoring = new ScoringSystem();
   game.board = new Board(game.columns, game.rows);
-  game.board.onClearLine = (lineCount) => {
-    game.scoring.linesCleared(lineCount);
-  };
+  game.board.subscribe(game.scoring);
+  // game.board.onClearLine = (lineCount) => {
+  //   game.scoring.linesCleared(lineCount);
+  // };
+
   game.tetrominoes = new ShuffleBag([
     Tetromino.I_SHAPE,
     Tetromino.T_SHAPE,
@@ -111,7 +113,7 @@ function renderGame(game, canvas, timestamp) {
   drawBackground(ctx, canvasWidth, canvasHeight);
   for (let row = 0; row < game.rows; row++) {
     for (let column = 0; column < game.columns; column++) {
-      const cell = game.board.cellAt(row, column);
+      const cell = game.board.blockAt(row, column);
       drawCell(ctx, { cell, row, column, cellWidth, cellHeight });
     }
   }
