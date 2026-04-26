@@ -1,13 +1,15 @@
-function diceRoll() {
-  const min = 1;
-  const max = 6;
-  return Math.floor(Math.random() * (max + 1 - min) + min);
+class DiceRoller {
+  roll() {
+    const min = 1;
+    const max = 6;
+    return Math.floor(Math.random() * (max + 1 - min) + min);
+  }
 }
 
-export function diceHandValue(diceRoller = diceRoll) {
+export function diceHandValue(diceRoller = new DiceRoller()) {
   // Randomness makes things tricky.
-  const die1 = diceRoller();
-  const die2 = diceRoller();
+  const die1 = diceRoller.roll();
+  const die2 = diceRoller.roll();
   if (die1 === die2) {
     // one pair
     return 100 + die1;
