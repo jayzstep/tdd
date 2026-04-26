@@ -4,9 +4,10 @@ function diceRoll() {
   return Math.floor(Math.random() * (max + 1 - min) + min);
 }
 
-export function diceHandValue() {
-  const die1 = diceRoll();
-  const die2 = diceRoll();
+export function diceHandValue(diceRoller = diceRoll) {
+  // Randomness makes things tricky.
+  const die1 = diceRoller();
+  const die2 = diceRoller();
   if (die1 === die2) {
     // one pair
     return 100 + die1;
