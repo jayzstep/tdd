@@ -25,4 +25,9 @@ describe("Untestable 1: days until Christmas", () => {
     const clock = new FakeClock(2026, 12 - 1, 26);
     expect(daysUntilChristmas(clock)).to.equal(364);
   });
+
+  test("is 1 day before Christmas", () => {
+    const clock = new FakeClock(2026, 12 - 1, 24);
+    expect(daysUntilChristmas(clock)).to.equal(1);
+  });
 });
