@@ -1,23 +1,22 @@
 import argon2 from "@node-rs/argon2";
 import pg from "pg";
 
-export class PostgresUserDao {
-  static instance;
-
-  static getInstance() {
-    if (!this.instance) {
-      this.instance = new PostgresUserDao();
-    }
-    return this.instance;
-  }
-
-  db = new pg.Pool({
+function connectDb() {
+  const db = new pg.Pool({
     user: process.env.PGUSER,
     host: process.env.PGHOST,
     database: process.env.PGDATABASE,
     password: process.env.PGPASSWORD,
     port: process.env.PGPORT,
   });
+  return db;
+}
+
+export class PostgresUserDao {
+  constructor(db) {
+    this.db = db;
+  }
+  static instance;
 
   close() {
     this.db.end();
@@ -32,7 +31,7 @@ export class PostgresUserDao {
       `select user_id, password_hash
        from users
        where user_id = $1`,
-      [userId]
+      [userId],
     );
     return rows.map(this.#rowToUser)[0] || null;
   }
@@ -43,13 +42,15 @@ export class PostgresUserDao {
        values ($1, $2)
        on conflict (user_id) do update
            set password_hash = excluded.password_hash`,
-      [user.userId, user.passwordHash]
+      [user.userId, user.passwordHash],
     );
   }
 }
 
 export class PasswordService {
-  users = PostgresUserDao.getInstance();
+  constructor(users) {
+    this.users = users;
+  }
 
   async changePassword(userId, oldPassword, newPassword) {
     const user = await this.users.getById(userId);
