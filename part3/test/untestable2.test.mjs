@@ -8,8 +8,9 @@ class fakeDiceRoller {
     this.index = 0;
   }
   roll() {
-    result = this.values[this.index];
+    const result = this.values[this.index];
     this.index = (this.index + 1) % this.values.length;
+    return result;
   }
 }
 
