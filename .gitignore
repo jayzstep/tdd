@@ -2,3 +2,4 @@ part1/node_modules
 .DS_Store
 part2/tdd-mooc-tetris-main/CLAUDE*.md
 part3/node_modules
+part3/.env
