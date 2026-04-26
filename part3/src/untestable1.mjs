@@ -6,8 +6,8 @@ class Clock {
   }
 }
 
-export function daysUntilChristmas() {
-  const now = new Clock().now();
+export function daysUntilChristmas(clock = new Clock()) {
+  const now = clock.now();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const christmasDay = new Date(now.getFullYear(), 12 - 1, 25);
   if (today.getTime() > christmasDay.getTime()) {
