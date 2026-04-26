@@ -16,6 +16,7 @@ function connectTestDb() {
   });
   return db;
 }
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dropTables = readFileSync(
   join(__dirname, "../src/drop-tables.sql"),
@@ -30,10 +31,10 @@ describe("Untestable 4: enterprise application", () => {
   let service;
   let postgresUserDao;
   let db;
-  beforeEach(() => {
+  beforeEach(async () => {
     db = connectTestDb();
-    db.query(dropTables);
-    db.query(createTables);
+    await db.query(dropTables);
+    await db.query(createTables);
     postgresUserDao = new PostgresUserDao(db);
     service = new PasswordService(postgresUserDao);
   });
