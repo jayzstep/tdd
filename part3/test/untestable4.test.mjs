@@ -1,3 +1,6 @@
+import { readFileSync } from "fs";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 import argon2 from "@node-rs/argon2";
 import pg from "pg";
 import { afterEach, beforeEach, describe, test } from "vitest";
@@ -13,6 +16,15 @@ function connectTestDb() {
   });
   return db;
 }
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const dropTables = readFileSync(
+  join(__dirname, "../src/drop-tables.sql"),
+  "utf8",
+);
+const createTables = readFileSync(
+  join(__dirname, "../src/create-tables.sql"),
+  "utf8",
+);
 
 describe("Untestable 4: enterprise application", () => {
   let service;
@@ -20,6 +32,8 @@ describe("Untestable 4: enterprise application", () => {
   let db;
   beforeEach(() => {
     db = connectTestDb();
+    db.query(dropTables);
+    db.query(createTables);
     postgresUserDao = new PostgresUserDao(db);
     service = new PasswordService(postgresUserDao);
   });
