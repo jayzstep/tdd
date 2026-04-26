@@ -67,4 +67,16 @@ Dob, Dub, 100, Female`;
       },
     ]);
   });
+
+  test("removes white space", () => {
+    const lineOfData = `Dip   ,   Dap ,  1 ,  Male        ';`;
+    expect(parsePeopleCsv(lineOfData)).toEqual([
+      {
+        firstName: "Dip",
+        lastName: "Dap",
+        gender: "m",
+        age: 1,
+      },
+    ]);
+  });
 });
