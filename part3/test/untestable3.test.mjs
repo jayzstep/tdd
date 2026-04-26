@@ -1,6 +1,6 @@
 import { describe, test } from "vitest";
 import { expect } from "chai";
-import { parsePeopleCsv } from "../src/untestable3.mjs";
+import { parsePeopleCsv, readCsv } from "../src/untestable3.mjs";
 
 // example input:
 // Loid,Forger,,Male
@@ -78,5 +78,10 @@ Dob, Dub, 100, Female`;
         age: 1,
       },
     ]);
+  });
+
+  test("file reading works", async () => {
+    const result = await readCsv(".test/test.csv");
+    expect(result).toEqual("Dip,Dap,1,Male");
   });
 });
