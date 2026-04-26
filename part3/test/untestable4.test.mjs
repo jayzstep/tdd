@@ -25,7 +25,6 @@ describe("Untestable 4: enterprise application", () => {
   });
 
   afterEach(() => {
-    // PostgresUserDao.getInstance().close();
     db.end();
   });
 
