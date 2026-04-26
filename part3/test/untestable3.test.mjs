@@ -8,13 +8,6 @@ import { parsePeopleCsv, readCsv } from "../src/untestable3.mjs";
 // Yor,Forger,27,Female
 
 describe("Untestable 3: CSV file parsing", () => {
-  test.skip("todo", async () => {
-    // TODO: write proper tests
-    try {
-      expect(await parsePeopleCsv("people.csv")).to.deep.equal([]);
-    } catch (e) {}
-  });
-
   test("parses a line correctly", () => {
     const lineOfData = "Anya, Forger, 6, Female";
     expect(parsePeopleCsv(lineOfData)[0]).toEqual({
