@@ -14,6 +14,7 @@ describe("Untestable 3: CSV file parsing", () => {
       expect(await parsePeopleCsv("people.csv")).to.deep.equal([]);
     } catch (e) {}
   });
+
   test("parses a line correctly", () => {
     const lineOfData = "Anya, Forger, 6, Female";
     expect(parsePeopleCsv(lineOfData)[0]).toEqual({
@@ -22,5 +23,29 @@ describe("Untestable 3: CSV file parsing", () => {
       gender: "f",
       age: 6,
     });
+  });
+
+  test("parses several lines correctly", () => {
+    const data =
+      "Loid, Forger,,Male\nAnya,Forger,6,Female\nYor,Forger,27,Female";
+    expect(parsePeopleCsv(data)).toEqual([
+      {
+        firstName: "Loid",
+        lastName: "Forger",
+        gender: "m",
+      },
+      {
+        firstName: "Anya",
+        lastName: "Forger",
+        gender: "f",
+        age: 6,
+      },
+      {
+        firstName: "Yor",
+        lastName: "Forger",
+        gender: "f",
+        age: 27,
+      },
+    ]);
   });
 });
