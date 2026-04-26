@@ -19,4 +19,9 @@ describe("Untestable 2: a dice game", () => {
     // TODO: write proper tests
     expect(diceHandValue()).to.be.a("number");
   });
+
+  test("returns the value of the bigger dice", () => {
+    const fakeDice = new fakeDiceRoller([3, 2]);
+    expect(diceHandValue(fakeDice)).to.equal(3);
+  });
 });
