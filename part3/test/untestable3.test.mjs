@@ -48,4 +48,23 @@ describe("Untestable 3: CSV file parsing", () => {
       },
     ]);
   });
+  test("skips empty lines", () => {
+    const data = `Dip, Dap, 1, Male
+
+Dob, Dub, 100, Female`;
+    expect(parsePeopleCsv(data)).toEqual([
+      {
+        firstName: "Dip",
+        lastName: "Dap",
+        gender: "m",
+        age: 1,
+      },
+      {
+        firstName: "Dob",
+        lastName: "Dub",
+        gender: "f",
+        age: 100,
+      },
+    ]);
+  });
 });
