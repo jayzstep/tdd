@@ -74,7 +74,7 @@ Dob, Dub, 100, Female`;
   });
 
   test("file reading works", async () => {
-    const result = await readCsv(".test/test.csv");
+    const result = await readCsv("test/test.csv");
     expect(result).toEqual("Dip,Dap,1,Male");
   });
 });
