@@ -1,4 +1,4 @@
-class DiceRoller {
+export class DiceRoller {
   roll() {
     const min = 1;
     const max = 6;
