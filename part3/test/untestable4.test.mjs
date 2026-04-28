@@ -49,4 +49,10 @@ describe("Untestable 4: enterprise application", () => {
     const user = await postgresUserDao.getById(1);
     expect(user).toEqual({ userId: 1, passwordHash: "dipdap" });
   });
+
+  test("Dao saving works", async () => {
+    await postgresUserDao.save({ userId: 2, passwordHash: "zipzap" });
+    const addedUser = await db.query("SELECT * FROM users WHERE user_id = 2");
+    expect(addedUser.rows[0]).toEqual({ user_id: 2, password_hash: "zipzap" });
+  });
 });
