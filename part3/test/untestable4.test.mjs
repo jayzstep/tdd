@@ -55,4 +55,22 @@ describe("Untestable 4: enterprise application", () => {
     const addedUser = await db.query("SELECT * FROM users WHERE user_id = 2");
     expect(addedUser.rows[0]).toEqual({ user_id: 2, password_hash: "zipzap" });
   });
+
+  test("password changes", async () => {
+    const oldPassword = "dipdap";
+    const newPassword = "rilke88";
+
+    await db.query("INSERT INTO users VALUES ($1, $2)", [
+      55,
+      argon2.hashSync(oldPassword),
+    ]);
+
+    await service.changePassword(55, oldPassword, newPassword);
+    const query = await db.query(
+      "SELECT password_hash FROM users WHERE user_id = 55",
+    );
+    const savedPassword = query.rows[0].password_hash;
+
+    expect(argon2.verifySync(savedPassword, newPassword)).toBe(true);
+  });
 });
