@@ -73,4 +73,15 @@ describe("Untestable 4: enterprise application", () => {
 
     expect(argon2.verifySync(savedPassword, newPassword)).toBe(true);
   });
+
+  test("throws error on wrong old password", async () => {
+    await db.query("INSERT INTO users VALUES ($1, $2)", [
+      999,
+      argon2.hashSync("rrrzzzuuu"),
+    ]);
+
+    await expect(
+      service.changePassword(999, "wrongOldPassword", "newpass"),
+    ).rejects.toThrow("wrong old password");
+  });
 });
