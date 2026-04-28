@@ -5,6 +5,7 @@ import argon2 from "@node-rs/argon2";
 import pg from "pg";
 import { afterEach, beforeEach, describe, test } from "vitest";
 import { PasswordService, PostgresUserDao } from "../src/untestable4.mjs";
+import { expect } from "chai";
 
 function connectTestDb() {
   const db = new pg.Pool({
@@ -43,7 +44,9 @@ describe("Untestable 4: enterprise application", () => {
     db.end();
   });
 
-  test("todo", async () => {
-    // TODO: write proper tests for both PasswordService and PostgresUserDao
+  test("Dao finds user by id", async () => {
+    await db.query("INSERT INTO users  VALUES (1, 'dipdap')");
+    const user = await postgresUserDao.getById(1);
+    expect(user).toEqual({ userId: 1, passwordHash: "dipdap" });
   });
 });
