@@ -46,6 +46,18 @@ export class BackstagePass {
     }
   }
 }
+
+export class Sulfuras {
+  constructor(name, sellIn, quality) {
+    this.name = name;
+    this.sellIn = sellIn;
+    this.quality = quality;
+  }
+
+  update() {
+    return;
+  }
+}
 export class Shop {
   constructor(items = []) {
     this.items = items;
