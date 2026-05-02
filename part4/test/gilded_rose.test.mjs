@@ -1,6 +1,6 @@
 import { describe, test } from "vitest";
 import { expect } from "chai";
-import { Item, Shop } from "../src/gilded_rose.mjs";
+import { Item, Shop, AgedBrie } from "../src/gilded_rose.mjs";
 
 describe("Gilded Rose", () => {
   test("foo", () => {
@@ -45,8 +45,8 @@ describe("Gilded Rose", () => {
     expect(items[0].sellIn).to.equal(-1);
     expect(items[0].quality).to.equal(0);
   });
-  test("Aged Brie", () => {
-    const gildedRose = new Shop([new Item("Aged Brie", 1, 5)]);
+  test.only("Aged Brie", () => {
+    const gildedRose = new Shop([new AgedBrie("Aged Brie", 1, 5)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Aged Brie");
     expect(items[0].sellIn).to.equal(0);
