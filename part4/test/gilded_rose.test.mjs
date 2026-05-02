@@ -1,6 +1,6 @@
 import { describe, test } from "vitest";
 import { expect } from "chai";
-import { Item, Shop, AgedBrie } from "../src/gilded_rose.mjs";
+import { Item, Shop, AgedBrie, BackstagePass } from "../src/gilded_rose.mjs";
 
 describe("Gilded Rose", () => {
   test("foo", () => {
@@ -81,70 +81,70 @@ describe("Gilded Rose", () => {
     expect(items[0].quality).to.equal(50);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 0, 0)]);
+    const gildedRose = new Shop([new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 0, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(-1);
     expect(items[0].quality).to.equal(0);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 1, 10)]);
+    const gildedRose = new Shop([new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 1, 10)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(0);
     expect(items[0].quality).to.equal(13);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 20, 50)]);
+    const gildedRose = new Shop([new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 20, 50)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(19);
     expect(items[0].quality).to.equal(50);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0)]);
+    const gildedRose = new Shop([new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 11, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(10);
     expect(items[0].quality).to.equal(1);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)]);
+    const gildedRose = new Shop([new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 10, 49)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(9);
     expect(items[0].quality).to.equal(50);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 6, 45)]);
+    const gildedRose = new Shop([new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 6, 45)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(5);
     expect(items[0].quality).to.equal(47);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 45)]);
+    const gildedRose = new Shop([new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 5, 45)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(4);
     expect(items[0].quality).to.equal(48);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49)]);
+    const gildedRose = new Shop([new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 5, 49)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(4);
     expect(items[0].quality).to.equal(50);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 8, 1)]);
+    const gildedRose = new Shop([new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 8, 1)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(7);
     expect(items[0].quality).to.equal(3);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 12, 0)]);
+    const gildedRose = new Shop([new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 12, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(11);
