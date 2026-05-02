@@ -6,6 +6,18 @@ export class Item {
   }
 }
 
+class AgedBrie extends Item {
+  update() {
+    if (this.quality < 50) {
+      this.quality++;
+    }
+    this.sellIn--;
+    if (this.sellIn < 0 && this.quality < 50) {
+      this.quality++;
+    }
+  }
+}
+
 export class Shop {
   constructor(items = []) {
     this.items = items;
