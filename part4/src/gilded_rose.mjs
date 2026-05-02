@@ -83,22 +83,6 @@ export class Shop {
     return this.items;
   }
 
-  updateBackstagePass(item) {
-    if (item.quality < 50) {
-      item.quality++;
-      if (item.quality < 50 && item.sellIn < 11) {
-        item.quality++;
-        if (item.sellIn < 6) {
-          item.quality++;
-        }
-      }
-    }
-    item.sellIn--;
-    if (item.sellIn < 0) {
-      item.quality = 0;
-    }
-  }
-
   updateEverythingElse(item) {
     if (item.quality > 0) {
       item.quality--;
