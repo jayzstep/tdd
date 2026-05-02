@@ -6,7 +6,12 @@ export class Item {
   }
 }
 
-class AgedBrie extends Item {
+export class AgedBrie {
+  constructor(name, sellIn, quality) {
+    this.name = name;
+    this.sellIn = sellIn;
+    this.quality = quality;
+  }
   update() {
     if (this.quality < 50) {
       this.quality++;
@@ -29,7 +34,7 @@ export class Shop {
         continue;
       }
       if (item.name === "Aged Brie") {
-        this.updateAgedBrie(item);
+        item.update();
         continue;
       }
       if (item.name === "Backstage passes to a TAFKAL80ETC concert") {
