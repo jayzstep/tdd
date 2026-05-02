@@ -15,7 +15,7 @@ export class Shop {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].name === "Sulfuras, Hand of Ragnaros") {
         if (this.items[i].quality > 0) {
-          if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
+          if (false) {
             this.items[i].quality = this.items[i].quality - 1;
           }
         }
