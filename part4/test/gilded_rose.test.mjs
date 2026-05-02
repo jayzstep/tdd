@@ -25,6 +25,20 @@ describe("Gilded Rose", () => {
     expect(items[0].quality).to.equal(8);
   });
   test("foo", () => {
+    const gildedRose = new Shop([new Item("foo", 1, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("foo");
+    expect(items[0].sellIn).to.equal(0);
+    expect(items[0].quality).to.equal(9);
+  });
+  test("foo", () => {
+    const gildedRose = new Shop([new Item("foo", 3, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("foo");
+    expect(items[0].sellIn).to.equal(2);
+    expect(items[0].quality).to.equal(9);
+  });
+  test("foo", () => {
     const gildedRose = new Shop([new Item("foo", 0, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("foo");
@@ -81,10 +95,24 @@ describe("Gilded Rose", () => {
     expect(items[0].quality).to.equal(50);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
-    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 6, 49)]);
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 6, 45)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(5);
+    expect(items[0].quality).to.equal(47);
+  });
+  test("Backstage passes to a TAFKAL80ETC concert", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 45)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
+    expect(items[0].sellIn).to.equal(4);
+    expect(items[0].quality).to.equal(48);
+  });
+  test("Backstage passes to a TAFKAL80ETC concert", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
+    expect(items[0].sellIn).to.equal(4);
     expect(items[0].quality).to.equal(50);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
