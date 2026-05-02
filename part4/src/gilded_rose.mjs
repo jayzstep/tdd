@@ -37,6 +37,16 @@ export class Shop {
     }
   }
 
+  updateEverythingElse(item) {
+    if (item.quality > 0) {
+      item.quality--;
+    }
+    item.sellIn--;
+    if (item.sellIn < 0 && item.quality > 0) {
+      item.quality--;
+    }
+  }
+
   updateQuality() {
     for (const item of this.items) {
       if (item.name === "Sulfuras, Hand of Ragnaros") {
@@ -50,13 +60,7 @@ export class Shop {
         this.updateBackstagePass(item);
         continue;
       }
-      if (item.quality > 0) {
-        item.quality--;
-      }
-      item.sellIn--;
-      if (item.sellIn < 0 && item.quality > 0) {
-        item.quality--;
-      }
+      this.updateEverythingElse(item);
     }
 
     return this.items;
