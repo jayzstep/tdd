@@ -66,6 +66,7 @@ export class Shop {
   updateQuality() {
     for (const item of this.items) {
       if (item.name === "Sulfuras, Hand of Ragnaros") {
+        item.update();
         continue;
       }
       if (item.name === "Aged Brie") {
