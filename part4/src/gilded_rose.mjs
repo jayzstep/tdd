@@ -59,6 +59,7 @@ export class Shop {
                 this.items[i].quality = this.items[i].quality - this.items[i].quality;
               }
             }
+            // Backstage passes only ^
           } else {
             if (this.items[i].name != "Backstage passes to a TAFKAL80ETC concert") {
               if (this.items[i].quality > 0) {
