@@ -56,8 +56,6 @@ export class Shop {
                 if (this.items[i].quality > 0) {
                   this.items[i].quality = this.items[i].quality - 1;
                 }
-              } else {
-                this.items[i].quality = this.items[i].quality - this.items[i].quality;
               }
             }
           }
