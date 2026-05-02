@@ -1,6 +1,6 @@
 import { describe, test } from "vitest";
 import { expect } from "chai";
-import { Item, Shop, AgedBrie, BackstagePass } from "../src/gilded_rose.mjs";
+import { Item, Shop, AgedBrie, BackstagePass, Sulfuras } from "../src/gilded_rose.mjs";
 
 describe("Gilded Rose", () => {
   test("foo", () => {
@@ -151,21 +151,21 @@ describe("Gilded Rose", () => {
     expect(items[0].quality).to.equal(1);
   });
   test("Sulfuras, Hand of Ragnaros", () => {
-    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", 12, 0)]);
+    const gildedRose = new Shop([new Sulfuras("Sulfuras, Hand of Ragnaros", 12, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Sulfuras, Hand of Ragnaros");
     expect(items[0].sellIn).to.equal(12);
     expect(items[0].quality).to.equal(0);
   });
   test("Sulfuras, Hand of Ragnaros", () => {
-    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", 5, 55)]);
+    const gildedRose = new Shop([new Sulfuras("Sulfuras, Hand of Ragnaros", 5, 55)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Sulfuras, Hand of Ragnaros");
     expect(items[0].sellIn).to.equal(5);
     expect(items[0].quality).to.equal(55);
   });
   test("Sulfuras, Hand of Ragnaros", () => {
-    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", -3, 10)]);
+    const gildedRose = new Shop([new Sulfuras("Sulfuras, Hand of Ragnaros", -3, 10)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Sulfuras, Hand of Ragnaros");
     expect(items[0].sellIn).to.equal(-3);
