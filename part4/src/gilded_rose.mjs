@@ -68,6 +68,7 @@ export class Sulfuras {
     return;
   }
 }
+
 export class Shop {
   constructor(items = []) {
     this.items = items;
@@ -77,7 +78,6 @@ export class Shop {
     for (const item of this.items) {
       item.update();
     }
-
     return this.items;
   }
 }
