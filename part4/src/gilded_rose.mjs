@@ -75,18 +75,6 @@ export class Shop {
 
   updateQuality() {
     for (const item of this.items) {
-      if (item.name === "Sulfuras, Hand of Ragnaros") {
-        item.update();
-        continue;
-      }
-      if (item.name === "Aged Brie") {
-        item.update();
-        continue;
-      }
-      if (item.name === "Backstage passes to a TAFKAL80ETC concert") {
-        item.update();
-        continue;
-      }
       item.update();
     }
 
