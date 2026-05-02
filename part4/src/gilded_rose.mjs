@@ -11,6 +11,16 @@ export class Shop {
     this.items = items;
   }
 
+  updateAgedBrie(item) {
+    if (item.quality < 50) {
+      item.quality++;
+    }
+    item.sellIn--;
+    if (item.sellIn < 0 && item.quality < 50) {
+      item.quality++;
+    }
+  }
+
   updateQuality() {
     for (const item of this.items) {
       if (item.name === "Sulfuras, Hand of Ragnaros") {
