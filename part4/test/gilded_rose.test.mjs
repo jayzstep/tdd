@@ -32,11 +32,11 @@ describe("Gilded Rose", () => {
     expect(items[0].quality).to.equal(9);
   });
   test("foo", () => {
-    const gildedRose = new Shop([new Item("foo", 3, 10)]);
+    const gildedRose = new Shop([new Item("foo", -2, 10)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("foo");
-    expect(items[0].sellIn).to.equal(2);
-    expect(items[0].quality).to.equal(9);
+    expect(items[0].sellIn).to.equal(-3);
+    expect(items[0].quality).to.equal(8);
   });
   test("foo", () => {
     const gildedRose = new Shop([new Item("foo", 0, 0)]);
@@ -142,5 +142,12 @@ describe("Gilded Rose", () => {
     expect(items[0].name).to.equal("Sulfuras, Hand of Ragnaros");
     expect(items[0].sellIn).to.equal(5);
     expect(items[0].quality).to.equal(55);
+  });
+  test("Sulfuras, Hand of Ragnaros", () => {
+    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", -3, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Sulfuras, Hand of Ragnaros");
+    expect(items[0].sellIn).to.equal(-3);
+    expect(items[0].quality).to.equal(10);
   });
 });
