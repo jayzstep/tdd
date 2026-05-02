@@ -14,7 +14,7 @@ export class Shop {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].name === "Sulfuras, Hand of Ragnaros") {
-        if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
+        if (false) {
           this.items[i].sellIn = this.items[i].sellIn - 1;
         }
         if (this.items[i].sellIn < 0) {
