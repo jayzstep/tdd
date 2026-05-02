@@ -87,7 +87,7 @@ export class Shop {
         item.update();
         continue;
       }
-      this.updateEverythingElse(item);
+      item.update();
     }
 
     return this.items;
