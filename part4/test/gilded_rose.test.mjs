@@ -7,11 +7,29 @@ describe("Gilded Rose", () => {
     const gildedRose = new Shop([new Item("foo", 0, 1)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("foo");
+    expect(items[0].sellIn).to.equal(-1);
+    expect(items[0].quality).to.equal(0);
+  });
+  test("foo", () => {
+    const gildedRose = new Shop([new Item("foo", 3, 3)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("foo");
+    expect(items[0].sellIn).to.equal(2);
+    expect(items[0].quality).to.equal(2);
   });
   test("foo", () => {
     const gildedRose = new Shop([new Item("foo", -10, 10)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("foo");
+    expect(items[0].sellIn).to.equal(-11);
+    expect(items[0].quality).to.equal(8);
+  });
+  test("foo", () => {
+    const gildedRose = new Shop([new Item("foo", 0, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("foo");
+    expect(items[0].sellIn).to.equal(-1);
+    expect(items[0].quality).to.equal(0);
   });
   test("Aged Brie", () => {
     const gildedRose = new Shop([new Item("Aged Brie", -1, 5)]);
@@ -27,12 +45,47 @@ describe("Gilded Rose", () => {
     expect(items[0].sellIn).to.equal(-2);
     expect(items[0].quality).to.equal(51);
   });
+  test("Aged Brie", () => {
+    const gildedRose = new Shop([new Item("Aged Brie", -1, 50)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Aged Brie");
+    expect(items[0].sellIn).to.equal(-2);
+    expect(items[0].quality).to.equal(50);
+  });
+  test("Aged Brie", () => {
+    const gildedRose = new Shop([new Item("Aged Brie", 11, 50)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Aged Brie");
+    expect(items[0].sellIn).to.equal(10);
+    expect(items[0].quality).to.equal(50);
+  });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
     const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 0, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(-1);
     expect(items[0].quality).to.equal(0);
+  });
+  test("Backstage passes to a TAFKAL80ETC concert", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
+    expect(items[0].sellIn).to.equal(10);
+    expect(items[0].quality).to.equal(1);
+  });
+  test("Backstage passes to a TAFKAL80ETC concert", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
+    expect(items[0].sellIn).to.equal(9);
+    expect(items[0].quality).to.equal(50);
+  });
+  test("Backstage passes to a TAFKAL80ETC concert", () => {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 6, 49)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
+    expect(items[0].sellIn).to.equal(5);
+    expect(items[0].quality).to.equal(50);
   });
   test("Backstage passes to a TAFKAL80ETC concert", () => {
     const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 8, 1)]);
@@ -47,5 +100,19 @@ describe("Gilded Rose", () => {
     expect(items[0].name).to.equal("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).to.equal(11);
     expect(items[0].quality).to.equal(1);
+  });
+  test("Sulfuras, Hand of Ragnaros", () => {
+    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", 12, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Sulfuras, Hand of Ragnaros");
+    expect(items[0].sellIn).to.equal(12);
+    expect(items[0].quality).to.equal(0);
+  });
+  test("Sulfuras, Hand of Ragnaros", () => {
+    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", 5, 55)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Sulfuras, Hand of Ragnaros");
+    expect(items[0].sellIn).to.equal(5);
+    expect(items[0].quality).to.equal(55);
   });
 });
