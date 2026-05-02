@@ -1,2 +1,8 @@
 /** @type {import("vite").UserConfig} */
-export default {};
+export default {
+  test: {
+    coverage: {
+      provider: "v8",
+    },
+  },
+};
