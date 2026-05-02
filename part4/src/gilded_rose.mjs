@@ -4,6 +4,16 @@ export class Item {
     this.sellIn = sellIn;
     this.quality = quality;
   }
+
+  update() {
+    if (this.quality > 0) {
+      this.quality--;
+    }
+    this.sellIn--;
+    if (this.sellIn < 0 && this.quality > 0) {
+      this.quality--;
+    }
+  }
 }
 
 export class AgedBrie {
