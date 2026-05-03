@@ -3,11 +3,11 @@ import { expect } from "chai";
 import { readFile, GameOfLife } from "../src/example.mjs";
 
 describe("Walking skeleton", () => {
-  test("reads file", () => {
-    const fileContent = readFile("hello.txt");
-    expect(fileContent).toEqual("hello");
+  test("parses pattern from file", () => {
+    const fileContent = readFile("glider.rle");
+    expect(fileContent).toEqual("bob$2bo$3o!");
   });
-  test("parses pattern", () => {
+  test("parses x and y from file", () => {
     const fileContent = readFile("glider.rle");
     expect(fileContent).toEqual("bob$2bo$3o!");
   });
