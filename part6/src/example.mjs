@@ -14,7 +14,7 @@ export class GameOfLife {
   }
 
   toString() {
-    return this.readFile(this.filename);
+    return this.state;
   }
 
   readFile(filename) {
