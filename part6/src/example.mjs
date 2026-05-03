@@ -7,5 +7,5 @@ export function readFile(filename) {
   if (filename === "glider.rle") {
     return filteredLines[1];
   }
-  return data.trim();
+  return filteredLines[0];
 }
