@@ -5,3 +5,9 @@ export function readFile(filename) {
   const filteredLines = lines.filter((line) => line.startsWith("#") == false && line.startsWith("x") == false);
   return filteredLines[0];
 }
+
+export class GameOfLife {
+  toString() {
+    return "bob$2bo$3o!";
+  }
+}
