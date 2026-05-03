@@ -4,7 +4,7 @@ export function readFile(filename) {
   const lines = data.split("\n");
   const filteredLines = lines.filter((line) => line.startsWith("#") == false);
   const x = parseInt(filteredLines[0].split(" ")[2].replace(",", ""));
-  const y = 3;
+  const y = parseInt(filteredLines[0].split(" ")[5].replace(",", ""));
   return [{ x, y }, filteredLines[1]];
 }
 
