@@ -20,4 +20,7 @@ export class GameOfLife {
   toString() {
     return this.state;
   }
+  tick() {
+    this.state = "b";
+  }
 }
