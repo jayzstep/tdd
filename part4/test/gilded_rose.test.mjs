@@ -179,4 +179,11 @@ describe("Gilded Rose", () => {
     expect(items[0].sellIn).to.equal(9);
     expect(items[0].quality).to.equal(8);
   });
+  test("Conjured degrade 4 quality per tick after sellIn expires", () => {
+    const gildedRose = new Shop([new Conjured("Conjured", -1, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Conjured");
+    expect(items[0].sellIn).to.equal(-2);
+    expect(items[0].quality).to.equal(6);
+  });
 });
