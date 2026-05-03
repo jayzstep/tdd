@@ -9,13 +9,11 @@ export function readFile(filename) {
 }
 
 export class GameOfLife {
-  constructor(fileReader, filename) {
-    this.fileReader = fileReader;
-    this.filename = filename;
-    this.fileContent = fileReader(filename);
-    this.state = this.fileContent[1];
-    this.x = this.fileContent[0].x;
-    this.y = this.fileContent[0].y;
+  constructor(fileContent) {
+    this.fileContent = fileContent;
+    this.state = fileContent[1];
+    this.x = fileContent[0].x;
+    this.y = fileContent[0].y;
   }
   toString() {
     return this.state;
