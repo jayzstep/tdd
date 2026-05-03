@@ -12,9 +12,12 @@ export class GameOfLife {
   constructor(fileReader, filename) {
     this.fileReader = fileReader;
     this.filename = filename;
-    this.state = fileReader(filename)[1];
+    this.fileContent = fileReader(filename);
+    this.state = this.fileContent[1];
   }
   toString() {
     return this.state;
   }
+
+  parseFromString() {}
 }
