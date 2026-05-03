@@ -1,6 +1,6 @@
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
-import { readFile, GameOfLife } from "../src/example.mjs";
+import { GameOfLife } from "../src/example.mjs";
 
 describe("Walking skeleton", () => {
   let gameOfLife;
@@ -12,7 +12,7 @@ describe("Walking skeleton", () => {
     expect(fileContent).toEqual("hello");
   });
   test("parses pattern", () => {
-    const fileContent = readFile("glider.rle");
+    const fileContent = gameOfLife.readFile("glider.rle");
     expect(fileContent).toEqual("bob$2bo$3o!");
   });
 });
