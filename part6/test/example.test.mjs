@@ -1,9 +1,10 @@
 import { describe, test } from "vitest";
 import { expect } from "chai";
-import { sum } from "../src/example.mjs";
+import { readFile } from "../src/example.mjs";
 
-describe("Example test fixture", () => {
-  test("Example test", () => {
-    expect(sum(1, 2)).to.equal(3);
+describe("Walking skeleton", () => {
+  test("reads file", () => {
+    const fileContent = readFile();
+    expect(fileContent).toEqual("hello");
   });
 });
