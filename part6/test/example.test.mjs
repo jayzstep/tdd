@@ -22,4 +22,9 @@ describe("Game of Life", () => {
     const gameOfLife = new GameOfLife(readFile, "glider.rle");
     expect(gameOfLife.toString()).toEqual("bob$2bo$3o!");
   });
+  test.skip("tick works", () => {
+    const gameOfLife = new GameOfLife(readFile, "glider.rle");
+    gameOfLife.tick();
+    expect(gameOfLife.toString()).toEqual("3b$obo$b2o$bob!");
+  });
 });
