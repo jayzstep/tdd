@@ -1,11 +1,11 @@
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
-import { GameOfLife } from "../src/example.mjs";
+import { readFile, GameOfLife } from "../src/example.mjs";
 
 describe("Walking skeleton", () => {
   let gameOfLife;
   beforeEach(() => {
-    gameOfLife = new GameOfLife();
+    gameOfLife = new GameOfLife(readFile);
   });
   test("reads file", () => {
     const fileContent = gameOfLife.readFile("hello.txt");
@@ -19,7 +19,7 @@ describe("Walking skeleton", () => {
 
 describe("Game of Life", () => {
   test("returns a rle state string", () => {
-    const gameOfLife = new GameOfLife("glider.rle");
+    const gameOfLife = new GameOfLife(readFile, "glider.rle");
     expect(gameOfLife.toString()).toEqual("bob$2bo$3o!");
   });
 });
