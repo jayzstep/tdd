@@ -7,8 +7,8 @@ export function readFile(filename) {
 }
 
 export class GameOfLife {
-  constructor(filename) {
-    this.fileReader = readFile;
+  constructor(fileReader, filename) {
+    this.fileReader = fileReader;
     this.filename = filename;
   }
 
@@ -17,6 +17,6 @@ export class GameOfLife {
   }
 
   readFile(filename) {
-    return this.fileReader(this.filename);
+    return this.fileReader(filename);
   }
 }
