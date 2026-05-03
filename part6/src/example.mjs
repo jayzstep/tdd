@@ -2,9 +2,10 @@ const fs = require("fs");
 export function readFile(filename) {
   const data = fs.readFileSync(filename, "utf8");
   const lines = data.split("\n");
-  console.log(lines.filter((line) => line.startsWith("#") == false));
+  const filteredLines = lines.filter((line) => line.startsWith("#") == false);
+  console.log(filteredLines);
   if (filename === "glider.rle") {
-    return lines[5];
+    return filteredLines[1];
   }
   return data.trim();
 }
