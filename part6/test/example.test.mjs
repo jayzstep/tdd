@@ -1,10 +1,14 @@
-import { describe, test } from "vitest";
+import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { readFile, GameOfLife } from "../src/example.mjs";
 
 describe("Walking skeleton", () => {
+  let gameOfLife;
+  beforeEach(() => {
+    gameOfLife = new GameOfLife();
+  });
   test("reads file", () => {
-    const fileContent = readFile("hello.txt");
+    const fileContent = gameOfLife.readFile("hello.txt");
     expect(fileContent).toEqual("hello");
   });
   test("parses pattern", () => {
