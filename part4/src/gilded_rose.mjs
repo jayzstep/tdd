@@ -23,10 +23,10 @@ export class AgedBrie {
     this.quality = quality;
   }
   update() {
+    this.sellIn--;
     if (this.quality < 50) {
       this.quality++;
     }
-    this.sellIn--;
     if (this.sellIn < 0 && this.quality < 50) {
       this.quality++;
     }
