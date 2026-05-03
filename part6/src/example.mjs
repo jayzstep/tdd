@@ -11,17 +11,12 @@ export class GameOfLife {
     this.fileReader = readFile;
     this.filename = filename;
   }
+
   toString() {
-    return readFile(this.filename);
-  }
-  readFile(filename) {
-    const data = fs.readFileSync(filename, "utf8");
-    const lines = data.split("\n");
-    const filteredLines = lines.filter((line) => line.startsWith("#") == false && line.startsWith("x") == false);
-    return filteredLines[0];
+    return this.readFile(this.filename);
   }
 
-  readFile2(filename) {
+  readFile(filename) {
     return this.fileReader(this.filename);
   }
 }
