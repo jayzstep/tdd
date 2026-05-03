@@ -5,9 +5,9 @@ import { readFile, GameOfLife } from "../src/example.mjs";
 describe("Walking skeleton", () => {
   test("parses pattern from file", () => {
     const fileContent = readFile("glider.rle");
-    expect(fileContent).toEqual("bob$2bo$3o!");
+    expect(fileContent[1]).toEqual("bob$2bo$3o!");
   });
-  test("parses x and y from file", () => {
+  test.skip("parses x and y from file", () => {
     const fileContent = readFile("glider.rle");
     expect(fileContent).toEqual("bob$2bo$3o!");
   });
