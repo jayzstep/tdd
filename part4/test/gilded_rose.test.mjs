@@ -1,6 +1,6 @@
 import { describe, test } from "vitest";
 import { expect } from "chai";
-import { Item, Shop, AgedBrie, BackstagePass, Sulfuras } from "../src/gilded_rose.mjs";
+import { Item, Shop, AgedBrie, BackstagePass, Sulfuras, Conjured } from "../src/gilded_rose.mjs";
 
 describe("Gilded Rose", () => {
   test("foo", () => {
