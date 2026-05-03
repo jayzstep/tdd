@@ -12,12 +12,7 @@ export class GameOfLife {
     this.filename = filename;
     this.state = fileReader(filename);
   }
-
   toString() {
     return this.state;
-  }
-
-  readFile(filename) {
-    return this.fileReader(filename);
   }
 }
