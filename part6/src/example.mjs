@@ -8,6 +8,7 @@ export function readFile(filename) {
 
 export class GameOfLife {
   constructor(filename) {
+    this.fileReader = readFile;
     this.filename = filename;
   }
   toString() {
@@ -18,5 +19,9 @@ export class GameOfLife {
     const lines = data.split("\n");
     const filteredLines = lines.filter((line) => line.startsWith("#") == false && line.startsWith("x") == false);
     return filteredLines[0];
+  }
+
+  readFile2(filename) {
+    return this.fileReader(this.filename);
   }
 }
