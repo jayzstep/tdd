@@ -3,16 +3,12 @@ import { expect } from "chai";
 import { readFile, GameOfLife } from "../src/example.mjs";
 
 describe("Walking skeleton", () => {
-  let gameOfLife;
-  beforeEach(() => {
-    gameOfLife = new GameOfLife(readFile);
-  });
   test("reads file", () => {
-    const fileContent = gameOfLife.readFile("hello.txt");
+    const fileContent = readFile("hello.txt");
     expect(fileContent).toEqual("hello");
   });
   test("parses pattern", () => {
-    const fileContent = gameOfLife.readFile("glider.rle");
+    const fileContent = readFile("glider.rle");
     expect(fileContent).toEqual("bob$2bo$3o!");
   });
 });
