@@ -180,14 +180,21 @@ describe("Gilded Rose", () => {
     expect(items[0].quality).to.equal(8);
   });
   test("Conjured degrade 4 quality per tick after sellIn expires", () => {
-    const gildedRose = new Shop([new Conjured("Conjured", -1, 10)]);
+    const gildedRose = new Shop([new Conjured("Conjured", -1, 4)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Conjured");
     expect(items[0].sellIn).to.equal(-2);
-    expect(items[0].quality).to.equal(6);
+    expect(items[0].quality).to.equal(0);
   });
   test("Conjured quality does not go below 0", () => {
     const gildedRose = new Shop([new Conjured("Conjured", 10, 1)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Conjured");
+    expect(items[0].sellIn).to.equal(9);
+    expect(items[0].quality).to.equal(0);
+  });
+  test("does nothing when quality is 0", () => {
+    const gildedRose = new Shop([new Conjured("Conjured", 10, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Conjured");
     expect(items[0].sellIn).to.equal(9);
