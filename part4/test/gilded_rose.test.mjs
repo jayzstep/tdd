@@ -193,11 +193,18 @@ describe("Gilded Rose", () => {
     expect(items[0].sellIn).to.equal(9);
     expect(items[0].quality).to.equal(0);
   });
-  test("does nothing when quality is 0", () => {
+  test("Conjured does nothing when quality is 0", () => {
     const gildedRose = new Shop([new Conjured("Conjured", 10, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).to.equal("Conjured");
     expect(items[0].sellIn).to.equal(9);
     expect(items[0].quality).to.equal(0);
+  });
+  test("Conjured works on sellIn day 1", () => {
+    const gildedRose = new Shop([new Conjured("Conjured", 1, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).to.equal("Conjured");
+    expect(items[0].sellIn).to.equal(0);
+    expect(items[0].quality).to.equal(8);
   });
 });
