@@ -1,6 +1,6 @@
 import { describe, test } from "vitest";
 import { expect } from "chai";
-import { readFile } from "../src/example.mjs";
+import { readFile, GameOfLife } from "../src/example.mjs";
 
 describe("Walking skeleton", () => {
   test("reads file", () => {
@@ -10,5 +10,12 @@ describe("Walking skeleton", () => {
   test("parses pattern", () => {
     const fileContent = readFile("glider.rle");
     expect(fileContent).toEqual("bob$2bo$3o!");
+  });
+});
+
+describe("Game of Life", () => {
+  test("returns a rle state string", () => {
+    const gameOfLife = new GameOfLife("glider.rle");
+    expect(gameOfLife.toString()).toEqual("bob$2bo$3o!");
   });
 });
