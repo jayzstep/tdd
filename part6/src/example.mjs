@@ -14,10 +14,10 @@ export class GameOfLife {
     this.filename = filename;
     this.fileContent = fileReader(filename);
     this.state = this.fileContent[1];
+    this.x = this.fileContent[0].x;
+    this.y = this.fileContent[0].y;
   }
   toString() {
     return this.state;
   }
-
-  parseFromString() {}
 }
