@@ -7,4 +7,8 @@ describe("Walking skeleton", () => {
     const fileContent = readFile("hello.txt");
     expect(fileContent).toEqual("hello");
   });
+  test("parses pattern", () => {
+    const fileContent = readFile("glider.rle");
+    expect(fileContent).toEqual("bob$2bo$3o!");
+  });
 });
