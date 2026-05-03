@@ -1,6 +1,6 @@
 const fs = require("fs");
-export function readFile() {
-  const data = fs.readFileSync("hello.txt", "utf8");
+export function readFile(filename) {
+  const data = fs.readFileSync(filename, "utf8");
 
   return data.trim();
 }
