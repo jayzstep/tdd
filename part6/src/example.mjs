@@ -10,7 +10,6 @@ export function readFile(filename) {
 
 export class GameOfLife {
   constructor(fileContent) {
-    this.fileContent = fileContent;
     this.state = fileContent[1];
     this.x = fileContent[0].x;
     this.y = fileContent[0].y;
