@@ -19,14 +19,14 @@ describe("Walking skeleton", () => {
 
 describe("Game of Life", () => {
   test("returns a rle state string", () => {
-    const gameOfLife = new GameOfLife(readFile, "glider.rle");
+    const gameOfLife = new GameOfLife(readFile("glider.rle"));
     expect(gameOfLife.toString()).toEqual("bob$2bo$3o!");
   });
   test("lone cell DIES", () => {
-    function lonelyCell(filename) {
+    function lonelyCell() {
       return [{ x: 1, y: 1 }, "b"];
     }
-    const gameOfLife = new GameOfLife(lonelyCell, "dipdap.rle");
+    const gameOfLife = new GameOfLife(lonelyCell());
     gameOfLife.tick();
     expect(gameOfLife.toString()).toEqual("b");
   });
