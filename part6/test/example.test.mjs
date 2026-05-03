@@ -7,9 +7,9 @@ describe("Walking skeleton", () => {
     const fileContent = readFile("glider.rle");
     expect(fileContent[1]).toEqual("bob$2bo$3o!");
   });
-  test.skip("parses x and y from file", () => {
+  test("parses x and y from file", () => {
     const fileContent = readFile("glider.rle");
-    expect(fileContent).toEqual("bob$2bo$3o!");
+    expect(fileContent[0]).toEqual(3);
   });
 });
 
