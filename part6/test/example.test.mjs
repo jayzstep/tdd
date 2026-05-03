@@ -22,6 +22,14 @@ describe("Game of Life", () => {
     const gameOfLife = new GameOfLife(readFile, "glider.rle");
     expect(gameOfLife.toString()).toEqual("bob$2bo$3o!");
   });
+  test("lone cell DIES", () => {
+    function lonelyCell(filename) {
+      return [{ x: 1, y: 1 }, "b"];
+    }
+    const gameOfLife = new GameOfLife(lonelyCell, "dipdap.rle");
+    gameOfLife.tick();
+    expect(gameOfLife.toString()).toEqual("b");
+  });
   test.skip("tick works", () => {
     const gameOfLife = new GameOfLife(readFile, "glider.rle");
     gameOfLife.tick();
