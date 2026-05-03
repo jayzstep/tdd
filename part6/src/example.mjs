@@ -7,7 +7,10 @@ export function readFile(filename) {
 }
 
 export class GameOfLife {
+  constructor(filename) {
+    this.filename = filename;
+  }
   toString() {
-    return "bob$2bo$3o!";
+    return readFile(this.filename);
   }
 }
