@@ -18,6 +18,6 @@ export class GameOfLife {
     return this.state;
   }
   tick() {
-    this.state = "b";
+    this.state = "b!";
   }
 }
