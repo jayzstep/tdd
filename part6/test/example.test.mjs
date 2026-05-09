@@ -87,6 +87,7 @@ describe("Game of Life", () => {
     gameOfLife.tick();
     expect(gameOfLife.toString()).toEqual("bob!");
   });
+
   test("cell with more than 3 neighbours dies", () => {
     const state = [{ x: 3, y: 2 }, "ooo$boo!"];
     const gameOfLife = new GameOfLife(state);
