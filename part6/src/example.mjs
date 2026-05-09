@@ -33,17 +33,19 @@ export class GameOfLife {
     console.log(result);
     let result2 = "";
     let last = "";
-    let count = 0;
+    let count = 1;
     Array.from(result).forEach((char) => {
       if (char === last) {
         count++;
       } else if (count > 1) {
-        result2 += String(count) + char;
+        result2 += String(count) + last + char;
+        count = 1;
       } else {
         result2 += char;
       }
       last = char;
     });
+    console.log(result2);
     return this.state;
   }
 
