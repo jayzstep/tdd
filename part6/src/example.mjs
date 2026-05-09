@@ -13,6 +13,7 @@ export class GameOfLife {
     this.state = fileContent[1];
     this.x = fileContent[0].x;
     this.y = fileContent[0].y;
+    this.livingCells = [{ x: 0, y: 0 }];
   }
   toString() {
     return this.state;
