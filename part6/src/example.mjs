@@ -32,7 +32,6 @@ export class GameOfLife {
       }
     }
     result += "!";
-    console.log(result);
     let result2 = "";
     let accumulated = "";
     Array.from(result).forEach((char) => {
@@ -48,7 +47,6 @@ export class GameOfLife {
       }
     });
     result2 += "!";
-    console.log(result2);
     return result2;
   }
 
