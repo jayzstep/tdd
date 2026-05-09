@@ -35,6 +35,7 @@ export class GameOfLife {
           this.livingCells.push({ x, y });
           x++;
           counter--;
+          counter = Math.max(counter, 0);
         } while (counter > 0);
       }
       if (char === "b") {
@@ -44,6 +45,10 @@ export class GameOfLife {
       }
       if (numbers.includes(char)) {
         counter = parseInt(char);
+      }
+      if (char === "$") {
+        y++;
+        x = 0;
       }
     });
     return;
