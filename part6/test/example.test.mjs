@@ -102,7 +102,7 @@ describe("Game of Life", () => {
     expect(gameOfLife.toString()).toEqual("bob$bob!");
   });
 
-  test("tick works", () => {
+  test("glider tick works", () => {
     const gameOfLife = new GameOfLife(readFile("glider.rle"));
     gameOfLife.tick();
     expect(gameOfLife.toString()).toEqual("3b$obo$b2o$bob!");
