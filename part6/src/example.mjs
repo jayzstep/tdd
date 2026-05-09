@@ -98,7 +98,16 @@ export class GameOfLife {
 
   calculateNewState() {
     const result = [];
+    const deltas = [-1, 0, 1];
     for (const livingCell of this.livingCells) {
+      let neighbours = [];
+      for (const dx of deltas) {
+        for (const dy of deltas) {
+          if (dx == 0 && dy == 0) {
+            continue;
+          }
+        }
+      }
       console.log(livingCell);
     }
   }
