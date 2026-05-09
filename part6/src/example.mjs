@@ -20,6 +20,9 @@ export class GameOfLife {
   toString() {
     let result = "";
     for (let i = 0; i < this.y; i++) {
+      if (i > 0) {
+        result += "$";
+      }
       for (let j = 0; j < this.x; j++) {
         if (this.livingCells.some((c) => c.x == j && c.y == i)) {
           result += "o";
@@ -27,7 +30,6 @@ export class GameOfLife {
           result += "b";
         }
       }
-      result += "$";
     }
     result += "!";
     console.log(result);
@@ -47,7 +49,7 @@ export class GameOfLife {
     });
     result2 += "!";
     console.log(result2);
-    return this.state;
+    return result2;
   }
 
   tick() {
