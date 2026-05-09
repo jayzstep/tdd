@@ -29,6 +29,12 @@ describe("Game of Life", () => {
     expect(gameOfLife.livingCells).toEqual([{ x: 0, y: 0 }]);
   });
 
+  test("parses more complex stuff", () => {
+    const lonelyCell = [{ x: 1, y: 1 }, "bo!"];
+    const gameOfLife = new GameOfLife(lonelyCell);
+    expect(gameOfLife.livingCells).toEqual([{ x: 1, y: 0 }]);
+  });
+
   test("lone cell DIES", () => {
     const lonelyCell = [{ x: 1, y: 1 }, "o!"];
     const gameOfLife = new GameOfLife(lonelyCell);
