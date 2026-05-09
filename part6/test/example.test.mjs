@@ -92,7 +92,7 @@ describe("Game of Life", () => {
     const state = [{ x: 3, y: 2 }, "ooo$boo!"];
     const gameOfLife = new GameOfLife(state);
     gameOfLife.tick();
-    expect(gameOfLife.toString()).toEqual("obo$2bo!");
+    expect(gameOfLife.toString()).toEqual("obo$obo!");
   });
 
   test("rule 4: 3 living cells spawn a new one", () => {
