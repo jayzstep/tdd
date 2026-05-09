@@ -23,7 +23,6 @@ export class GameOfLife {
     this.state = "b!";
   }
   // bob$2bo$3o!
-  // o!
   parseLivingCells(string) {
     let x = 0;
     let y = 0;
