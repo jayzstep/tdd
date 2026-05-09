@@ -31,8 +31,11 @@ export class GameOfLife {
     const stringAsArray = Array.from(string);
     stringAsArray.forEach((char) => {
       if (char === "o") {
-        this.livingCells.push({ x, y });
-        x++;
+        do {
+          this.livingCells.push({ x, y });
+          x++;
+          counter--;
+        } while (counter > 0);
       }
       if (char === "b") {
         x += counter;
