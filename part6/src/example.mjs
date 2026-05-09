@@ -98,6 +98,7 @@ export class GameOfLife {
   calculateNewState() {
     const result = [];
     const deltas = [-1, 0, 1];
+    const deadCells = [];
     for (const livingCell of this.livingCells) {
       let neighbours = 0;
       for (const dx of deltas) {
@@ -107,6 +108,8 @@ export class GameOfLife {
           }
           if (this.livingCells.some((c) => c.x == livingCell.x + dx && c.y == livingCell.y + dy)) {
             neighbours++;
+          } else {
+            deadCells.push({ x: livingCell.x + dx, y: livingCell.y + dy });
           }
         }
       }
@@ -114,6 +117,24 @@ export class GameOfLife {
         result.push(livingCell);
       }
     }
+
+    for (const deadCell of deadCells) {
+      let neighbours = 0;
+      for (const dx of deltas) {
+        for (const dy of deltas) {
+          if (dx == 0 && dy == 0) {
+            continue;
+          }
+          if (this.livingCells.some((c) => c.x == deadCell.x + dx && c.y == deadCell.y + dy)) {
+            neighbours++;
+          }
+        }
+      }
+      if (neighbours === 3) {
+        result.push(deadCell);
+      }
+    }
+
     return result;
   }
 }
