@@ -134,7 +134,40 @@ export class GameOfLife {
         result.push(deadCell);
       }
     }
-
+    // this.calculateStuff(result);
     return result;
+  }
+
+  calculateStuff(livingCells) {
+    console.log(livingCells);
+    if (livingCells.length === 0) {
+      this.x = 0;
+      this.y = 0;
+      return;
+    }
+    const xs = [];
+    const ys = [];
+
+    for (const cell of livingCells) {
+      xs.push(cell.x);
+      ys.push(cell.y);
+    }
+
+    const minX = Math.min(...xs);
+    const maxX = Math.max(...xs);
+    const minY = Math.min(...ys);
+    const maxY = Math.max(...ys);
+
+    console.log(minX, maxX, minY, maxY);
+    console.log(Math.abs(minX - maxX));
+    console.log(Math.abs(minY - maxY));
+
+    this.x = Math.abs(minX - maxX) + 1;
+    this.y = Math.abs(minY - maxY) + 1;
+
+    for (const cell of livingCells) {
+      cell.x -= minX;
+      cell.y -= minY;
+    }
   }
 }
