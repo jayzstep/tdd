@@ -51,6 +51,16 @@ describe("Game of Life", () => {
     ]);
   });
 
+  test("parses row change", () => {
+    const lonelyCell = [{ x: 1, y: 1 }, "bbo$obo!"];
+    const gameOfLife = new GameOfLife(lonelyCell);
+    expect(gameOfLife.livingCells).toEqual([
+      { x: 2, y: 0 },
+      { x: 0, y: 1 },
+      { x: 2, y: 1 },
+    ]);
+  });
+
   test("lone cell DIES", () => {
     const lonelyCell = [{ x: 1, y: 1 }, "o!"];
     const gameOfLife = new GameOfLife(lonelyCell);
