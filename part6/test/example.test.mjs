@@ -82,7 +82,7 @@ describe("Game of Life", () => {
   });
 
   test("cell with 2 neighbours stays alive", () => {
-    const state = [{ x: 1, y: 1 }, "ooo!"];
+    const state = [{ x: 3, y: 1 }, "ooo!"];
     const gameOfLife = new GameOfLife(state);
     gameOfLife.tick();
     expect(gameOfLife.toString()).toEqual("bob!");

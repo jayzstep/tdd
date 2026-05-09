@@ -105,14 +105,13 @@ export class GameOfLife {
           if (dx == 0 && dy == 0) {
             continue;
           }
-          if (
-            this.livingCells.some((c) => {
-              c.x == livingCell.x + dx && c.y == livingCell.y + dy;
-            })
-          ) {
+          if (this.livingCells.some((c) => c.x == livingCell.x + dx && c.y == livingCell.y + dy)) {
             neighbours++;
           }
         }
+      }
+      if (neighbours >= 2) {
+        result.push(livingCell);
       }
     }
     return result;
