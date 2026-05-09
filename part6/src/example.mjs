@@ -100,11 +100,18 @@ export class GameOfLife {
     const result = [];
     const deltas = [-1, 0, 1];
     for (const livingCell of this.livingCells) {
-      let neighbours = [];
+      let neighbours = 0;
       for (const dx of deltas) {
         for (const dy of deltas) {
           if (dx == 0 && dy == 0) {
             continue;
+          }
+          if (
+            this.livingCells.some((c) => {
+              c.x == livingCell.x + dx && c.y == livingCell.y + dy;
+            })
+          ) {
+            neighbours++;
           }
         }
       }
