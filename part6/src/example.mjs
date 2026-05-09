@@ -26,12 +26,22 @@ export class GameOfLife {
   parseLivingCells(string) {
     let x = 0;
     let y = 0;
+    let counter = 0;
+    const numbers = "0123456789";
     const stringAsArray = Array.from(string);
     stringAsArray.forEach((char) => {
       if (char === "o") {
         this.livingCells.push({ x, y });
+        x++;
       }
-      x++;
+      if (char === "b") {
+        x += counter;
+        counter = 0;
+        x++;
+      }
+      if (numbers.includes(char)) {
+        counter = parseInt(char);
+      }
     });
     return;
   }
