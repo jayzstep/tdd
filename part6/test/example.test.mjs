@@ -51,6 +51,12 @@ describe("Game of Life", () => {
     ]);
   });
 
+  test("parses digits correctly even when > 9", () => {
+    const lonelyCell = [{ x: 1, y: 1 }, "30bo!"];
+    const gameOfLife = new GameOfLife(lonelyCell);
+    expect(gameOfLife.livingCells).toEqual([{ x: 30, y: 0 }]);
+  });
+
   test("parses row change", () => {
     const lonelyCell = [{ x: 1, y: 1 }, "bbo$obo!"];
     const gameOfLife = new GameOfLife(lonelyCell);
