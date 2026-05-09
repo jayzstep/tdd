@@ -92,8 +92,7 @@ export class GameOfLife {
   }
 
   tick() {
-    this.calculateNewState();
-    this.livingCells = [];
+    this.livingCells = this.calculateNewState();
   }
 
   calculateNewState() {
@@ -115,7 +114,7 @@ export class GameOfLife {
           }
         }
       }
-      console.log(livingCell);
     }
+    return result;
   }
 }
