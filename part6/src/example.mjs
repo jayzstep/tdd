@@ -110,7 +110,7 @@ export class GameOfLife {
           }
         }
       }
-      if (neighbours >= 2) {
+      if (neighbours >= 2 && neighbours < 4) {
         result.push(livingCell);
       }
     }
