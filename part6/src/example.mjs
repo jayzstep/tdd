@@ -31,6 +31,7 @@ export class GameOfLife {
       if (char === "o") {
         this.livingCells.push({ x, y });
       }
+      x++;
     });
     return;
   }
