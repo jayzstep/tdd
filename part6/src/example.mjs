@@ -31,6 +31,19 @@ export class GameOfLife {
     }
     result += "!";
     console.log(result);
+    let result2 = "";
+    let last = "";
+    let count = 0;
+    Array.from(result).forEach((char) => {
+      if (char === last) {
+        count++;
+      } else if (count > 1) {
+        result2 += String(count) + char;
+      } else {
+        result2 += char;
+      }
+      last = char;
+    });
     return this.state;
   }
 
