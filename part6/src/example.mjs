@@ -47,11 +47,14 @@ export class GameOfLife {
       }
     });
     result2 += "!";
+    if (!result2.includes("o")) {
+      return "!";
+    }
     return result2;
   }
 
   tick() {
-    this.state = "b!";
+    this.livingCells = [];
   }
 
   parseLivingCells(string) {

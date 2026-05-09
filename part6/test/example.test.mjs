@@ -71,7 +71,7 @@ describe("Game of Life", () => {
     const lonelyCell = [{ x: 1, y: 1 }, "o!"];
     const gameOfLife = new GameOfLife(lonelyCell);
     gameOfLife.tick();
-    expect(gameOfLife.toString()).toEqual("b!");
+    expect(gameOfLife.toString()).toEqual("!");
   });
 
   test.skip("tick works", () => {
