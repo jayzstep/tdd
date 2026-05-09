@@ -21,4 +21,16 @@ export class GameOfLife {
   tick() {
     this.state = "b!";
   }
+  // bob$2bo$3o!
+  // o!
+  parseLivingCells(string) {
+    let x = 0;
+    let y = 0;
+    console.log(string);
+    const stringAsArray = Array.from(string);
+    stringAsArray.forEach((char) => {
+      console.log(char);
+    });
+    return;
+  }
 }

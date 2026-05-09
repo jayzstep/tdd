@@ -26,6 +26,7 @@ describe("Game of Life", () => {
   test("parses stuff", () => {
     const lonelyCell = [{ x: 1, y: 1 }, "o!"];
     const gameOfLife = new GameOfLife(lonelyCell);
+    gameOfLife.parseLivingCells("o!");
     expect(gameOfLife.livingCells).toEqual([{ x: 0, y: 0 }]);
   });
 
