@@ -38,7 +38,7 @@ describe("Game of Life", () => {
   test("parses digits correctly in front of b", () => {
     const lonelyCell = [{ x: 1, y: 1 }, "3bo!"];
     const gameOfLife = new GameOfLife(lonelyCell);
-    expect(gameOfLife.livingCells).toEqual([{ x: 4, y: 0 }]);
+    expect(gameOfLife.livingCells).toEqual([{ x: 3, y: 0 }]);
   });
 
   test("parses digits correctly in front of o", () => {

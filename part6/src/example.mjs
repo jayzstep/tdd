@@ -29,6 +29,7 @@ export class GameOfLife {
     let x = 0;
     let y = 0;
     let counter = 0;
+    let accumulated = "";
     const numbers = "0123456789";
     const stringAsArray = Array.from(string);
     stringAsArray.forEach((char) => {
@@ -39,14 +40,20 @@ export class GameOfLife {
           counter--;
           counter = Math.max(counter, 0);
         } while (counter > 0);
+        accumulated = "";
       }
       if (char === "b") {
-        x += counter;
-        counter = 0;
-        x++;
+        if (counter > 0) {
+          x += counter;
+          counter = 0;
+        } else {
+          x++;
+        }
+        accumulated = "";
       }
       if (numbers.includes(char)) {
-        counter = parseInt(char);
+        accumulated += char;
+        counter = parseInt(accumulated);
       }
       if (char === "$") {
         y++;
