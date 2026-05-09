@@ -16,13 +16,15 @@ export class GameOfLife {
     this.livingCells = [];
     this.parseLivingCells(this.state);
   }
+
   toString() {
     return this.state;
   }
+
   tick() {
     this.state = "b!";
   }
-  // bob$2bo$3o!
+
   parseLivingCells(string) {
     let x = 0;
     let y = 0;
