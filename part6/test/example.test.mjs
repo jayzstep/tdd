@@ -81,6 +81,13 @@ describe("Game of Life", () => {
     expect(gameOfLife.toString()).toEqual("!");
   });
 
+  test("cell with 2 neighbours stays alive", () => {
+    const state = [{ x: 1, y: 1 }, "ooo!"];
+    const gameOfLife = new GameOfLife(state);
+    gameOfLife.tick();
+    expect(gameOfLife.toString()).toEqual("bob!");
+  });
+
   test.skip("tick works", () => {
     const gameOfLife = new GameOfLife(readFile, "glider.rle");
     gameOfLife.tick();
