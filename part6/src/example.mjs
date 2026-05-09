@@ -18,6 +18,19 @@ export class GameOfLife {
   }
 
   toString() {
+    let result = "";
+    for (let i = 0; i < this.y; i++) {
+      for (let j = 0; j < this.x; j++) {
+        if (this.livingCells.some((c) => c.x == j && c.y == i)) {
+          result += "o";
+        } else {
+          result += "b";
+        }
+      }
+      result += "$";
+    }
+    result += "!";
+    console.log(result);
     return this.state;
   }
 
