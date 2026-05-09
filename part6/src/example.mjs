@@ -26,10 +26,11 @@ export class GameOfLife {
   parseLivingCells(string) {
     let x = 0;
     let y = 0;
-    console.log(string);
     const stringAsArray = Array.from(string);
     stringAsArray.forEach((char) => {
-      console.log(char);
+      if (char === "o") {
+        this.livingCells.push({ x, y });
+      }
     });
     return;
   }
