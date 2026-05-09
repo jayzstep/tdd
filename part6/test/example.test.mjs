@@ -95,6 +95,13 @@ describe("Game of Life", () => {
     expect(gameOfLife.toString()).toEqual("obo$2bo!");
   });
 
+  test("rule 4: 3 living cells spawn a new one", () => {
+    const state = [{ x: 3, y: 2 }, "ooo!"];
+    const gameOfLife = new GameOfLife(state);
+    gameOfLife.tick();
+    expect(gameOfLife.toString()).toEqual("bob$bob!");
+  });
+
   test.skip("tick works", () => {
     const gameOfLife = new GameOfLife(readFile, "glider.rle");
     gameOfLife.tick();
