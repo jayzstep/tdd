@@ -53,10 +53,6 @@ export class GameOfLife {
     return result2;
   }
 
-  tick() {
-    this.livingCells = [];
-  }
-
   parseLivingCells(string) {
     let x = 0;
     let y = 0;
@@ -93,5 +89,17 @@ export class GameOfLife {
       }
     });
     return;
+  }
+
+  tick() {
+    this.calculateNewState();
+    this.livingCells = [];
+  }
+
+  calculateNewState() {
+    const result = [];
+    for (const livingCell of this.livingCells) {
+      console.log(livingCell);
+    }
   }
 }
