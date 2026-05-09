@@ -67,7 +67,7 @@ describe("Game of Life", () => {
     ]);
   });
 
-  test.skip("lone cell DIES", () => {
+  test("lone cell DIES", () => {
     const lonelyCell = [{ x: 1, y: 1 }, "o!"];
     const gameOfLife = new GameOfLife(lonelyCell);
     gameOfLife.tick();
