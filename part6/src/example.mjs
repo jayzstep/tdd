@@ -32,19 +32,20 @@ export class GameOfLife {
     result += "!";
     console.log(result);
     let result2 = "";
-    let last = "";
-    let count = 1;
+    let accumulated = "";
     Array.from(result).forEach((char) => {
-      if (char === last) {
-        count++;
-      } else if (count > 1) {
-        result2 += String(count) + last + char;
-        count = 1;
-      } else {
-        result2 += char;
+      if (accumulated == "") {
+        accumulated += char;
+        return;
       }
-      last = char;
+      if (char == accumulated[accumulated.length - 1]) {
+        accumulated += char;
+      } else {
+        result2 += String(accumulated.length == 1 ? "" : accumulated.length) + accumulated[0];
+        accumulated = char;
+      }
     });
+    result2 += "!";
     console.log(result2);
     return this.state;
   }
