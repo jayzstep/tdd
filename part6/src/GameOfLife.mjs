@@ -60,7 +60,9 @@ export class GameOfLife {
   }
 
   output() {
-    return "x = 2, y = 2\noo@oo!";
+    const seq = this.toString();
+    const result = "x = 2, y = 2\n" + seq;
+    return result;
   }
 
   parseLivingCells(string) {
