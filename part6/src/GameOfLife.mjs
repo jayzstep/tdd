@@ -18,7 +18,7 @@ export class GameOfLife {
     this.minX = 0;
     this.maxX = fileContent[0].x;
     this.minY = 0;
-    this.maxY = this.y;
+    this.maxY = fileContent[0].y;
   }
 
   toString() {
@@ -154,8 +154,8 @@ export class GameOfLife {
 
   calculateStuff(livingCells) {
     if (livingCells.length === 0) {
-      this.x = 0;
-      this.y = 0;
+      this.minX = 0;
+      this.minY = 0;
       return;
     }
     const xs = [];
