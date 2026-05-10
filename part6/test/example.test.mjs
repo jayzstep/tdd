@@ -107,4 +107,11 @@ describe("Game of Life", () => {
     gameOfLife.tick();
     expect(gameOfLife.toString()).toEqual("2o$2o!");
   });
+
+  test("glider works after 2 ticks", () => {
+    const gameOfLife = new GameOfLife(readFile("glider.rle"));
+    gameOfLife.tick();
+    gameOfLife.tick();
+    expect(gameOfLife.toString()).toEqual("3b$2bo$obo$b2o!");
+  });
 });
