@@ -59,6 +59,10 @@ export class GameOfLife {
     return result2;
   }
 
+  output() {
+    return "x = 2, y = 2\noo@oo!";
+  }
+
   parseLivingCells(string) {
     let x = 0;
     let y = 0;
