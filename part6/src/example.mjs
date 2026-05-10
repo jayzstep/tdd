@@ -134,7 +134,7 @@ export class GameOfLife {
         result.push(deadCell);
       }
     }
-    // this.calculateStuff(result);
+    this.calculateStuff(result);
     return result;
   }
 
@@ -162,12 +162,13 @@ export class GameOfLife {
     console.log(Math.abs(minX - maxX));
     console.log(Math.abs(minY - maxY));
 
-    this.x = Math.abs(minX - maxX) + 1;
-    this.y = Math.abs(minY - maxY) + 1;
+    this.x = Math.max(Math.abs(minX - maxX) + 1, this.x);
+    this.y = Math.max(Math.abs(minY - maxY) + 1, this.y);
 
     for (const cell of livingCells) {
-      cell.x -= minX;
+      // cell.x -= minX;
       cell.y -= minY;
     }
+    console.log(livingCells);
   }
 }
