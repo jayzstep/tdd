@@ -63,7 +63,7 @@ export class GameOfLife {
     const seq = this.toString();
     const x = Math.abs(this.maxX - this.minX);
     const y = Math.abs(this.maxY - this.minY);
-    const result = "x = 2, y = 2\n" + seq;
+    const result = `x = ${x}, y = ${y}\n` + seq;
     return result;
   }
 
