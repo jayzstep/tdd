@@ -1,6 +1,6 @@
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
-import { readFile, GameOfLife } from "../src/example.mjs";
+import { readFile, GameOfLife } from "../src/GameOfLife.mjs";
 
 describe("Walking skeleton", () => {
   test("parses pattern from file", () => {
