@@ -145,11 +145,11 @@ export class GameOfLife {
         result.push(deadCell);
       }
     }
-    this.calculateStuff(result);
+    this.calculateNewXandY(result);
     return result;
   }
 
-  calculateStuff(livingCells) {
+  calculateNewXandY(livingCells) {
     if (livingCells.length === 0) {
       this.minX = 0;
       this.minY = 0;
