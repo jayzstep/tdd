@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 export function readFile(filename) {
   const data = fs.readFileSync(filename, "utf8");
   const lines = data.split("\n");
@@ -145,7 +145,6 @@ export class GameOfLife {
   }
 
   calculateStuff(livingCells) {
-    console.log(livingCells);
     if (livingCells.length === 0) {
       this.x = 0;
       this.y = 0;
