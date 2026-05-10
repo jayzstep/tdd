@@ -42,8 +42,8 @@ describe("Game of Life", () => {
   });
 
   test("parses digits correctly in front of o", () => {
-    const lonelyCell = [{ x: 1, y: 1 }, "b3o!"];
-    const gameOfLife = new GameOfLife(lonelyCell);
+    const state = [{ x: 1, y: 1 }, "b3o!"];
+    const gameOfLife = new GameOfLife(state);
     expect(gameOfLife.livingCells).toEqual([
       { x: 1, y: 0 },
       { x: 2, y: 0 },
@@ -52,14 +52,14 @@ describe("Game of Life", () => {
   });
 
   test("parses digits correctly even when > 9", () => {
-    const lonelyCell = [{ x: 1, y: 1 }, "30bo!"];
-    const gameOfLife = new GameOfLife(lonelyCell);
+    const state = [{ x: 1, y: 1 }, "30bo!"];
+    const gameOfLife = new GameOfLife(state);
     expect(gameOfLife.livingCells).toEqual([{ x: 30, y: 0 }]);
   });
 
   test("parses row change", () => {
-    const lonelyCell = [{ x: 1, y: 1 }, "bbo$obo!"];
-    const gameOfLife = new GameOfLife(lonelyCell);
+    const state = [{ x: 1, y: 1 }, "bbo$obo!"];
+    const gameOfLife = new GameOfLife(state);
     expect(gameOfLife.livingCells).toEqual([
       { x: 2, y: 0 },
       { x: 0, y: 1 },
@@ -88,7 +88,7 @@ describe("Game of Life", () => {
     expect(gameOfLife.toString()).toEqual("bob$obo$obo!");
   });
 
-  test("blinker works", () => {
+  test("blinker tick works", () => {
     const state = [{ x: 3, y: 1 }, "ooo!"];
     const gameOfLife = new GameOfLife(state);
     gameOfLife.tick();
