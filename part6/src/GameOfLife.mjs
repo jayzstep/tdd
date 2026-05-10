@@ -16,7 +16,7 @@ export class GameOfLife {
     this.livingCells = [];
     this.parseLivingCells(this.state);
     this.minX = 0;
-    this.maxX = this.x;
+    this.maxX = fileContent[0].x;
     this.minY = 0;
     this.maxY = this.y;
   }
