@@ -2,7 +2,7 @@ import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { readFile, GameOfLife } from "../src/GameOfLife.mjs";
 
-describe("Walking skeleton", () => {
+describe("File reading works", () => {
   test("parses pattern from file", () => {
     const fileContent = readFile("glider.rle");
     expect(fileContent[1]).toEqual("bob$2bo$3o!");
@@ -113,5 +113,13 @@ describe("Game of Life", () => {
     gameOfLife.tick();
     gameOfLife.tick();
     expect(gameOfLife.toString()).toEqual("3b$2bo$obo$b2o!");
+  });
+});
+
+describe("Final output", () => {
+  test("outputs RLE format", () => {
+    const state = [{ x: 2, y: 2 }, "oo$oo!"];
+    const gameOfLife = new GameOfLife(state);
+    expect(gameOfLife.output()).toEqual("x = 2, y = 2\noo@oo!");
   });
 });
