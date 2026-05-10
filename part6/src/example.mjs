@@ -15,15 +15,21 @@ export class GameOfLife {
     this.y = fileContent[0].y;
     this.livingCells = [];
     this.parseLivingCells(this.state);
+    this.minX = 0;
+    this.maxX = this.x;
+    this.minY = 0;
+    this.maxY = this.y;
   }
 
   toString() {
     let result = "";
-    for (let i = 0; i < this.y; i++) {
-      if (i > 0) {
+    let addDollarSign = false;
+    for (let i = this.minY; i < this.maxY; i++) {
+      if (addDollarSign) {
         result += "$";
       }
-      for (let j = 0; j < this.x; j++) {
+      addDollarSign = true;
+      for (let j = this.minX; j < this.maxX; j++) {
         if (this.livingCells.some((c) => c.x == j && c.y == i)) {
           result += "o";
         } else {
@@ -153,22 +159,9 @@ export class GameOfLife {
       ys.push(cell.y);
     }
 
-    const minX = Math.min(...xs);
-    const maxX = Math.max(...xs);
-    const minY = Math.min(...ys);
-    const maxY = Math.max(...ys);
-
-    console.log(minX, maxX, minY, maxY);
-    console.log(Math.abs(minX - maxX));
-    console.log(Math.abs(minY - maxY));
-
-    this.x = Math.max(Math.abs(minX - maxX) + 1, this.x);
-    this.y = Math.max(Math.abs(minY - maxY) + 1, this.y);
-
-    for (const cell of livingCells) {
-      // cell.x -= minX;
-      cell.y -= minY;
-    }
-    console.log(livingCells);
+    this.minX = Math.min(Math.min(...xs), this.minX);
+    this.maxX = Math.max(Math.max(...xs) + 1, this.maxX);
+    this.minY = Math.min(Math.min(...ys), this.minY);
+    this.maxY = Math.max(Math.max(...ys) + 1, this.maxY);
   }
 }
