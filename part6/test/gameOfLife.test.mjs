@@ -117,7 +117,7 @@ describe("Game of Life", () => {
 });
 
 describe("Final output", () => {
-  test("outputs RLE format", () => {
+  test("outputs a block in RLE format", () => {
     const state = [{ x: 2, y: 2 }, "oo$oo!"];
     const gameOfLife = new GameOfLife(state);
     expect(gameOfLife.output()).toEqual("x = 2, y = 2\n2o$2o!");
