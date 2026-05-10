@@ -70,8 +70,8 @@ export class GameOfLife {
     let counter = 0;
     let accumulated = "";
     const numbers = "0123456789";
-    const stringAsArray = Array.from(string);
-    stringAsArray.forEach((char) => {
+    const sequence = Array.from(string);
+    sequence.forEach((char) => {
       if (char === "o") {
         do {
           this.livingCells.push({ x, y });
