@@ -122,4 +122,9 @@ describe("Final output", () => {
     const gameOfLife = new GameOfLife(state);
     expect(gameOfLife.output()).toEqual("x = 2, y = 2\n2o$2o!");
   });
+  test("outputs a glider after a tick in RLE format", () => {
+    const gameOfLife = new GameOfLife(readFile("glider.rle"));
+    gameOfLife.tick();
+    expect(gameOfLife.output()).toEqual("x = 3, y = 4\n3b$obo$b2o$bob!");
+  });
 });
