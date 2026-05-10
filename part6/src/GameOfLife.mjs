@@ -10,9 +10,8 @@ export function readFile(filename) {
 
 export class GameOfLife {
   constructor(fileContent) {
-    this.state = fileContent[1];
     this.livingCells = [];
-    this.parseLivingCells(this.state);
+    this.parseLivingCells(fileContent[1]);
     this.minX = 0;
     this.maxX = fileContent[0].x;
     this.minY = 0;
