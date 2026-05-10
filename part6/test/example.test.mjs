@@ -100,4 +100,11 @@ describe("Game of Life", () => {
     gameOfLife.tick();
     expect(gameOfLife.toString()).toEqual("3b$obo$b2o$bob!");
   });
+
+  test("block tick works", () => {
+    const state = [{ x: 2, y: 2 }, "oo$oo!"];
+    const gameOfLife = new GameOfLife(state);
+    gameOfLife.tick();
+    expect(gameOfLife.toString()).toEqual("2o$2o!");
+  });
 });
